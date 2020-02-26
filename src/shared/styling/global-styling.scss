@@ -1,0 +1,25 @@
+@import './constants.scss';
+
+body {
+    margin: 0px;
+    background-color: $color-background;
+    background-image: url(./texture.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: $font-main;
+    font-size: $font-size-standard;
+    text-align: left;
+}
+
+h1 {
+    font-family: $font-statement;
+    color: $color-dark-blue;
+}
+
+a {
+    text-decoration: none;
+}
+
+.small-print {
+    font-size: $font-size-small;
+}

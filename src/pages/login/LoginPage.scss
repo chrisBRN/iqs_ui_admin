@@ -1,0 +1,66 @@
+@import '../../shared/styling/constants.scss';
+
+.login-page {
+    display: flex;
+}
+
+.small-print {
+    position: absolute;    
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.left-side {   
+    position:relative;
+    width:70%;
+    height: 100vh;        
+
+    .logo {
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 20px;      
+        opacity: 0.9;       
+        transition: transform 0.2s;        
+
+        &:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+
+    .hero {        
+        display: block;
+        margin: auto;       
+
+        .small-print {            
+            bottom:20px;
+            left:20px;              
+        }
+    }    
+}
+
+.right-side {     
+    position:relative;
+    width: 40%;
+    height: 100vh;          
+  
+    .statement-typography {        
+        
+        font-size: $font-size-statement;
+    }    
+
+    .inner-box {
+        margin: 20px;           
+    }
+
+    .small-print {      
+        bottom:20px;
+        right:20px;     
+    }
+
+}
+
+
