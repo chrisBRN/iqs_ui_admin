@@ -7,9 +7,6 @@ import LoginCard from '../../shared/components/login-card/LoginCard'
 import '../../shared/styling/global-styling.scss';
 import './LoginPage.scss';
 
-
-
-
 export default function Login() { 
 
     return (        
@@ -29,19 +26,24 @@ export default function Login() {
 
                 <div className="inner-box">
 
-                    <div className="welcome-headline">
-                        <h1 className="statement-typography">Interview Questions</h1>                        
-                    </div>
-                    <LoginCard/>   
                     
+
+                    <div className="login-card">
+                        <LoginCard/>                              
+                    </div>                  
+
                 </div>
-                
-                <div className="small-print"> Copyright © Interview Questions Site {new Date().getFullYear()} </div>
-               
+
+                <div className="copyright-notice-container">
+
+                    <div className="small-print"> 
+                        Copyright © ChrisBRN {new Date().getFullYear()} 
+                    </div>   
+
+                </div>           
                
             </div>  
                            
         </div>       
     );
 }
-

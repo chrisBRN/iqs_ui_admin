@@ -4,6 +4,7 @@ $font-main: 'Spartan';
 $font-statement: 'Abril Fatface';
 $font-size-standard: 16px;
 $font-size-small: 8px;
+$font-mid-print: 12px;
 $font-size-headline: 32px;
 $font-size-statement: 64px;
 
@@ -14,6 +15,13 @@ $color-mid-blue: #046B99;
 $color-dark-blue: #1C304A;
 
 $color-background: snow;
+$color-background-overlay: rgba(255, 250, 250, 0.6);
+$color-background-overlay-light: rgba(255, 250, 250, 0.5);
+
+$color-box-shadow: rgba(28, 48, 74, 0.2);
+
 $color-lines: #778899;
-$color-shadow: #DCDCDC;
+
+$color-shadow-light: #DCDCDC;
+
 

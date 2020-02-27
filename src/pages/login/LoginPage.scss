@@ -2,6 +2,7 @@
 
 .login-page {
     display: flex;
+    text-decoration: none;
 }
 
 .small-print {
@@ -21,19 +22,19 @@
     .logo {
         position: absolute;
         margin-top: 20px;
-        margin-left: 20px;      
-        opacity: 0.9;       
-        transition: transform 0.2s;        
-
-        &:hover {
-            opacity: 1;
-            transform: scale(1.1);
+        margin-left: 20px;  
+        
+        filter: drop-shadow(1px 1px 2px $color-dark-blue);
+        
+        transition: transform 0.25s;  
+        &:hover {            
+            transform: scale(1.05);    
         }
     }
 
     .hero {        
         display: block;
-        margin: auto;       
+        margin: auto;          
 
         .small-print {            
             bottom:20px;
@@ -43,24 +44,35 @@
 }
 
 .right-side {     
-    position:relative;
+    position: relative;    
     width: 40%;
-    height: 100vh;          
-  
-    .statement-typography {        
-        
-        font-size: $font-size-statement;
-    }    
+    height: 100vh;   
+    
+    display: flex;       
 
-    .inner-box {
-        margin: 20px;           
-    }
+    .inner-box {          
+        width: 100%;
+        background-color: $color-background-overlay;
 
-    .small-print {      
+        margin-top: 60px;
+        margin-right: 40px;
+        margin-bottom: 120px;           
+
+        box-shadow: 0 4px 8px 0 $color-box-shadow;
+        transition: box-shadow 0.4s;   
+
+        &:hover {
+            box-shadow: 0 8px 16px 0 $color-box-shadow;
+        }
+
+        .welcome-headline h1 {
+            text-align: center;   
+        }           
+    }     
+
+    .copyright-notice-container .small-print {   
+        color: $color-dark-blue;   
         bottom:20px;
         right:20px;     
     }
-
 }
-
-
