@@ -1,39 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import InputField from '../input/InputField';
 
 export default function LoginCard() {
 
     return (
-        <div>          
-
-            <div className="welcome-headline">                                
-                <h1>Sign In</h1>                          
-            </div>
-
+        <div>                                           
+            <h1 className="welcome-headline">WELCOME</h1>  
+            
             <form className="login-card-form">
-                
-                <div className="input-with-label-pop">    
-                    <div className="input-container">
-                        <input type="text" className="input-field" placeholder="Username *" ></input>     
-                        <label className="input-label">Username *</label>  
-                    </div>                                                    
+
+                <InputField label={"Username"}/>
+                <InputField type={"password"} label={"Password"}/>                   
+
+                <div className="sign-in-button-container">
+                    <button className="sign-in-button">Sign In</button>
                 </div>
 
-                <div className="input-with-label-pop">  
-                    
-                    <div className="input-container">                        
-                        <input type="password" className="input-field" placeholder="Password * " ></input> 
-                        <label className="input-label">Password *</label>  
-                    </div>                                     
-                </div>
-
-                {/* <div>
-                    <input className="remember-me-checkbox" type="checkbox"></input>
-                    <label>Remember Me</label>
-                </div>
-
-                <button className="submit">Submit</button>
+                {/* 
 
                 <Link className="additional-info-mid-print" to="/todo">Forgot password?</Link>
                 <Link className="additional-info-mid-print" to="/todo">Candidate? Login Here</Link> */}

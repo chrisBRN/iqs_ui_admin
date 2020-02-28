@@ -5,7 +5,7 @@ export interface ExternalLinkProps {
     anchorText: string    
 }
 
-export function ExternalLink(props: ExternalLinkProps) {
+export default function ExternalLink(props: ExternalLinkProps) {
 
     return (
         <div>

@@ -45,39 +45,45 @@
 
 .right-side {     
     position: relative;    
-    width: 40%;
+    width: 30%;
     height: 100vh;   
     
-    display: flex;  
+    display: flex; 
+    // background-color: $color-background-overlay-light;
 
     .inner-box {          
         
         width: 100%;
-        background-color: $color-background-overlay;
+        background: $color-background-accent;
 
-        margin-top: 60px;
-        margin-right: 40px;
-        margin-bottom: 120px;           
+        display: flex; 
+        flex-direction: column;
+        align-items: center;        
+
+        // margin-top: 60px;
+        // margin-right: 40px;
+        // margin-bottom: 120px;    
+        
+        margin: 40px 60px 120px 60px;
 
         box-shadow: 0 4px 8px 0 $color-box-shadow;
         transition: box-shadow box-shadow 0.4s, 2s;   
-
+       
         &:hover {            
             animation: box-shadow-burn-in 4s;    
             animation-iteration-count: infinite;
-        }
-
-        .welcome-headline h1 {
-            text-align: center;   
-        }           
-
+        }  
+     
         .input-with-label-pop {
             @include input-with-label-pop;           
         }
 
-
-
+        .sign-in-button-container {                    
+            @include sign-in-button
+        }
     }     
+
+   
 
     .copyright-notice-container .small-print {   
         color: $color-dark-blue;   

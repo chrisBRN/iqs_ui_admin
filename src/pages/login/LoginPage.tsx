@@ -5,24 +5,10 @@ import Logo from '../../shared/components/logo/Logo';
 import Hero from '../../shared/components/hero-image/Hero';
 import LoginCard from '../../shared/components/login-card/LoginCard'
 
-import { ExternalLink, ExternalLinkProps } from '../../shared/helpers/ExternalLink';
+import ExternalLink from '../../shared/helpers/ExternalLink';
 
 import '../../shared/styling/global-styling.scss';
 import './LoginPage.scss';
-
-const heroAttribution: ExternalLinkProps = (
-    { 
-        endpoint: "https://www.freepik.com/katemangostar", 
-        anchorText: "Original Source Image by Kate Mangostar @ Freepik.com" 
-    }
-)    
-
-const copyrightChrisBrn: ExternalLinkProps = (
-    { 
-        endpoint: "https://github.com/chrisBRN", 
-        anchorText: "Copyright © ChrisBRN " + new Date().getFullYear()
-    }
-) 
 
 export default function Login() {     
 
@@ -40,7 +26,10 @@ export default function Login() {
                 <div className="hero">
                     <Hero />
                     <div className="small-print">
-                        <ExternalLink {...heroAttribution} />
+                        <ExternalLink 
+                            endpoint={"https://www.freepik.com/katemangostar"} 
+                            anchorText={"Original Source Image by Kate Mangostar @ Freepik.com"} 
+                        />
                     </div>
                 </div>
 
@@ -57,8 +46,11 @@ export default function Login() {
                 </div>
 
                 <div className="copyright-notice-container">
-                    <div className="small-print">
-                        <ExternalLink {...copyrightChrisBrn} />
+                    <div className="small-print">    
+                        <ExternalLink 
+                            endpoint={"https://github.com/chrisBRN"} 
+                            anchorText={"Copyright © ChrisBRN " + new Date().getFullYear()}                     
+                        />
                     </div>
                 </div>
 
