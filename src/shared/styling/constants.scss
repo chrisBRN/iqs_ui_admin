@@ -1,27 +1,131 @@
+// Font 
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Spartan&display=swap');
 
 $font-main: 'Spartan';
 $font-statement: 'Abril Fatface';
+$font-size-small: 10px;
+$font-size-mid: 12px;
 $font-size-standard: 16px;
-$font-size-small: 8px;
-$font-mid-print: 12px;
 $font-size-headline: 32px;
 $font-size-statement: 64px;
 
-
-$color-black: black;
+// Main Colours
+$color-black: #060b0f;
+$color-background: snow;
 $color-light-blue: #B3EFFF;
+$color-light-complement: #ffb7b3;
 $color-mid-blue: #046B99;
+$color-mid-complement: #991104;
 $color-dark-blue: #1C304A;
 
-$color-background: snow;
+// Highlights & Shadows
 $color-background-overlay: rgba(255, 250, 250, 0.6);
 $color-background-overlay-light: rgba(255, 250, 250, 0.5);
-
 $color-box-shadow: rgba(28, 48, 74, 0.2);
-
+$color-box-shadow-emphasised: rgba(28, 48, 74, 0.3);
+$color-shadow-light: #DCDCDC;
 $color-lines: #778899;
 
-$color-shadow-light: #DCDCDC;
+// Standard Sizes
+$input-field-width: 240px;
+$input-field-height: 40px;
 
+$margin: 20px;
+$padding: 8px;
+$border: 1px;
+$border-highlighted: 2px;
+$border-emphasised: 4px;
 
+$standard-border-light: $border solid $color-light-complement;
+
+// Mixins
+@mixin input-with-label-pop {
+    position: relative;
+    width: $input-field-width;
+    height: $input-field-height;
+    margin: $margin;  
+    box-sizing: border-box;
+
+    .input-container {      
+
+        border-style: solid;
+        border-width: $border;
+        border-color: $color-dark-blue;
+        border-radius: 4px;
+        
+        padding: $padding $padding $padding/2 $padding; 
+
+        transition: border-bottom 0.1s, ease-in-out;     
+        
+        
+
+        &:hover {
+            border: $standard-border-light; 
+            border-bottom-width: $border-highlighted; 
+            border-right-width: $border-highlighted;    
+            
+            input::placeholder {       
+                color: $color-mid-complement;
+            }        
+        }
+
+        &:focus-within {
+            border: $standard-border-light;
+            border-bottom-width: $border-emphasised;  
+        }   
+    }     
+
+    input:focus~label {
+        opacity: 1;
+        z-index: 1;
+        top: -6px;
+        font-size: $font-size-mid;    
+        color: $color-mid-complement;    
+        background-color: snow;            
+    }
+
+    label {
+        position: absolute;
+        font-family: inherit;
+        color: $color-dark-blue;       
+        z-index: -1; // prevents the label getting in the way of input
+        opacity: 0;        
+        top: 0px;
+        font-size: $font-size-standard;
+        padding-left: 1px;        
+
+        transition: opacity 0.3s ease-in-out;
+        transition: top 0.2s, font-size 0.2s, color 0.2s linear;
+    }
+
+    input {
+        background: transparent;
+        height: 1.4em;
+        width: $input-field-width - $padding * 2;        
+        font-family: inherit;
+        font-size: $font-size-standard;
+        color: $color-dark-blue;
+        caret-color: $color-light-complement;
+        outline: 0;
+        border: 0;                       
+        
+        &::placeholder {
+            color: $color-dark-blue;
+            transition: color 0.1s ease-in-out;
+        }        
+
+        &:focus::placeholder {
+            opacity: 0;       
+        }        
+    }
+}
+
+// Animations
+@keyframes box-shadow-burn-in {
+    0% {
+        box-shadow: 0 4px 8px 0 $color-box-shadow;
+    }    
+    50% {
+        box-shadow: 0 4px 8px 0 $color-box-shadow-emphasised;
+    }    
+}

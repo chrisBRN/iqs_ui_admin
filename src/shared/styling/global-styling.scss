@@ -13,18 +13,17 @@ body {
     font-size: $font-size-standard;
     text-align: left;
 
+    color: $color-dark-blue;
 }
 
 h1 {
     font-family: $font-statement;
     font-size: $font-size-statement;
-
-    color: $color-dark-blue;
     text-shadow: 2px 2px $color-shadow-light;
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none;    
     color: $color-dark-blue;
 }
 
@@ -33,50 +32,5 @@ a {
 }
 
 .additional-info-mid-print {
-    font-size: $font-mid-print;
-}
-
-.login-card-form {
-
-    .input-label {
-        position: absolute;
-        font-family: inherit;
-        font-size: $font-mid-print;
-        color: transparent;
-    }
-
-    .input-field {
-        background: transparent;
-
-        margin: 20px;
-
-        font-family: inherit;
-        font-size: $font-size-standard;
-        color: $color-dark-blue;
-
-        border: 0;
-        border-bottom: 2px solid $color-dark-blue;
-        outline: 0;
-    }
-
-    .input-field:focus {
-        border-width: 3px;
-        border-color: $color-light-blue;
-    }
-
-    ::-webkit-input-placeholder {
-        color: $color-dark-blue;
-        opacity: 0.5;
-        transition: opacity 0.35s ease-in-out;
-    }
-
-    :hover::-webkit-input-placeholder {
-        opacity: 0.75;       
-        transition: opacity 0.35s ease-in-out;
-    }
-
-    :focus::-webkit-input-placeholder {
-        opacity: 0;        
-        transition: opacity 0.35s ease-in-out;
-    }
+    font-size: $font-size-mid;
 }

@@ -13,14 +13,19 @@ export default function LoginCard() {
 
             <form className="login-card-form">
                 
-                <div className="has-float-lable">  
-                    <label className="input-label">Username</label>                             
-                    <input className="input-field username" placeholder="Username *" type="text"></input>                    
+                <div className="input-with-label-pop">    
+                    <div className="input-container">
+                        <input type="text" className="input-field" placeholder="Username *" ></input>     
+                        <label className="input-label">Username *</label>  
+                    </div>                                                    
                 </div>
 
-                <div className="has-float-lable">  
-                    <label className="input-label">Password</label>                  
-                    <input className="input-field password" placeholder="Password * " type="password"></input>                    
+                <div className="input-with-label-pop">  
+                    
+                    <div className="input-container">                        
+                        <input type="password" className="input-field" placeholder="Password * " ></input> 
+                        <label className="input-label">Password *</label>  
+                    </div>                                     
                 </div>
 
                 {/* <div>

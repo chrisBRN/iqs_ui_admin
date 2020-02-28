@@ -48,9 +48,10 @@
     width: 40%;
     height: 100vh;   
     
-    display: flex;       
+    display: flex;  
 
     .inner-box {          
+        
         width: 100%;
         background-color: $color-background-overlay;
 
@@ -59,15 +60,23 @@
         margin-bottom: 120px;           
 
         box-shadow: 0 4px 8px 0 $color-box-shadow;
-        transition: box-shadow 0.4s;   
+        transition: box-shadow box-shadow 0.4s, 2s;   
 
-        &:hover {
-            box-shadow: 0 8px 16px 0 $color-box-shadow;
+        &:hover {            
+            animation: box-shadow-burn-in 4s;    
+            animation-iteration-count: infinite;
         }
 
         .welcome-headline h1 {
             text-align: center;   
         }           
+
+        .input-with-label-pop {
+            @include input-with-label-pop;           
+        }
+
+
+
     }     
 
     .copyright-notice-container .small-print {   
@@ -76,3 +85,4 @@
         right:20px;     
     }
 }
+
