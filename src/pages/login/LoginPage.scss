@@ -49,7 +49,7 @@
     height: 100vh;   
     
     display: flex; 
-    // background-color: $color-background-overlay-light;
+    flex-direction: row;        
 
     .inner-box {          
         
@@ -58,11 +58,7 @@
 
         display: flex; 
         flex-direction: column;
-        align-items: center;        
-
-        // margin-top: 60px;
-        // margin-right: 40px;
-        // margin-bottom: 120px;    
+        align-items: center;     
         
         margin: 40px 60px 120px 60px;
 
@@ -73,107 +69,6 @@
             animation: box-shadow-burn-in 4s;    
             animation-iteration-count: infinite;
         }  
-
-        .brandname-h1 {
-
-            a {
-                color: $color-lines;
-                text-shadow: 1px 1px $color-light-complement;   
-                font-family: $font-statement;
-            }            
-                         
-            margin: 40px auto -20px auto;
-            display: flex;  
-            flex-direction: column;              
-        }
-
-        .mini-logos {
-
-            margin: 10px auto 10px auto;
-
-            display: flex;  
-            flex-direction: row;  
-            align-items: center;     
-            
-            width: 90%;
-            
-            padding: 0px 4px;
-
-            .iqs {
-                margin: 0px auto;
-
-                display: flex;  
-                flex-direction: row;
-                align-items: center; 
-
-                a {
-                    font-family: $font-main;
-                    font-size: $font-size-standard;
-                }
-
-                svg {
-                    margin: 4px;
-                    padding: 0px;
-                    width: 16px;
-                }                 
-            }
-
-            .algo-cash {
-
-                margin: 0px auto;
-
-                display: flex;  
-                flex-direction: row;
-                align-items: center; 
-
-                a {
-                    font-family: $font-algocash;
-                    font-size: $font-size-standard;
-                }
-
-                h2 {  
-                    font-size: $font-size-standard;
-                    margin: 4px;
-                    padding: 0px;
-                    width: 24px;
-                }
-            }            
-        }        
-
-        hr { 
-            margin-bottom: 30px;
-            margin-top: 0px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-     
-        .input-with-label-pop {
-            @include input-with-label-pop;           
-        }
-
-        .sign-in-button-container {  
-            @include sign-in-button;
-            margin-top: 40px; 
-        }
-
-        .link-container {
-            text-align: center;
-            margin: 20px;
-
-            &.candidate {
-
-                .additional-info-mid-print{                   
-                    font-weight: bold;
-                }
-              
-            }
-        }
-
-
-
     }        
 
     .copyright-notice-container .small-print {   

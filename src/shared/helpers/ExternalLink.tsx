@@ -8,7 +8,7 @@ export interface ExternalLinkProps {
 export default function ExternalLink(props: ExternalLinkProps) {
 
     return (
-        <div>
+        <div className="external-link">
 
             <a  
                 href={props.endpoint}

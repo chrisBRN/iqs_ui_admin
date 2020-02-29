@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom'
 import Logo from '../../shared/components/logo/Logo';
 import Hero from '../../shared/components/hero-image/Hero';
 import LoginCard from '../../shared/components/login-card/LoginCard'
+import BrandsCard from '../../shared/components/brands-card/BrandsCard';
 
 import ExternalLink from '../../shared/helpers/ExternalLink';
 
 import '../../shared/styling/global-styling.scss';
 import './LoginPage.scss';
+import '../../shared/components/brands-card/BrandsCard.scss';
+import '../../shared/components/login-card/LoginCard.scss';
+
 
 export default function Login() {     
 
@@ -39,9 +43,11 @@ export default function Login() {
 
                 <div className="inner-box">
 
-                    <div className="login-card">
-                        <LoginCard />
-                    </div>
+                    <BrandsCard />
+                    <LoginCard />
+                
+
+                    
 
                 </div>
 
@@ -53,6 +59,8 @@ export default function Login() {
                         />
                     </div>
                 </div>
+
+               
 
             </div>
 

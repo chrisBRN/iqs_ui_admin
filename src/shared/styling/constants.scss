@@ -1,11 +1,11 @@
 // Font 
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Trade+Winds&display=swap'); 
-@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech&display=swap');
 
 
 $font-main: 'Montserrat';
 $font-statement: 'Trade Winds';
-$font-algocash: 'VT323';
+$font-algocash: 'Share Tech';
 
 $font-size-small: 10px;
 $font-size-mid: 12px;
@@ -47,14 +47,22 @@ $standard-border-light-complement: $border solid $color-lines;
 $standard-border-dark: $border solid $color-lines;
 
 // Mixins
+
+@mixin vert-centered-text($size) {
+    height: $size;
+    font-size: $size; 
+}
+
 @mixin input-with-label-pop {
-    position: relative;
+    
     width: $input-field-width;
     height: $input-field-height;
     margin: $margin;  
     box-sizing: border-box;
     
     .input-container {    
+
+        position: relative;
         
         background: $color-background-overlay-light;
 
@@ -97,6 +105,7 @@ $standard-border-dark: $border solid $color-lines;
         z-index: -1; // prevents the label getting in the way of input
         opacity: 0;        
         top: 0px;
+        left: 4px;
         font-size: $font-size-standard;
         padding-left: 1px;        
 
@@ -127,26 +136,12 @@ $standard-border-dark: $border solid $color-lines;
     }
 }
 
-@mixin sign-in-button {
-
-    background: $color-button;
-
-    position: relative;
-    width: $input-field-width ;
-    height: $input-field-height; 
-    margin: 0px $margin 0px $margin;  
-
-    border-radius: 20px;   
-
-    .sign-in-button {
+@mixin sign-in-button {    
         
         color: $color-dark-blue;
-
-        position: relative;
+        
         width: $input-field-width ;
-        height: $input-field-height;  
-        padding: 0px;
-        margin: 0px;  
+        height: $input-field-height;    
         outline: 0;
 
         box-sizing: border-box;
@@ -154,10 +149,8 @@ $standard-border-dark: $border solid $color-lines;
         border-radius: 20px;             
 
         font-family: inherit;
-        font-size: $font-size-standard; 
-        font-weight: bold;
-        display: table-cell;  
-        vertical-align: middle;    
+        font-size: $font-size-mid; 
+        font-weight: bold;                  
         
         cursor: pointer;              
         
@@ -165,8 +158,7 @@ $standard-border-dark: $border solid $color-lines;
         transition: background 0.25s ease-in-out;
 
         &:hover {    
-            background: $color-light-blue;
-            // color: green;
+            background: $color-light-blue;           
             box-shadow: 0 2px 4px 0 $color-box-shadow;  
         }
 
@@ -175,7 +167,7 @@ $standard-border-dark: $border solid $color-lines;
         
         // }
 
-    }
+    
 }
 
 // Animations

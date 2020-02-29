@@ -1,0 +1,86 @@
+@import '../../styling/constants.scss';
+
+.brands-card {    
+
+    width: 50%;
+
+    padding: 20px 20px 20px 20px;
+
+    display: flex;  
+    flex-direction: column; 
+    align-items: center;
+    
+
+    .main-brand {   
+
+        @include vert-centered-text($font-size-statement);    
+ 
+        font-family: $font-statement;    
+        text-align: center;                 
+            
+        a {                 
+            color: $color-lines;
+        }     
+        
+        opacity: 0.9;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .mini-logos {
+
+        opacity: 0.8;
+
+        display: flex;  
+        flex-direction: row; 
+        align-items: center;
+
+        margin-top: 24px;
+
+        @include vert-centered-text($font-size-mid);        
+       
+        .mini-logo {
+
+            display: flex;  
+            flex-direction: row;
+            align-items: center;
+
+            margin: 10px;   
+            
+            opacity: 0.8;
+            transition: opacity 0.2s;
+    
+            &:hover {
+                opacity: 1;
+            }
+
+            &.iqs-logo {
+
+                svg {
+                    margin-right: 4px;
+                    width: $font-size-mid;
+                }
+                
+                font-family: $font-main;  
+                @include vert-centered-text($font-size-mid);    
+            }
+
+            &.algo-logo {   
+                
+                .unicode-logo {
+                    color: gold;
+                    margin-right: 4px;
+                    font-size: $font-size-standard;
+                }
+               
+                font-family: $font-algocash;  
+                @include vert-centered-text($font-size-mid);    
+            }
+        }        
+    }
+
+            
+}
