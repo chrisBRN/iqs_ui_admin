@@ -1,11 +1,21 @@
 @import './constants.scss';
 
+
+
+
+
+
+
+
+
 body {
     margin: 0px;
     padding: 0px;
 
-    background-color: $color-background;
-    background-image: url(./texture.jpg);
+    background-image:
+        linear-gradient(45deg, rgba($color-light-blue,0.75) 25%, rgba($color-mid-blue, 0.75) 100%),
+        url(./texture.jpg);
+
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -16,14 +26,14 @@ body {
     color: $color-dark-blue;
 }
 
-h1 {    
-    font-size: $font-size-statement;    
+h1 {
+    font-size: $font-size-statement;
     color: $color-mid-blue;
-    text-align: center;  
+    text-align: center;
 }
 
 a {
-    text-decoration: none;    
+    text-decoration: none;
     color: $color-dark-blue;
 }
 

@@ -1,11 +1,8 @@
 // Font 
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Trade+Winds&display=swap'); 
-@import url('https://fonts.googleapis.com/css?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
-
-$font-main: 'Montserrat';
-$font-statement: 'Trade Winds';
-$font-algocash: 'Share Tech';
+$font-main: 'Josefin Sans', sans-serif;
+$font-statement: 'Josefin Sans', sans-serif;
 
 $font-size-small: 10px;
 $font-size-mid: 12px;
@@ -19,6 +16,7 @@ $color-background: snow;
 $color-background-accent: rgba(255, 250, 250, 0.8);
 
 $color-light-blue: #B3EFFF;
+$color-light-blue-overlay: rgba(179, 239, 255, 0.4);
 $color-light-complement: #ffb7b3;
 $color-mid-blue: #046B99;
 $color-mid-complement: #991104;
@@ -33,6 +31,11 @@ $color-shadow-light: #DCDCDC;
 $color-lines: #778899;
 $color-button: rgba(180, 190, 200, 0.2);
 
+$color-input: #f0efef;
+$color-input-highlighted: #f1f1f1;
+$color-input-outline: #dbdbdb;
+$color-input-outline-highlight: #adadad;
+
 // Standard Sizes
 $input-field-width: 240px;
 $input-field-height: 40px;
@@ -41,16 +44,50 @@ $margin: 20px;
 $padding: 8px;
 $border: 1px;
 $border-highlighted: 2px;
-$border-emphasised: 4px;
-
-$standard-border-light-complement: $border solid $color-lines;
-$standard-border-dark: $border solid $color-lines;
+$border-emphasised: 3px;
 
 // Mixins
 
 @mixin vert-centered-text($size) {
     height: $size;
     font-size: $size; 
+}
+
+@mixin headline(){
+    font-family: $font-statement;    
+    font-size: $font-size-statement;
+    font-weight: bold;
+
+    color: $color-mid-blue;
+
+    a {                 
+        color: $color-mid-blue;
+    } 
+
+    text-align: center; 
+}
+
+@mixin standard-margin($vertical: auto, $horizontal: auto){
+    margin-top: $vertical;
+    margin-bottom: $vertical;
+    margin-left: $horizontal;
+    margin-right: $horizontal;   
+}
+
+@mixin border-standard() {
+    border-width: 1px;
+    border-style: solid;  
+    border-radius: 4px;
+    border-color: $color-input-outline;
+}
+
+@mixin opacity-pop(){
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 1;
+    } 
 }
 
 @mixin input-with-label-pop {
@@ -62,29 +99,27 @@ $standard-border-dark: $border solid $color-lines;
     
     .input-container {    
 
-        position: relative;
-        
-        background: $color-background-overlay-light;
+        position: relative;        
+        background: $color-input;   
+        @include border-standard();  
 
-        border: $standard-border-dark;
-        border-radius: 2px;       
+        padding: $padding $padding $padding/2 $padding;       
 
-        padding: $padding $padding $padding/2 $padding; 
-        box-shadow: 0 1px 1px 0 $color-box-shadow;
-
-        transition: border-bottom 0.1s, ease-in-out;           
+        transition: border-bottom 0.1s, ease-in-out;     
+        transition: background 0.8s;      
 
         &:hover {
-            border: $standard-border-light-complement; 
+            border-color: $color-input-outline-highlight;
             border-bottom-width: $border-highlighted;  
+            background: $color-background-overlay;
             
             input::placeholder {       
-                color: $color-lines;
+                color: $color-dark-blue;
             }        
         }
 
         &:focus-within {
-            border: $standard-border-light-complement;
+            background: $color-background-overlay;         
             border-bottom-width: $border-emphasised;  
         }   
     }     
@@ -92,16 +127,16 @@ $standard-border-dark: $border solid $color-lines;
     input:focus~label {
         opacity: 1;
         z-index: 1;
-        top: -6px;
+        top: -8px;
         font-size: $font-size-mid;    
-        color: $color-dark-blue;    
+        color: $color-mid-blue;    
         background-color: snow;            
     }
 
     label {
         position: absolute;
         font-family: inherit;
-        color: $color-dark-blue;       
+        color: $color-mid-blue;       
         z-index: -1; // prevents the label getting in the way of input
         opacity: 0;        
         top: 0px;
@@ -109,8 +144,8 @@ $standard-border-dark: $border solid $color-lines;
         font-size: $font-size-standard;
         padding-left: 1px;        
 
-        transition: opacity 0.3s ease-in-out;
-        transition: top 0.2s, font-size 0.2s, color 0.2s linear;
+        transition: opacity 0.5s ease-in-out;
+        transition: top 0.4s, font-size 0.2s, color 0.2s linear;
     }
 
     input {
@@ -137,45 +172,28 @@ $standard-border-dark: $border solid $color-lines;
 }
 
 @mixin sign-in-button {    
-        
-        color: $color-dark-blue;
-        
-        width: $input-field-width ;
-        height: $input-field-height;    
-        outline: 0;
-
-        box-sizing: border-box;
-        border: $standard-border-dark;   
-        border-radius: 20px;             
-
-        font-family: inherit;
-        font-size: $font-size-mid; 
-        font-weight: bold;                  
-        
-        cursor: pointer;              
-        
-        box-shadow: 0 1px 2px 0 $color-box-shadow;        
-        transition: background 0.25s ease-in-out;
-
-        &:hover {    
-            background: $color-light-blue;           
-            box-shadow: 0 2px 4px 0 $color-box-shadow;  
-        }
-
-        // &:active {
-         
-        
-        // }
-
     
-}
+    cursor: pointer;     
 
-// Animations
-@keyframes box-shadow-burn-in {
-    0% {
-        box-shadow: 0 4px 8px 0 $color-box-shadow;
-    }    
-    50% {
-        box-shadow: 0 4px 8px 0 $color-box-shadow-emphasised;
+    @include border-standard();   
+    height: $input-field-height;
+    width: $input-field-width;
+
+    color: $color-dark-blue;
+     
+    outline: 0;
+    font-family: $font-statement;   
+    font-size: $font-size-mid; 
+    font-weight: bold;           
+   
+    background: $color-light-blue-overlay;   
+    transition: background 0.25s ease-in-out;
+
+    &:hover {    
+        background: $color-light-blue;    
+    }
+
+    &:active {
+        background: $color-light-complement;            
     }    
 }

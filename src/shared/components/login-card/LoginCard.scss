@@ -2,70 +2,51 @@
 
 .login-card{
 
-    width: 100%;
-
     text-align: center;
 
     display: flex;  
     flex-direction: column; 
     align-items: center;
 
-    h2 {
-        font-size: 16px;
-        margin-top: 40px;
-        margin-bottom: 0px;
-    }
+    background-color: $color-background;
+
+    .main-brand {             
+        @include opacity-pop();  
+        @include headline();          
+
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }       
 
     .input-with-label-pop {           
         @include input-with-label-pop;   
-        margin-left: auto;
-        margin-right: auto;             
+        @include standard-margin(1em, auto);             
     }
      
     .sign-in-button {      
         @include sign-in-button;        
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;     
+        @include standard-margin(1em, auto);       
     }
 
     .link-container { 
-        margin-left: auto;
-        margin-right: auto;      
-        margin-top: 10px;;  
-        
-        text-align: center; 
-        height: 16px;
-
-        opacity: 0.8;
-        transition: opacity 0.2s;
-
-        &:hover {
-            opacity: 1;
+        @include opacity-pop();   
+              
+        &.forgot-password {
+            @include standard-margin(1em, auto);  
         }
 
-        &.candidate {              
+        &.candidate {                      
+            @include standard-margin(2em, auto);  
 
             .additional-info-mid-print{                  
                 color: $color-mid-blue;                 
                 font-weight: bold;
-            }              
-           
-        }        
-    }
-
-    .privacy-statement { 
-
-        width: 40%;
-        margin-top: -12px;
-        padding: 20px;
-
-        font-size: $font-size-small - 2px;  
-        opacity: 0.6;
-        transition: opacity 0.2s;
-
-        &:hover {
-            opacity: 1;
+            }    
+        }     
+        
+        &.privacy-statement {
+            @include standard-margin(0em, 8em);   
+            font-size: $font-size-small - 2px; 
         }
     }        
 }

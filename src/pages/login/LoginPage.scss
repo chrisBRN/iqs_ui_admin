@@ -1,80 +1,53 @@
 @import '../../shared/styling/constants.scss';
 
 .login-page {
-    display: flex;
-    text-decoration: none;
-}
 
-.small-print {
-    position: absolute;    
-    opacity: 0.8;
-
-    &:hover {
-        opacity: 1;
-    }
-}
-
-.left-side {   
-    position:relative;
-    width:70%;
-    height: 100vh;        
-
-    .logo {
-        position: absolute;
-        margin-top: 20px;
-        margin-left: 20px;  
-        
-        filter: drop-shadow(1px 1px 2px $color-dark-blue);
-        
-        transition: transform 0.25s;  
-        &:hover {            
-            transform: scale(1.05);    
-        }
-    }
-
-    .hero {        
-        display: block;
-        margin: auto;          
-
-        .small-print {            
-            bottom:20px;
-            left:20px;              
-        }
-    }    
-}
-
-.right-side {     
-    position: relative;    
-    width: 30%;
-    height: 100vh;   
-    
     display: flex; 
-    flex-direction: row;        
+    flex-direction: column;
+    align-items: center;   
+    height: 100vh;
 
-    .inner-box {          
+    .login-card-container {  
         
-        width: 100%;
+        @include standard-margin(4em, 4em);
+    
+        width: 20%;
         background: $color-background-accent;
-
+        border-radius: 4px;    
+    
         display: flex; 
         flex-direction: column;
-        align-items: center;     
+        align-items: center;          
+    
+        box-shadow: 0 2px 4px 0 $color-box-shadow;
+        transition: box-shadow 0.4s;   
         
-        margin: 40px 60px 120px 60px;
-
-        box-shadow: 0 4px 8px 0 $color-box-shadow;
-        transition: box-shadow box-shadow 0.4s, 2s;   
-       
-        &:hover {            
-            animation: box-shadow-burn-in 4s;    
-            animation-iteration-count: infinite;
+        &:hover {               
+            box-shadow: 0 4px 8px 0 $color-box-shadow;    
         }  
+    
+        .logo {
+            margin-top: 40px;
+        }
+    
+             
     }        
 
-    .copyright-notice-container .small-print {   
-        color: $color-dark-blue;   
+    .copyright-notice-container {  
+        @include opacity-pop(); 
+        position: absolute;
+        font-size: 10px;
+
+        color: $color-dark-blue;               
         bottom:20px;
-        right:20px;     
-    }
+          
+    }  
+
 }
+
+ 
+
+
+
+
 
