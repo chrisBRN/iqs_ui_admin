@@ -1,53 +1,143 @@
 @import '../../shared/styling/constants.scss';
+@import '../../shared/styling/global-styling.scss';
 
-.login-page {
+body { 
+    background-image: linear-gradient(45deg, rgba($color-blue-mid, 0.4) 25%, rgba($color-blue-mid, 0.8) 100%),
+    url(../../shared/styling/texture.jpg);    
+    background-repeat: no-repeat;
+    background-size: cover;     
+}
 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;   
+.login-page-wrapper  {
     height: 100vh;
-
-    .login-card-container {  
-        
-        @include standard-margin(4em, 4em);
-    
-        width: 20%;
-        background: $color-background-accent;
-        border-radius: 4px;    
-    
-        display: flex; 
-        flex-direction: column;
-        align-items: center;          
-    
-        box-shadow: 0 2px 4px 0 $color-box-shadow;
-        transition: box-shadow 0.4s;   
-        
-        &:hover {               
-            box-shadow: 0 4px 8px 0 $color-box-shadow;    
-        }  
-    
-        .logo {
-            margin-top: 40px;
-        }
-    
-             
-    }        
-
-    .copyright-notice-container {  
-        @include opacity-pop(); 
-        position: absolute;
-        font-size: 10px;
-
-        color: $color-dark-blue;               
-        bottom:20px;
-          
-    }  
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);       
+    grid-column-gap: 0.5em;
+    grid-row-gap: 1em;   
 
 }
 
- 
+.content {
 
+    display: flex; 
+    flex-direction: column;   
+    align-items: center;      
+    justify-content: center;
 
+    margin: 1em;             
 
+    section {
+        margin-top: 1em;                
 
+        .brand-name {
+            @include vert-centered-text($font-size-statement);     
+            padding: 0 0.5em 0 0.5em;      
+        }
 
+        .login-form {   
+
+            .input-container {
+                padding: 0 0.5em 0 0.5em;
+                @include border-standard;      
+                margin-top: 3em;  
+                
+                &:hover {
+                    background-color: $color-white;
+                    margin-bottom: -1px;
+                    border-bottom-width: 2px;
+
+                    input {
+                        background-color: $color-white;
+                    }
+                }
+
+                &:focus-within {
+                    background-color: $color-blue-light;
+                    margin-bottom: -3px;
+                    border-bottom-width: 4px;
+                    border-color: $color-blue-mid;
+
+                    input {
+                        background-color: $color-blue-light;
+                    }     
+                }               
+
+            }                  
+
+            input {                
+                background-color: $color-grey-light;
+                caret-color: $color-red-dark;                    
+            }    
+
+            button {                
+                margin-top: 3em;                 
+                background-color: $color-grey-light;     
+            }
+            
+            .input-with-label-pop{
+                @include label-pop();   
+            } 
+            
+            &:valid button {
+                border-color: $color-blue-mid;
+                background-color: $color-blue-light;
+
+                &:hover {
+                    background-color: $color-blue-mid;
+                }
+            }
+
+            &:invalid button {               
+
+                &:hover {
+                    background-color: $color-grey-dark;
+                    color: $color-grey-dark;
+                }
+            }
+        }
+
+        .links {                        
+            
+            text-align: center;           
+
+            .additional-link {        
+                margin-top: 1em;                     
+        
+                .mid-print {
+                    @include vert-centered-text($font-size-main);
+                    @include opacity-pop();
+                }      
+                
+                &.privacy-statement {
+                    width: 100%;      
+                    margin-top: -0.5em;            
+
+                    .small-print {
+                        @include vert-centered-text($font-size-small);
+                        @include opacity-pop();         
+                        width: 80%;
+                        display: inline-block;                       
+                    }
+                }
+            
+                .candidate-login {
+                    @include vert-centered-text($font-size-main);
+                    @include opacity-pop();
+                    font-weight: 900;
+                    color: $color-blue-mid;
+                }
+            }    
+        }
+    }    
+}
+
+.footer {
+    grid-row-start: 2;
+    margin: 1em; 
+    text-align: center;
+
+    .copyright-notice-container {
+        @include vert-centered-text($font-size-small);
+        @include opacity-pop();
+    }
+}

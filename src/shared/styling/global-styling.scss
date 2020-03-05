@@ -1,46 +1,54 @@
 @import './constants.scss';
 
+html {
+    color: $color-blue-dark;
+}
 
-
-
-
-
-
-
-
-body {
-    margin: 0px;
-    padding: 0px;
-
-    background-image:
-        linear-gradient(45deg, rgba($color-light-blue,0.75) 25%, rgba($color-mid-blue, 0.75) 100%),
-        url(./texture.jpg);
-
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    font-family: $font-main;
-    font-size: $font-size-standard;
+body { 
+    @include margin-padding-reset;
+    background-color: $color-white; 
+    height: 100vh;   
+    font-family: $font-family-main;    
+    color: $color-blue-dark;
     text-align: left;
-
-    color: $color-dark-blue;
 }
 
 h1 {
-    font-size: $font-size-statement;
-    color: $color-mid-blue;
+    @include margin-padding-reset;
+    @include vert-centered-text($font-size-statement);
+    font-family: $font-family-main;
     text-align: center;
 }
 
 a {
+    @include margin-padding-reset;
     text-decoration: none;
-    color: $color-dark-blue;
+    color: $color-blue-dark;
 }
 
-.small-print {
-    font-size: $font-size-small;
+input {
+    @include margin-padding-reset;
+    border: 0;
+    border-radius: 4px;
+    @include standard-input;
 }
 
-.additional-info-mid-print {
-    font-size: $font-size-mid;
+button {   
+    @include margin-padding-reset;
+    @include standard-button;   
+    @include border-standard();     
+}
+
+label {
+    @include margin-padding-reset;    
+    font-family: $font-family-main;  
+}
+
+.card {   
+    @include drop-shadow-pop($color-box-shadow, 0.25em); 
+    background-color: $color-grey-light;  
+    padding: 2em;
+
+    display: flex; 
+    flex-direction: column;            
 }
