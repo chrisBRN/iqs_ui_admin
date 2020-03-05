@@ -60,7 +60,6 @@ $input-field-height: 3em;
     outline: 0;   
 }
 
-
 @mixin vert-centered-text($size) {
     height: $size;
     font-size: $size; 
@@ -86,7 +85,7 @@ $input-field-height: 3em;
         position: absolute;
         z-index: -1;
         opacity: 0; 
-        left: 0.5em;       
+        left: 1em;       
         font-size: $font-size-small;     
        
         transition: opacity 1s ease-in-out;  

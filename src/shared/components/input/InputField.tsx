@@ -36,6 +36,8 @@ export function PasswordInput(){
         <div className="input-with-label-pop">
             <div className="input-container">
 
+                <div className="input-border"></div>
+
                 <input
                     className="input-field"
                     required

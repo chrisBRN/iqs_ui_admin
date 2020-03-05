@@ -32,8 +32,8 @@ export default function Login() {
     );
 }
 
-function LoginForm() {   
-   
+function LoginForm() {     
+
     return (
         <div>
 
@@ -41,7 +41,7 @@ function LoginForm() {
 
                 <UsernameInput/>
                 <PasswordInput /> 
-                <button className=" sign-in-button">Login</button>           
+                <button className=" sign-in-button">Login</button>                       
 
             </form>
 

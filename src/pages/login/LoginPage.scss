@@ -1,46 +1,63 @@
 @import '../../shared/styling/constants.scss';
 @import '../../shared/styling/global-styling.scss';
 
-body { 
-    background-image: linear-gradient(45deg, rgba($color-blue-mid, 0.4) 25%, rgba($color-blue-mid, 0.8) 100%),
-    url(../../shared/styling/texture.jpg);    
-    background-repeat: no-repeat;
-    background-size: cover;     
+@media screen and (min-width: 768px) {
+
+    body {
+        background-image: linear-gradient(45deg, rgba($color-blue-mid, 0.4) 25%, rgba($color-blue-mid, 0.8) 100%),
+            url(../../shared/styling/texture.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;   
+    }  
+
+    .login-page-wrapper {
+        height: 100vh;
+        width: 100vw;
+
+        margin: 0em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;          
+    }
 }
 
-.login-page-wrapper  {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);       
-    grid-column-gap: 0.5em;
-    grid-row-gap: 1em;   
+@media screen and (max-width: 768px) {
 
+    body {
+        background-color: $color-grey-light;
+    }    
 }
 
 .content {
 
-    display: flex; 
-    flex-direction: column;   
-    align-items: center;      
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    align-self: center;
 
-    margin: 1em;             
+    @media screen and (min-width: 420px) {
+        margin: 2em;
+        padding: 4em 2em;        
+    }    
 
     section {
-        margin-top: 1em;                
+        margin-top: 1em;
 
         .brand-name {
-            @include vert-centered-text($font-size-statement);     
-            padding: 0 0.5em 0 0.5em;      
+            @include vert-centered-text($font-size-statement);
+            padding: 0 0.5em 0 0.5em;
         }
 
-        .login-form {   
+        .login-form {
 
             .input-container {
                 padding: 0 0.5em 0 0.5em;
-                @include border-standard;      
-                margin-top: 3em;  
-                
+                @include border-standard;
+                margin-top: 2.5em;
+
                 &:hover {
                     background-color: $color-white;
                     margin-bottom: -1px;
@@ -59,25 +76,24 @@ body {
 
                     input {
                         background-color: $color-blue-light;
-                    }     
-                }               
-
-            }                  
-
-            input {                
-                background-color: $color-grey-light;
-                caret-color: $color-red-dark;                    
-            }    
-
-            button {                
-                margin-top: 3em;                 
-                background-color: $color-grey-light;     
+                    }
+                }
             }
-            
-            .input-with-label-pop{
-                @include label-pop();   
-            } 
-            
+
+            input {
+                background-color: $color-grey-light;
+                caret-color: $color-red-dark;
+            }
+
+            button {
+                margin-top: 2em;
+                background-color: $color-grey-light;
+            }
+
+            .input-with-label-pop {
+                @include label-pop();
+            }
+
             &:valid button {
                 border-color: $color-blue-mid;
                 background-color: $color-blue-light;
@@ -87,7 +103,7 @@ body {
                 }
             }
 
-            &:invalid button {               
+            &:invalid button {
 
                 &:hover {
                     background-color: $color-grey-dark;
@@ -96,44 +112,45 @@ body {
             }
         }
 
-        .links {                        
-            
-            text-align: center;           
+        .links {
 
-            .additional-link {        
-                margin-top: 1em;                     
-        
+            text-align: center;
+
+            .additional-link {
+                margin-top: 1em;
+
                 .mid-print {
                     @include vert-centered-text($font-size-main);
                     @include opacity-pop();
-                }      
-                
+                }
+
                 &.privacy-statement {
-                    width: 100%;      
-                    margin-top: -0.5em;            
+                    width: 80%;
+                    margin: auto;
+                    margin-top: -0.5em;
 
                     .small-print {
                         @include vert-centered-text($font-size-small);
-                        @include opacity-pop();         
+                        @include opacity-pop();
                         width: 80%;
-                        display: inline-block;                       
+                        display: inline-block;
                     }
                 }
-            
+
                 .candidate-login {
                     @include vert-centered-text($font-size-main);
                     @include opacity-pop();
                     font-weight: 900;
                     color: $color-blue-mid;
                 }
-            }    
+            }
         }
-    }    
+    }
 }
 
 .footer {
     grid-row-start: 2;
-    margin: 1em; 
+    margin: 1em;
     text-align: center;
 
     .copyright-notice-container {
@@ -141,3 +158,4 @@ body {
         @include opacity-pop();
     }
 }
+
