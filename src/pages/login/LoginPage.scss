@@ -68,7 +68,7 @@
             }            
 
             &:invalid button {
-                opacity: 0.5;
+                opacity: 0.4;
                 border-bottom-width: 1px;    
             }
 
@@ -82,13 +82,7 @@
                 button:hover {
                     cursor: pointer;  
                 }
-            }     
-            
-            .instructions {
-                width: 60%;                
-                margin-top: 0.5em;
-                font-size: 10px;
-            }
+            }  
         }
 
         .links {

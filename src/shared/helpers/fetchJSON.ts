@@ -5,9 +5,17 @@ export async function fetchJSON(url: string) {
     return await response.json();
 }
 
-export async function postJSON(url: string, formData: FormData) {
+export async function postJSON(url: string, formData: any) {
 
-    const response = await fetch(url, { method: 'POST', body: formData })
+    const response = await fetch(
+        url, { 
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },    
+            body: JSON.stringify(formData) 
+        })
 
     return await response.json();
 }

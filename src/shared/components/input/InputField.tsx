@@ -1,33 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export function UsernameInput(){
+// export function UsernameInput(){
 
-    return (
-        <div className="username-input">
-            <input                
-                required
-                minLength={5}
-                maxLength={30}
-                pattern="[A-Za-z0-9_]+"
-                type="text"                   
-                placeholder={"username"}                                       
-                >
-            </input>
+//     return (
+//         <div className="username-input">
+//             <input                
+//                 required
+//                 minLength={5}
+//                 maxLength={30}
+//                 pattern="[A-Za-z0-9_]+"
+//                 type="text"                   
+//                 placeholder={"username"}                                       
+//                 >
+//             </input>
 
-            <label>                    
-                {"username"}
-            </label>
+//             <label>                    
+//                 {"username"}
+//             </label>
 
-            <div className="invalid-message">
-                {"invalid"}
-            </div>
-            <div className="valid-message">
-                {"valid"}
-            </div>
-
-        </div>
-    )
-}
+//             <div className="invalid-message">
+//                 {"invalid"}
+//             </div>
+//             <div className="valid-message">
+//                 {"valid"}
+//             </div>
+//         </div>
+//     )
+// }
 
 export function PasswordInput(){
     return (

@@ -18,7 +18,7 @@ export default function App(): ReactElement {
 
         <Switch>
 
-          <Route path="/login">
+          <Route path={["/", "/login"]}>
             <Login />
           </Route>
 
