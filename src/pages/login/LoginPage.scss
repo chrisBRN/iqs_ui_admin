@@ -4,8 +4,9 @@
 @media screen and (min-width: 768px) {
 
     body {
-        background-image: linear-gradient(45deg, rgba($color-blue-mid, 0.4) 25%, rgba($color-blue-mid, 0.8) 100%),
+        background-image: linear-gradient(45deg, rgba($color-blue-light, 1) 5%, rgba($color-blue-mid, 1) 40%),
             url(../../shared/styling/texture.jpg);
+        background-blend-mode: multiply;
         background-repeat: no-repeat;
         background-size: cover;   
     }  
@@ -49,66 +50,44 @@
         .brand-name {
             @include vert-centered-text($font-size-statement);
             padding: 0 0.5em 0 0.5em;
+            text-shadow: 2px 2px $color-grey-dark;
         }
 
-        .login-form {
+        .login-form {    
 
-            .input-container {
-                padding: 0 0.5em 0 0.5em;
-                @include border-standard;
-                margin-top: 2.5em;
-
-                &:hover {
-                    background-color: $color-white;
-                    margin-bottom: -1px;
-                    border-bottom-width: 2px;
-
-                    input {
-                        background-color: $color-white;
-                    }
-                }
-
-                &:focus-within {
-                    background-color: $color-blue-light;
-                    margin-bottom: -3px;
-                    border-bottom-width: 4px;
-                    border-color: $color-blue-mid;
-
-                    input {
-                        background-color: $color-blue-light;
-                    }
-                }
-            }
-
-            input {
-                background-color: $color-grey-light;
-                caret-color: $color-red-dark;
-            }
+            .username-input, .password-input {                
+                @include standard-input-label-treatment;
+                @include input-validity-messages;
+               
+                margin-top: 1em;                                
+            }     
 
             button {
-                margin-top: 2em;
-                background-color: $color-grey-light;
-            }
-
-            .input-with-label-pop {
-                @include label-pop();
-            }
-
-            &:valid button {
-                border-color: $color-blue-mid;
-                background-color: $color-blue-light;
-
-                &:hover {
-                    background-color: $color-blue-mid;
-                }
-            }
+                @include standard-form-part; 
+                margin-top: 2em;                
+            }            
 
             &:invalid button {
+                opacity: 0.5;
+                border-bottom-width: 1px;    
+            }
 
-                &:hover {
-                    background-color: $color-grey-dark;
-                    color: $color-grey-dark;
+            &:valid {            
+                button {
+                    opacity: 1;  
+                    border-color: green;
+                    background-color: green;   
+                    color: $color-white;
                 }
+                button:hover {
+                    cursor: pointer;  
+                }
+            }     
+            
+            .instructions {
+                width: 60%;                
+                margin-top: 0.5em;
+                font-size: 10px;
             }
         }
 

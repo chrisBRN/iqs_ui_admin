@@ -14,7 +14,7 @@ $color-white: #fffafa;
 $color-black: #0C0101;
 
 // Palette
-$color-blue-light: #E8F0FE;
+$color-blue-light: rgba(232, 240, 254, 0.5);
 $color-blue-mid: #046B99;
 $color-blue-dark: #1C304A;
 $color-red-light: #FF3B3F;
@@ -38,97 +38,114 @@ $input-field-height: 3em;
     border-width: 1px;
     border-style: solid;  
     border-radius: 4px;
-    border-color: $color-grey-dark;
+    border-color: $color-blue-dark;
+    box-sizing: border-box;
+
+    &:hover {        
+        border-bottom-width: 2px;
+    }
+
+    &:focus-within {
+        border-bottom-width: 2px;
+        border-color: $color-blue-mid;
+    }
 }
 
-@mixin standard-input(){
+@mixin standard-font(){
+    font-size: $font-size-main; 
+    font-family: $font-family-main;
+    color: $color-blue-dark;
+}
+
+@mixin standard-form-part(){
+    @include margin-padding-reset;
+    @include border-standard;
+    @include standard-font;
+    outline: 0;   
     width: $input-field-width;
     height: $input-field-height;
-    font-size: $font-size-main; 
-    font-family: $font-family-main;
-    color: $color-blue-dark;
-    outline: 0;   
 }
 
-@mixin standard-button(){    
-    width: $input-field-width + 1em;
-    height: $input-field-height;
-    font-size: $font-size-main; 
-    font-family: $font-family-main;
-    font-weight: bold;
-    color: $color-blue-dark;
-    outline: 0;   
+@mixin standard-input-label-treatment(){
+    input {           
+        
+        &::placeholder {
+            opacity: 0;       
+        } 
+
+        &:valid~label {
+            color: green;
+        }
+
+        &:not(:placeholder-shown):invalid~label {
+            color: red;
+        }
+    }
+
+    position: relative; 
+
+    label {
+        position: absolute;               
+        font-size: $font-size-label;         
+        top: 0.5em;       
+        left: 0.5em;
+    }     
+}
+
+@mixin input-validity-messages(){
+    
+    position: relative;
+
+    .invalid-message, 
+    .valid-message {
+        position: absolute;
+        bottom: 0.5em;      
+        right: 0.5em;
+
+        font-size: $font-size-label;  
+
+        z-index: -1;
+        opacity: 0;  
+        transition: opacity 1s linear;           
+    }    
+
+    input:not(:placeholder-shown):valid {          
+        
+        border-color: green;
+        border-width: 2px;
+
+        &~.valid-message {
+            color: green;
+            opacity: 1;
+            z-index: 1;
+        }                
+    }   
+
+    input:not(:placeholder-shown):invalid {   
+        
+        border-color: red;
+        border-width: 2px;
+
+        &~.invalid-message {
+            color: red;
+            opacity: 1;
+            z-index: 1;
+        }  
+    }
+} 
+
+@mixin standard-button(){     
+    @include margin-padding-reset();
+    @include border-standard();
+    @include standard-font();
+    
+    font-weight: bold;    
+    
 }
 
 @mixin vert-centered-text($size) {
     height: $size;
     font-size: $size; 
-}
-
-@mixin label-pop(){
-
-    position: relative;  
-    margin-top: 2em;
-
-    .valid-label {
-        position: absolute;
-        z-index: -1;
-        opacity: 0; 
-        top: 0em; 
-        left: 0.5em;    
-        font-size: $font-size-label;  
-       
-        transition: opacity 0.3s, top 0.4s, font-size 0.3s ease-in-out;    
-    }
-
-    .invalid-label {
-        position: absolute;
-        z-index: -1;
-        opacity: 0; 
-        left: 1em;       
-        font-size: $font-size-small;     
-       
-        transition: opacity 1s ease-in-out;  
-    }
-
-    input {
-
-        &:focus~.valid-label, &:not(:placeholder-shown)~.valid-label {
-            opacity: 1;
-            z-index: 1;
-            top: -1.5em;                  
-        }
-
-        &:focus~.invalid-label, &:not(:placeholder-shown)~.invalid-label {
-            opacity: 1;
-            z-index: 1;
-            bottom: -1.8em;                  
-        }
-        
-        &:valid ~.invalid-label {
-            z-index: -1;
-            opacity: 0; 
-        }
-
-        &:valid ~.valid-label {
-            color: green;
-        }
-
-        &:invalid ~.invalid-label {
-            color: red;
-        }
-    } 
-
-    input {     
-        
-        &::placeholder {
-            padding-left: 0.5em;
-        }
-
-        &:focus::placeholder {
-            opacity: 0;       
-        } 
-    }  
 }
 
 @mixin opacity-pop(){
@@ -140,20 +157,11 @@ $input-field-height: 3em;
     } 
 }
 
-@mixin drop-shadow-pop($color, $amount){
-    box-shadow: 0 ($amount / 2) $amount 0 $color;
-    transition: box-shadow 0.4s;   
+@mixin drop-shadow-pop(){
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.1s;   
         
     &:hover {                      
-        box-shadow: 0 $amount ($amount * 2) 0 $color;    
-    }    
-}
-
-@mixin text-shadow-pop($color, $amount){
-    text-shadow: ($amount / 2) ($amount / 2) $amount $color; 
-    transition: text-shadow 0.4s;   
-        
-    &:hover {                      
-        text-shadow: $amount $amount ($amount * 2) $color;    
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
     }    
 }

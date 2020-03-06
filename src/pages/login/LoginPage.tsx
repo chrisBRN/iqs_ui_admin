@@ -24,9 +24,9 @@ export default function Login() {
                             
             </div>
 
-            <div className="footer">   
+            {/* <div className="footer">   
                 <CopyrightNotice />
-            </div>            
+            </div>             */}
 
         </div>
     );
@@ -37,11 +37,10 @@ function LoginForm() {
     return (
         <div>
 
-            <form method="post" className="login-form" onSubmit={() => {}}>
-
+            <form method="post" className="login-form" onSubmit={() => {}}>             
                 <UsernameInput/>
-                <PasswordInput /> 
-                <button className=" sign-in-button">Login</button>                       
+                <PasswordInput />
+                <button className="sign-in-button">Login</button>                       
 
             </form>
 

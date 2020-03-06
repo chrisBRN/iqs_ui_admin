@@ -27,16 +27,12 @@ a {
 }
 
 input {
-    @include margin-padding-reset;
-    border: 0;
-    border-radius: 4px;
-    @include standard-input;
-}
+    @include standard-form-part;
 
-button {   
-    @include margin-padding-reset;
-    @include standard-button;   
-    @include border-standard();     
+    padding-left: 0.5em;
+    padding-top: 1.2em;          
+    caret-color: $color-red-dark;   
+    background-color: $color-blue-light;
 }
 
 label {
@@ -45,8 +41,8 @@ label {
 }
 
 .card {   
-    @include drop-shadow-pop($color-box-shadow, 0.25em); 
-    background-color: $color-grey-light;  
+    @include drop-shadow-pop; 
+    background-color: $color-grey-light;
     padding: 2em;
 
     display: flex; 
@@ -56,7 +52,7 @@ label {
 @media screen and (max-width: 768px) {
 
     .card {   
-        @include drop-shadow-pop(transparent, 0.25em); 
+        @include drop-shadow-pop; 
         background-color: $color-grey-light;  
         padding: 2em;
     
