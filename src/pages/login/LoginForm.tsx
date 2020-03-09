@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { postJSON } from '../../shared/helpers/fetchJSON';
+import { Redirect } from 'react-router-dom';
+
+interface LoginStatus {
+    status: string ,
+    status_code: Number,
+    information?: string,
+    token?: string
+}
 
 
 export default function LoginForm() {
@@ -7,51 +15,61 @@ export default function LoginForm() {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");     
 
+    const [response, setResponse] = useState<LoginStatus | null >(null);
+
     async function handleLoginSubmission(event: React.FormEvent<HTMLFormElement>) {
 
-        event.preventDefault();
+        event.preventDefault();        
 
-        const formData = { "username": username, "password": password }
-
-        try {
-            const jsonResponse = await postJSON(`http://localhost:8080/login`, formData)
-            const token: any = jsonResponse.token;
-           
-        } catch (error) {                   
-            console.log('Error', error);
-        }   
+        const loginData = { 
+        "username": username, 
+        "password": password 
+        }  
+    
+        postJSON(`http://localhost:8080/login`, loginData)
+        .then(response => setResponse(response));                      
     }
+
+    if (response !== null && response.status_code === 200) {           
+        return (                 
+            <Redirect to ="/dashboard"/>
+        )
+    }    
 
     return (
 
-        <form method="post" className="login-form" onSubmit={handleLoginSubmission}>
+        <form className="login-form" method="post" onSubmit={handleLoginSubmission}>
+            
 
-            <div className="username-input">
-                <label>username</label>
+            <div className="username-input">                
                 <input onChange={event => setUsername(event.target.value)}
-                    required
+                    required                    
+                    autoComplete="username"
                     minLength={5}
                     maxLength={30}
                     pattern="[A-Za-z0-9_]+"
                     type="text"
                     placeholder="username">
                 </input>
-                <div className="invalid-message">invalid</div>
-                <div className="valid-message">valid</div>
+                <label>Username</label>
+                <div className="valid-message">&#10004;</div>
+                <div className="invalid-message">&#10006;</div> 
             </div>
 
             <div className="password-input">
-                <label>password</label>
+                
                 <input onChange={event => setPassword(event.target.value)}
                     required
-                    minLength={7}
+                    autoComplete="password"
+                    minLength={8}
                     maxLength={30}
                     pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).+"
                     type="password"
                     placeholder="password">
                 </input>
-                <div className="invalid-message">invalid</div>
-                <div className="valid-message">valid</div>
+                <label>Password</label>
+                <div className="valid-message">&#10004;</div>
+                <div className="invalid-message">&#10006;</div>                
             </div>
 
             <button className="sign-in-button">Login</button>
