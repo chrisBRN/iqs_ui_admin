@@ -3,7 +3,7 @@ export async function fetchJSON(url: string) {
     return await response.json();
 }
 
-export async function postJSON(url: string, formData: any) {
+export async function postJSON(url: string, formData: object) {
 
     const response = await fetch(
         url, { 

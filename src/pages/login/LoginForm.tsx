@@ -13,34 +13,31 @@ interface LoginStatus {
 export default function LoginForm() {
 
     const [username, setUsername] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [password, setPassword] = useState<string>("");    
+
     const [response, setResponse] = useState<LoginStatus | null>(null);
-    const [success, setSuccuss] = useState<boolean>(false);
+    const [status, setStatus] = useState<Number>(400);
+
     const [loading, setLoading] = useState<boolean>(false);  
-
-    const url: string = `http://localhost:8080/login`;
-
-    const formData = {
-        "username": username,
-        "password": password
-    }
-
-    async function handleLoginSubmission(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();  
-        setLoading(true);    
-        setResponse(await postJSON(url, formData));
+ 
+    async function handleLoginSubmission(event: React.FormEvent<HTMLFormElement>) {        
+        event.preventDefault();            
+        setLoading(true);  
+        setResponse(await postJSON(`http://localhost:8080/login`, {
+            "username": username,
+            "password": password
+        }));   
         setLoading(false); 
     }    
 
     useEffect(() => {
         
-        if (response !== null && response.status_code === 200) {
-            setSuccuss(true);
-        }
+        if (response) {
+            setStatus(response.status_code)
+        }        
+    }, [response])    
 
-    }, [response])
-
-    if(success){
+    if (status === 200) {
         return (
             <Redirect to="/dashboard" />
         )
