@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { postJSON } from '../../shared/helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
 import LoginButton from './LoginButton';
 
-interface LoginStatus {
+interface LoginResponse {
     status: string,
     status_code: Number,
     information?: string,
@@ -15,29 +15,26 @@ export default function LoginForm() {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");    
 
-    const [response, setResponse] = useState<LoginStatus | null>(null);
-    const [status, setStatus] = useState<Number>(400);
+    const [response, setResponse] = useState<LoginResponse | null>(null);    
+    const [loading, setLoading] = useState<boolean>(false);   
 
-    const [loading, setLoading] = useState<boolean>(false);  
- 
-    async function handleLoginSubmission(event: React.FormEvent<HTMLFormElement>) {        
-        event.preventDefault();            
-        setLoading(true);  
-        setResponse(await postJSON(`http://localhost:8080/login`, {
-            "username": username,
-            "password": password
-        }));   
-        setLoading(false); 
+    const url: string = `http://localhost:8080/login`;
+
+    const formData = {
+        "username": username,
+        "password": password
     }    
+   
+    function handleLogin(event: React.FormEvent<HTMLFormElement>){        
+        event.preventDefault();  
+        setResponse(null)
+        setLoading(true);        
+        postJSON(url, formData)
+            .then(response => setResponse(response))   
+            .then(() => setLoading(false));  
+    }   
 
-    useEffect(() => {
-        
-        if (response) {
-            setStatus(response.status_code)
-        }        
-    }, [response])    
-
-    if (status === 200) {
+    if (response?.status_code === 200) {
         return (
             <Redirect to="/dashboard" />
         )
@@ -45,7 +42,7 @@ export default function LoginForm() {
 
     return (
 
-        <form className="login-form" method="post" onSubmit={handleLoginSubmission}>
+        <form className="login-form" method="post" onSubmit={handleLogin}>
 
             <div className="username-input">
                 <input onChange={event => setUsername(event.target.value)}
@@ -77,6 +74,9 @@ export default function LoginForm() {
                 <div className="invalid-message">&#10006;</div>
             </div>
 
+            <div className="database-message">
+                {response?.information}
+            </div>
             <LoginButton isLoading={loading} />
 
         </form>

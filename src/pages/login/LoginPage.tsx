@@ -13,6 +13,7 @@ export default function LoginPage() {
 
     return (
         <div className="login-page-wrapper">
+            <div className="login-background"></div>
 
             <div className="content card">
 

@@ -1,14 +1,23 @@
 @import './constants.scss';
 
+.switch-wrapper {
+    position: relative;
+    
+}
+
+.switch-wrapper>div {
+    position: absolute;   
+}
+
 html {
     color: $color-blue-dark;
 }
 
-body { 
+body {
     @include margin-padding-reset;
-    background-color: $color-white; 
-    height: 100vh;   
-    font-family: $font-family-main;    
+    background-color: $color-white;
+    height: 100vh;
+    font-family: $font-family-main;
     color: $color-blue-dark;
     text-align: left;
 }
@@ -30,33 +39,22 @@ input {
     @include standard-form-part;
 
     padding-left: 0.5em;
-    padding-top: 1.2em;          
-    caret-color: $color-red-dark;   
+    padding-top: 1.2em;
+    caret-color: $color-red-dark;
     background-color: $color-blue-light;
 }
 
 label {
-    @include margin-padding-reset;    
-    font-family: $font-family-main;  
+    @include margin-padding-reset;
+    font-family: $font-family-main;
 }
 
-.card {   
-    @include drop-shadow-pop; 
-    background-color: $color-grey-light;
+.card {
+    @include drop-shadow-pop;
+    background-color: rgba($color-grey-light, 0.9);
     padding: 2em;
 
-    display: flex; 
-    flex-direction: column;            
-}
-
-@media screen and (max-width: 768px) {
-
-    .card {   
-        @include drop-shadow-pop; 
-        background-color: $color-grey-light;  
-        padding: 2em;
-    
-        display: flex; 
-        flex-direction: column;            
-    }  
+    &:hover {
+        background-color: rgba($color-grey-light, 1);        
+    }
 }
