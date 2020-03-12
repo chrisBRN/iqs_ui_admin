@@ -1,10 +1,7 @@
-@import '../../styling/constants.scss';
 @import '../../styling/global-styling.scss';
 
 
-.sidebar {
-
-    @include cheap-nav-triangle(9.5em);
+.sidebar {    
 
     position: relative;
     box-sizing: border-box;
@@ -15,7 +12,7 @@
     background-color: rgba($color-grey-light, 0.1);
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 
     .brand-name {
         font-family: $font-size-statement;
@@ -39,8 +36,9 @@
         margin: 0;
         padding: 0;     
     }  
-
+    
     li, .log-out-button, .settings-button{
+       
         box-sizing: border-box;        
         width: 100%;
         border: solid;
@@ -54,5 +52,18 @@
             border-right-width: 1rem;    
             font-weight: bold;            
         }
+
+       
     }  
+
+    .copyright-notice-container {
+        position: absolute;
+
+        @include vert-centered-text($font-size-small);
+        @include opacity-pop();
+        text-align: center;
+
+        margin: 1em;
+        bottom: 1em;
+    }
 }

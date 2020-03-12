@@ -1,0 +1,20 @@
+@import '../../../shared/styling/global-styling.scss';
+
+.campaign-management-page {
+
+    .page-wrapper {
+
+        @include standard-wrapper-dims;
+        @include standard-flex(row, left);     
+    
+        .standard-background {
+            @include standard-background(75%);
+        }
+
+        @include cheap-nav-triangle(29.5em);
+    } 
+    
+    .main-section {  
+       @include standard-admin-main-section();
+    }
+}  

@@ -36,7 +36,7 @@ export default function LoginForm() {
 
     if (response?.status_code === 200) {
         return (
-            <Redirect to="/dashboard" />
+            <Redirect to="/admin/dashboard" />
         )
     }
 

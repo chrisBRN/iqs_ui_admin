@@ -1,8 +1,12 @@
 import React from 'react';
 import CopyrightNotice from '../../../pages/login/parts/CopyrightNotice';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-export default function Dashboard() {
+export default function SideBar() {    
+
+    const selectedStyle: any = {
+        fontWeight: "bold"        
+    };  
 
     return (
         <div className="sidebar">
@@ -10,23 +14,23 @@ export default function Dashboard() {
             <div className="nav-triangle"></div>
 
             <h1>
-                <Link className="brand-name" to="/dashboard">CoderKai</Link>
+                <Link className="brand-name" to="/">CoderKai</Link>
             </h1>
 
             <hr></hr>
 
             <ul>
-                <li className="card">Dashboard</li>
-                <li className="card">Users</li>
-                <li className="card">Candidates</li>
-                <li className="card">Submissions</li>
-                <li className="card">Campaigns</li>
+                <NavLink to="/admin/dashboard" activeStyle={selectedStyle}><li className="card">Dashboard</li></NavLink>
+                <NavLink to="/admin/user-management" activeStyle={selectedStyle}><li className="card">User</li></NavLink>
+                <NavLink to="/admin/candidate-management" activeStyle={selectedStyle}><li className="card">Candidate</li></NavLink>
+                <NavLink to="/admin/submissions-management" activeStyle={selectedStyle}><li className="card">Submissions</li></NavLink>
+                <NavLink to="/admin/campaign-management" activeStyle={selectedStyle}><li className="card">Campaigns</li></NavLink>
             </ul>
 
             <hr></hr>
 
-            <Link className="card settings-button" to="/login">Settings</Link>
-            <Link className="card log-out-button" to="/login">Log Out</Link>
+            <NavLink activeStyle={selectedStyle} className="card settings-button" to="/admin/settings">Settings</NavLink>
+            <Link className="card log-out-button" to="/">Log Out</Link>
 
             <div className="footer">
                 <CopyrightNotice />

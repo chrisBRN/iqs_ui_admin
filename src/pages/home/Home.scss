@@ -1,0 +1,84 @@
+@import '../../shared/styling/global-styling.scss';
+
+.home-page {
+
+    .page-wrapper {
+
+        @include standard-wrapper-dims;
+        @include standard-flex(column, left);
+
+        .standard-background {
+            @include standard-background(45%);
+        }
+    }
+
+    .main-section {
+
+        @include standard-flex(column, left); 
+        align-items: baseline;       
+      
+        width: 100vw;
+
+        text-align: left;      
+        box-sizing: border-box;      
+
+        h1 {           
+            @include vert-centered-text($font-size-statement);
+            padding: 3rem;     
+            text-align: left;                    
+            width: auto;            
+        }
+
+        .main-headline {    
+            margin-top:  0.5em;  
+            margin-bottom: 0.5em;       
+            margin-left: 240px;                   
+        }
+
+        .quote {
+            box-sizing: border-box;   
+            align-self: flex-end;            
+            line-height: 1.25em;    
+            margin: 0px;   
+            width: 45%;
+            margin-top: -6rem;           
+        }
+
+        .attribution {
+            position: absolute;
+            top: 44em;  
+            left: 85em;
+            width: auto;            
+        }
+
+        .placeholder-left {
+            box-sizing: border-box;   
+            margin-left: 480px;
+            margin-top: -4rem;
+            width: 40%;
+            padding: 2em;
+            line-height: 1.5em;
+
+            background-color: rgba($color-grey-light, 0.3);
+            border: solid;
+            border-width: 1px;
+            border-color: rgba($color-grey-light, 0.1);           
+        }
+
+        .placeholder-right {
+          
+            box-sizing: border-box;   
+            margin-left: 240px;
+            margin-top: 1rem;
+            width: 40%;
+            padding: 2em;
+            line-height: 1.5em;
+
+            background-color: rgba($color-grey-light, 0.3);
+            border: solid;
+            border-width: 1px;
+            border-color: rgba($color-grey-light, 0.1);           
+        }
+
+    }
+}
