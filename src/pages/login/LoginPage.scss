@@ -1,47 +1,13 @@
-@import '../../shared/styling/constants.scss';
+// @import '../../shared/styling/constants.scss';
 @import '../../shared/styling/global-styling.scss';
 
-
-@media screen and (min-width: 768px) {    
-
-    .login-background {
-
-        height: 100vh;
-        width: 100vw;
-        position: absolute;
-        z-index: -1;
-
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;  
-
-        background-image: linear-gradient(45deg, rgba($color-red-light, 1) 25%, rgba($color-blue-dark, 0.5) 50%),
-            url(../../shared/styling/texture-min.jpg);    
-        background-blend-mode: multiply;        
-
-        filter: sepia(50%) opacity(100%);   
-
+.page-wrapper-login {          
+    @include standard-wrapper-dims;
+    @include standard-flex(column, center);  
+   
+    .standard-background {
+        @include standard-background(45%);
     }
-
-    .login-page-wrapper {          
-
-        height: 100vh;
-        width: 100vw;
-
-        margin: 0em;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;          
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    body {
-        background-color: $color-grey-light;
-    }    
 }
 
 .content {

@@ -1,5 +1,5 @@
 import React from "react";
-import ExternalLink from "../../shared/helpers/ExternalLink";
+import ExternalLink from "../../../shared/helpers/ExternalLink";
 
 export default function CopyrightNotice() {
 

@@ -11,7 +11,6 @@ import Dashboard from '../pages/dashboard/Dashboard';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/LoginPage';
 
-
 export default function App() {
 
     const supportsHistory = 'pushState' in window.history;
@@ -29,7 +28,7 @@ export default function App() {
                         <Login />
                     </Route>
 
-                    <Route path="/dashboard">
+                    <Route path="/dashboard">                        
                         <Dashboard />
                     </Route>
 

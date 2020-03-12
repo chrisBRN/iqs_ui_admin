@@ -4,6 +4,8 @@
 $font-family-statement: 'Josefin Sans', sans-serif;
 $font-family-main: 'Josefin Sans', sans-serif;
 
+//'Merienda', cursive;
+
 $font-size-small: 8px;
 $font-size-label: 12px;
 $font-size-main: 16px;
@@ -29,6 +31,37 @@ $color-box-shadow: rgba(28, 48, 74, 0.2);
 //Sizes
 $input-field-width: 15em;
 $input-field-height: 3em;
+
+@mixin standard-wrapper-dims(){
+    height: 100vh;
+    width: 100vw;
+    margin: 0em;
+    padding: 0em;
+}
+
+@mixin standard-flex($direction, $alignment){  
+    display: flex;
+    flex-direction: $direction;
+    align-items: $alignment;
+    justify-content: $alignment; 
+}
+
+@mixin standard-background($opacity){
+
+    @include standard-wrapper-dims;
+
+    position: absolute;
+    z-index: -10;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+
+    background-color: $color-blue-light;
+    background-image: url(../../shared/styling/texture-min.jpg);
+    background-blend-mode: color-burn;
+    filter: opacity($opacity);     
+}
 
 @mixin margin-padding-reset(){
     margin: 0px;
@@ -164,5 +197,21 @@ $input-field-height: 3em;
         
     &:hover {                      
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);  
+    }    
+}
+
+@mixin cheap-nav-triangle($vertical-position){
+    
+    .nav-triangle{
+        width: 0;
+        height: 0;
+    
+        border-style: solid;
+        border-width: 20px 10px 20px 0;
+        border-color: transparent rgba($color-grey-light, 0.8) transparent transparent;
+        
+        position: absolute;
+        right: 0;
+        top: $vertical-position;
     }    
 }

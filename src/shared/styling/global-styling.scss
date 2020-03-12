@@ -51,6 +51,7 @@ label {
 
 .card {
     @include drop-shadow-pop;
+    box-sizing: border-box;    
     background-color: rgba($color-grey-light, 0.9);
     padding: 2em;
 

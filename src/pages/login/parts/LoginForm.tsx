@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { postJSON } from '../../shared/helpers/fetchJSON';
+import { postJSON } from '../../../shared/helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
 import LoginButton from './LoginButton';
 

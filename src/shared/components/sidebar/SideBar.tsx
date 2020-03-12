@@ -1,38 +1,38 @@
 import React from 'react';
-import CopyrightNotice from '../../../pages/login/CopyrightNotice';
+import CopyrightNotice from '../../../pages/login/parts/CopyrightNotice';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
 
-    return (  
+    return (
         <div className="sidebar">
 
-            <div className="triangle"></div>
-           
-           <h1><Link className="brand-name" to="/dashboard">CoderKai</Link></h1>           
+            <div className="nav-triangle"></div>
 
-           <hr></hr>  
+            <h1>
+                <Link className="brand-name" to="/dashboard">CoderKai</Link>
+            </h1>
 
-            <ul>      
+            <hr></hr>
+
+            <ul>
                 <li className="card">Dashboard</li>
-                <li className="card">Users</li>   
-                <li className="card">Candidates</li>  
-                <li className="card">Submissions</li> 
-                <li className="card">Campaigns</li> 
-                 
-            </ul>   
+                <li className="card">Users</li>
+                <li className="card">Candidates</li>
+                <li className="card">Submissions</li>
+                <li className="card">Campaigns</li>
+            </ul>
 
-            <hr></hr>           
+            <hr></hr>
 
-            
-
+            <Link className="card settings-button" to="/login">Settings</Link>
             <Link className="card log-out-button" to="/login">Log Out</Link>
 
-            <div className="footer">  
+            <div className="footer">
                 <CopyrightNotice />
             </div>
 
         </div>
-        
+
     )
 }
