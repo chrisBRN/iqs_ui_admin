@@ -1,66 +1,113 @@
 @import '../../shared/styling/global-styling.scss';
 
 .home-page {
+    background: $color-bg; 
+    @include standard-wrapper-dims;     
 
-    background: $color-bg;    
-    // background: linear-gradient(102deg, $color-green 60%, $color-bg 60%);
-
-    .page-wrapper {
-
-        @include standard-wrapper-dims;
-        @include standard-flex(column, left);
-
-        .standard-background {
-            @include standard-background(45%);
-        }
-    }
-
-    .diagonal-container {
-        position: absolute;
-        left:-100px;
-        overflow: hidden;
-        background-color: $color-green;
-        width: 60%; 
-        transform: skew(10deg);
-    }
-
-    .left-section {   
-        transform: skew(-10deg);  
-        
-        width: 40%;   
-        height: 100vh; 
-        
-
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;   
-
-        .headline-section {           
-            margin: 0 auto;
-            padding: 12em;
-            position: relative;
-
-            h1 {           
-                @include vert-centered-text(12rem);                
-                font-family: $font-family-statement;
-                color: $color-bg;  
-                text-align: left;                
-                
-                em {
-                    color: $color-red;
-                }
-            }
+    .content-wrapper {
+        @include standard-wrapper-dims;    
+        @include standard-flex(row, flex-start);
     
-            h2 {
-                @include vert-centered-text(2rem);
-                font-family: $font-family-main;
-                color: $color-bg;
-                font-weight: bold;
-                text-align: right; 
-            }
-            
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .pop-in-section {
+        position: relative;
+
+        @include standard-flex(column, center);
+        
+        margin: auto;
+        z-index: 0;
+        
+        width: 480px;
+        height: 600px;              
+
+        @include drop-shadow-pop;
+        @include border-standard;
+        box-sizing: border-box;    
+        background-color: rgba($color-box-bg, 0.8);        
+    
+        &:hover {
+            background-color: rgba($color-box-bg, 1);    
+        }
+    }
+
+    .login-form {     
+        margin-top: 1em;  
+    
+        .username-input, .password-input {                
+            @include standard-input-label-treatment;
+            @include input-validity-messages;           
+            margin-top: 1em;                                
+        }     
+
+        button {
+            @include margin-padding-reset;
+            @include border-standard;           
+            @include standard-font;
+            outline: 0;   
+            width: $input-field-width;
+            height: $input-field-height;
+            margin-top: 1em;                
+        }            
+
+        &:invalid  {
+            button {
+                opacity: 0.4;
+                border-bottom-width: 1px;  
+            }               
         }
 
+        &:valid {            
+            button {
+                border-bottom-width: 1px;  
+                opacity: 1;  
+                border-color: $color-green;
+                background-color: $color-green;   
+                color: $color-bg;
+            }
+            button:hover {
+                border-bottom-width: 1px;  
+                cursor: pointer;  
+            }                
+        }      
+        
+        .database-message {
+            @include vert-centered-text($font-size-label);
+            margin-top: 1em;
+            color: $color-red;
+            text-align: center;             
+        }       
+    }  
 
+    .links {
+
+        .additional-link {
+            
+            width: 80%;
+            margin: auto;
+            margin-top: 1em;
+            text-align: center;
+
+            .mid-print {
+                @include vert-centered-text($font-size-main);
+                @include opacity-pop();
+            }
+
+            &.privacy-statement {
+                width: 80%;
+                margin: auto;
+                margin-top: 0.5em;                
+
+                .small-print {
+                    @include vert-centered-text($font-size-small);
+                    @include opacity-pop();
+                    width: 80%;
+                    display: inline-block;
+                }
+            }           
+        }
     }
 }

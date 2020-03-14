@@ -52,7 +52,7 @@ $input-field-height: 3.5em;
     display: flex;
     flex-direction: $direction;
     align-items: $alignment;
-    justify-content: $alignment; 
+    justify-content: $alignment;  
 }
 
 @mixin standard-background($opacity){
@@ -85,12 +85,15 @@ $input-field-height: 3.5em;
 
 @mixin input-border-pop(){
     
+    transition: border-bottom-width 0.3s ease-in-out;
+
     &:hover {        
         border-bottom-width: 4px;
+        border-color: $color-blue;
     }
 
     &:focus-within {
-        border-bottom-width: 4px;
+        border-bottom-width: 8px;
         border-color: $color-blue;
     }
 }

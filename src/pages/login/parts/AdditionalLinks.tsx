@@ -12,9 +12,9 @@ export default function AdditionalLinks() {
                 <Link className="mid-print forgot-password" to="/todo">Forgot password?</Link>
             </div>
 
-            <div className="additional-link">
+            {/* <div className="additional-link">
                 <Link className="mid-print candidate-login" to="/todo">Candidate? Login Here</Link>
-            </div>
+            </div> */}
         </div>
     )
 }
