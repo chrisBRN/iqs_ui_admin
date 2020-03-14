@@ -14,7 +14,7 @@ html {
 
 body {
     @include margin-padding-reset;
-    background-color: $color-white;
+    background-color: $color-bg;
     height: 100vh;
     font-family: $font-family-main;
     color: $color-blue-dark;
@@ -36,9 +36,10 @@ a {
 
 input {
     @include standard-form-part;
+    box-sizing: border-box;
 
     padding-left: 0.5em;
-    padding-top: 1.2em;
+    padding-top: 1em;
     caret-color: $color-red-dark;
     background-color: $color-blue-light;
 }
@@ -50,15 +51,12 @@ label {
 
 .card {
     @include drop-shadow-pop;
+    @include border-standard;
     box-sizing: border-box;    
-    background-color: rgba($color-grey-light, 0.9);
+    background-color: rgba($color-box-bg, 0.8);
     padding: 2em;
 
     &:hover {
-        background-color: rgba($color-grey-light, 1);        
+        background-color: rgba($color-box-bg, 1);    
     }
-}
-
-active-sidebar-nav {
-    background-color: rgba(red, 0.9);
 }

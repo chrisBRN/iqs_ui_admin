@@ -5,12 +5,8 @@ import { Link } from 'react-router-dom';
 export default function PublicNav() {
 
     return (
-        <div className="nav-bar">            
-
-            <h1>
-                <Link className="brand-name" to="/">CoderKai</Link>
-            </h1>
-            
+        <div className="nav-bar">         
+   
             <div className="spacer"></div>
 
             <ul>

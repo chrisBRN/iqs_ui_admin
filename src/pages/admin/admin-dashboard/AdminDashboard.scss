@@ -19,6 +19,8 @@
         
     
         .placeholder {
+
+            @include bounce;
     
             position: relative;
     
@@ -32,8 +34,7 @@
                 padding: 0;
                 margin: 0;             
                 border-style: solid; 
-                border-radius: px;  
-                border-color: rgba($color-blue-mid, 0.25);   
+                border-radius: 4px;  
                 border-width: 1px;
             }
     
@@ -52,6 +53,7 @@
     
         .placeholder-2 {
     
+            @include bounce;
             position: relative;
     
             margin: 20px;            
@@ -64,9 +66,8 @@
                 padding: 0;
                 margin: 0;             
                 border-style: solid; 
-                border-radius: px;  
-                border-color: rgba($color-blue-mid, 0.25);   
-                border-width: 1px;
+                border-radius: 4px;  
+                border-width: 0px;
             }
     
             .placeholder-summary {

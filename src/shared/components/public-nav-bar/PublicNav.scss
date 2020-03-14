@@ -2,38 +2,17 @@
 
 .nav-bar {    
    
-    background-color: rgba($color-blue-mid, 0.2);   
     width: 100vw;
     height: 8em;  
+    position: absolute;
 
     border: solid;
-    border-width: 0;
-    border-bottom-width: 4px;
-    border-color: rgba($color-blue-mid, 0.4);         
+    border-width: 0;            
 
     @include standard-flex(row, center);
 
-    .brand-name {
-        box-sizing: border-box;   
-        font-family: $font-size-statement;  
-        padding: 2rem;
-        
-        text-shadow: 1px 1px $color-grey-dark;
-
-        border: solid;
-        border-width: 0px;     
-        border-color: rgba($color-blue-mid, 0.5);          
-        transition: border-bottom-width 0.2s, border-color 0.2s ease-in-out; 
-
-        &:hover {            
-            cursor: pointer;   
-            border-bottom-width: 4px;    
-            border-color: $color-white;                 
-        }
-    }   
-
     .spacer {
-        width: 55%;
+        width: 75%;
     }
 
     ul {      
@@ -51,19 +30,13 @@
         padding-bottom: 2.5em;
         border: solid;
         border-width: 0px;     
-        border-color: rgba($color-blue-mid, 0.5);           
-
         font-weight: 400;
 
         text-transform: uppercase;       
 
-        transition: color 0.3s,  border-bottom-width 0.2s, border-color 0.4s ease-in-out; 
-
         &:hover {            
             cursor: pointer;       
-            font-weight: bold;                             
-            border-bottom-width: 4px;
-            border-color: $color-white;              
+            font-weight: bold;                                    
         }
     }     
 }

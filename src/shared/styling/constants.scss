@@ -1,10 +1,8 @@
 // Font 
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli|Neuton:800&display=swap');
 
-$font-family-statement: 'Josefin Sans', sans-serif;
-$font-family-main: 'Josefin Sans', sans-serif;
-
-//'Merienda', cursive;
+$font-family-statement: 'Neuton', serif;
+$font-family-main: 'Muli', sans-serif;
 
 $font-size-small: 8px;
 $font-size-label: 12px;
@@ -13,12 +11,24 @@ $font-size-headline: 32px;
 $font-size-statement: 64px;
 
 // Colours
-$color-white: #fffafa;
-$color-black: #0C0101;
+$color-bg: #f6f8fa;
+$color-text: #090705;
+$color-box-bg: #ffffff;
+$color-box-border: #e1e1e5;
+
+$color-box-hover: #ffffff; //TODO 
+$color-box-highlighted: #ffffff; //TODO
+
+$color-blue: #00B0FF;
+$color-green: #00BFA6;
+$color-red: #F50057;
+
+
+
 
 // Palette
-$color-blue-light: rgba(232, 240, 254, 0.5);
-$color-blue-mid: #046B99;
+$color-blue-light: rgba(232, 240, 254, 0.5); //google auto fill
+
 $color-blue-dark: #1C304A;
 $color-red-light: #FF3B3F;
 $color-red-dark: #e66365;
@@ -29,14 +39,13 @@ $color-grey-light: #f0efef;
 $color-box-shadow: rgba(28, 48, 74, 0.2);
 
 //Sizes
-$input-field-width: 15em;
-$input-field-height: 3em;
+$input-field-width: 18em;
+$input-field-height: 3.5em;
 
 @mixin standard-wrapper-dims(){
+    @include margin-padding-reset();
     height: 100vh;
-    width: 100vw;
-    margin: 0em;
-    padding: 0em;
+    width: 100vw;    
 }
 
 @mixin standard-flex($direction, $alignment){  
@@ -48,19 +57,6 @@ $input-field-height: 3em;
 
 @mixin standard-background($opacity){
 
-    @include standard-wrapper-dims;
-
-    position: absolute;
-    z-index: -10;
-
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;  
-
-    background-color: $color-blue-light;
-    background-image: url(../../shared/styling/texture-min.jpg);
-    background-blend-mode: color-burn;
-    filter: opacity($opacity);     
 }
 
 @mixin standard-admin-main-section(){
@@ -82,19 +78,28 @@ $input-field-height: 3em;
 }
 
 @mixin border-standard() {
-    border-width: 1px;
-    border-style: solid;  
+    border: 1px solid $color-box-border;
     border-radius: 4px;
-    border-color: $color-blue-dark;
-    box-sizing: border-box;
+    border-color: $color-box-border;
+}
 
+@mixin input-border-pop(){
+    
     &:hover {        
-        border-bottom-width: 2px;
+        border-bottom-width: 4px;
     }
 
     &:focus-within {
-        border-bottom-width: 2px;
-        border-color: $color-blue-mid;
+        border-bottom-width: 4px;
+        border-color: $color-blue;
+    }
+}
+
+@mixin bounce(){
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translate(0px, -4px);    
     }
 }
 
@@ -107,6 +112,7 @@ $input-field-height: 3em;
 @mixin standard-form-part(){
     @include margin-padding-reset;
     @include border-standard;
+    @include input-border-pop;
     @include standard-font;
     outline: 0;   
     width: $input-field-width;
@@ -121,11 +127,11 @@ $input-field-height: 3em;
         }         
 
         &:valid~label {
-            color: green;
+            color: $color-green;
         }
 
         &:not(:placeholder-shown):invalid~label {
-            color: red;
+            color: $color-red;
         }
     }
 
@@ -158,11 +164,11 @@ $input-field-height: 3em;
 
     input:not(:placeholder-shown):valid {          
         
-        border-color: green;
+        border-color: $color-green;
         border-width: 2px;
 
         &~.valid-message {
-            color: green;
+            color: $color-green;
             opacity: 1;
             z-index: 1;
         }                
@@ -170,11 +176,11 @@ $input-field-height: 3em;
 
     input:not(:placeholder-shown):invalid {   
         
-        border-color: red;
+        border-color: $color-red;
         border-width: 2px;
 
         &~.invalid-message {
-            color: red;
+            color: $color-red;
             opacity: 1;
             z-index: 1;
         }  
@@ -182,12 +188,12 @@ $input-field-height: 3em;
 } 
 
 @mixin standard-button(){     
+    box-sizing: border-box;
     @include margin-padding-reset();
     @include border-standard();
     @include standard-font();
     
-    font-weight: bold;    
-    
+    font-weight: bold;       
 }
 
 @mixin vert-centered-text($size) {
@@ -205,11 +211,11 @@ $input-field-height: 3em;
 }
 
 @mixin drop-shadow-pop(){
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.05);
     transition: box-shadow 0.1s;   
         
     &:hover {                      
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);  
+        box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.1);  
     }    
 }
 

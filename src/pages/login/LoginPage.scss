@@ -2,6 +2,8 @@
 
 .login-page {
 
+    background: linear-gradient(90deg, rgba($color-blue,0.1) 0%, rgba($color-green,0.2) 100%);
+
     .page-wrapper {          
         @include standard-wrapper-dims;
         @include standard-flex(column, center);  
@@ -23,18 +25,27 @@
             margin: 2em;
             padding: 4em 2em;        
         }    
+
+        h1 {
+            text-align: left;
+            font-family: $font-family-statement;
+            @include vert-centered-text($font-size-statement);            
+            padding: 0 0.5em 0.5em 0.5em;
+        }
     
         section {
             margin-top: 1em;
-    
+         
             .brand-name {
                 font-family: $font-family-statement;
                 @include vert-centered-text($font-size-statement);            
                 padding: 0 0.5em 0.5em 0.5em;
-                text-shadow: 2px 2px $color-grey-dark;
+                // text-shadow: 2px 2px $color-grey-dark;
             }
     
             .login-form {    
+
+                
     
                 .username-input, .password-input {                
                     @include standard-input-label-treatment;
@@ -58,12 +69,14 @@
     
                 &:valid {            
                     button {
+                        border-bottom-width: 1px;  
                         opacity: 1;  
                         border-color: green;
                         background-color: green;   
-                        color: $color-white;
+                        color: $color-bg;
                     }
                     button:hover {
+                        border-bottom-width: 1px;  
                         cursor: pointer;  
                     }                
                 }      
@@ -106,7 +119,7 @@
                         @include vert-centered-text($font-size-main);
                         @include opacity-pop();
                         font-weight: 900;
-                        color: $color-blue-mid;
+                        color: $color-blue;
                     }
                 }
             }
