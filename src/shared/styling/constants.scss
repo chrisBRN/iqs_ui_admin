@@ -83,20 +83,7 @@ $input-field-height: 3.5em;
     border-color: $color-box-border;
 }
 
-@mixin input-border-pop(){
-    
-    transition: border-bottom-width 0.3s ease-in-out;
 
-    &:hover {        
-        border-bottom-width: 4px;
-        border-color: $color-blue;
-    }
-
-    &:focus-within {
-        border-bottom-width: 8px;
-        border-color: $color-blue;
-    }
-}
 
 @mixin bounce(){
     transition: transform 0.2s ease;
@@ -110,42 +97,6 @@ $input-field-height: 3.5em;
     font-size: $font-size-main; 
     font-family: $font-family-main;
     color: $color-blue-dark;
-}
-
-@mixin standard-form-part(){
-    @include margin-padding-reset;
-    @include border-standard;
-    @include input-border-pop;
-    @include standard-font;
-    outline: 0;   
-    width: $input-field-width;
-    height: $input-field-height;
-}
-
-@mixin standard-input-label-treatment(){
-    input {           
-        
-        &::placeholder {
-            opacity: 0;       
-        }         
-
-        &:valid~label {
-            color: $color-green;
-        }
-
-        &:not(:placeholder-shown):invalid~label {
-            color: $color-red;
-        }
-    }
-
-    position: relative; 
-
-    label {
-        position: absolute;               
-        font-size: $font-size-label;         
-        top: 0.5em;       
-        left: 0.75em;
-    }     
 }
 
 @mixin input-validity-messages(){

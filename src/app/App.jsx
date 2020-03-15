@@ -8,7 +8,7 @@ import {
 import { AnimatedSwitch } from 'react-router-transition';
 
 import Home from '../pages/home/Home';
-import Login from '../pages/login/LoginPage';
+
 import AdminDashboard from '../pages/admin/admin-dashboard/AdminDashboard';
 import UserManagementPage from '../pages/admin/user-management/UserManagementPage';
 import CandidateManagementPage from '../pages/admin/candidate-management/CandidateManagementPage';
@@ -29,10 +29,6 @@ export default function App() {
                     atActive={{ opacity: 1 }}
                     className="switch-wrapper"
                 >
-                    <Route path={["/login"]}>
-                        <Login />
-                    </Route>
-
                     <Route path="/admin/dashboard">                        
                         <AdminDashboard />
                     </Route>

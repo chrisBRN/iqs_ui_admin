@@ -28,39 +28,12 @@ h1 {
     text-align: center;
 }
 
-ul, ol {
-    list-style-type: none;
+h2 {
+    text-align: center;
 }
 
 a {
     @include margin-padding-reset;
     text-decoration: none;
     color: $color-blue-dark;
-}
-
-input {
-    @include standard-form-part;
-    box-sizing: border-box;
-
-    padding-left: 0.5em;
-    padding-top: 1em;
-    caret-color: $color-red;
-    background-color: $color-blue-light;
-}
-
-label {
-    @include margin-padding-reset;
-    font-family: $font-family-main;
-}
-
-.card {
-    @include drop-shadow-pop;
-    @include border-standard;
-    box-sizing: border-box;    
-    background-color: rgba($color-box-bg, 0.8);
-    padding: 2em;
-
-    &:hover {
-        background-color: rgba($color-box-bg, 1);    
-    }
 }

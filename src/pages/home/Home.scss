@@ -6,81 +6,65 @@
 
     .content-wrapper {
         @include standard-wrapper-dims;    
-        @include standard-flex(row, flex-start);
-    
-        flex-wrap: wrap;
-        align-content: center;
-        justify-content: center;
+        @include standard-flex(row, center);
+     }
+
+    .nav-bar {
+        position: absolute;
+        top: 2em;
+        right: 4em;
+    }
+
+    .big-brand-typography {
+        position: relative;   
+        margin: auto;        
     }
 
     .pop-in-section {
-        position: relative;
-
-        @include standard-flex(column, center);
-        
+        @include standard-flex(column, center);       
+        position: relative;               
         margin: auto;
-        z-index: 0;
-        
+      
         width: 480px;
-        height: 600px;              
-
-        @include drop-shadow-pop;
-        @include border-standard;
-        box-sizing: border-box;    
-        background-color: rgba($color-box-bg, 0.8);        
-    
-        &:hover {
-            background-color: rgba($color-box-bg, 1);    
-        }
+        height: 600px;   
     }
 
-    .login-form {     
-        margin-top: 1em;  
-    
-        .username-input, .password-input {                
-            @include standard-input-label-treatment;
-            @include input-validity-messages;           
-            margin-top: 1em;                                
-        }     
+    // .login-form {     
+   
+    //     margin-top: 1em;  
+    //     @include standard-flex(column, center);          
 
-        button {
-            @include margin-padding-reset;
-            @include border-standard;           
-            @include standard-font;
-            outline: 0;   
-            width: $input-field-width;
-            height: $input-field-height;
-            margin-top: 1em;                
-        }            
+    //     .username-input, .password-input {                
+    //         @include standard-input-label-treatment;
+    //         @include input-validity-messages;     
+    //         margin-top: 1em;      
+    //     }                   
 
-        &:invalid  {
-            button {
-                opacity: 0.4;
-                border-bottom-width: 1px;  
-            }               
-        }
+    //     &:invalid > button  {            
+    //         opacity: 0.4;
+    //         border-bottom-width: 1px;  
+    //     }
 
-        &:valid {            
-            button {
-                border-bottom-width: 1px;  
-                opacity: 1;  
-                border-color: $color-green;
-                background-color: $color-green;   
-                color: $color-bg;
-            }
-            button:hover {
-                border-bottom-width: 1px;  
-                cursor: pointer;  
-            }                
-        }      
+    //     &:valid > button  {  
+    //         border-bottom-width: 1px;  
+    //         opacity: 1;  
+    //         border-color: $color-green;
+    //         background-color: $color-green;   
+    //         color: $color-bg;
+            
+    //         &:hover {
+    //             border-bottom-width: 1px;  
+    //             cursor: pointer;  
+    //         }                
+    //     }      
         
-        .database-message {
-            @include vert-centered-text($font-size-label);
-            margin-top: 1em;
-            color: $color-red;
-            text-align: center;             
-        }       
-    }  
+    //     .database-message {
+    //         @include vert-centered-text($font-size-label);
+    //         margin-top: 1em;
+    //         color: $color-red;
+    //         text-align: center;             
+    //     }       
+    // }  
 
     .links {
 

@@ -1,26 +1,27 @@
 import React from "react";
 import styled from 'styled-components';
 
-export default function LandingPageSplahHeadline() {
+export default function BigBrandTypography() {
 
-    const ContainerStyle = styled.div`                 
+    const StyledContainer = styled.div`                 
         position: relative;     
-        margin: auto;    
-        padding-top: -2em;
+        margin: auto;          
+        display: inline-block;
+        padding: 2em;  
     `;
 
-    const H1Style = styled.h1`                      
+    const StyledH1 = styled.h1`                      
         font-family: 'Neuton', serif;      
         height: 12rem;
         font-size: 12rem;                
         color: #f6f8fa;                        
     `;
 
-    const EmStyle = styled.em`                      
+    const StyledEm = styled.em`                      
         color: #F50057;           
     `;
 
-    const H2Style = styled.h2`                      
+    const StyledH2 = styled.h2`                      
         font-family: 'Muli', sans-serif;     
         height: 2rem;
         font-size: 2rem;               
@@ -31,12 +32,12 @@ export default function LandingPageSplahHeadline() {
     `;
 
     return (
-        <ContainerStyle className="LandingPageSplashHeadline">            
-                <H1Style className="headline">Coder<EmStyle>Kai</EmStyle></H1Style>
-                <H2Style className="sub-headline">Get Your Ninja On
+        <StyledContainer className="big-brand-typography">            
+                <StyledH1>Coder<StyledEm>Kai</StyledEm></StyledH1>
+                <StyledH2>Get Your Ninja On
                     <span role="img" aria-label="Martial Artist Emoji">🥋</span>
                     <span role="img" aria-label="Laptop Emoji">💻</span>                    
-                </H2Style>            
-        </ContainerStyle>
+                </StyledH2>            
+        </StyledContainer>
     )
 }
