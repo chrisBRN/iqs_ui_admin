@@ -12,80 +12,75 @@ interface LoginResponse {
     token?: string    
 }
 
+const StyledInput = styled.input`
+
+    box-sizing: border-box;
+    
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    width: 18em;
+    height: 4em; 
+    margin: 1em 0em 0em 0em;
+    padding: 2em 0.5em 0.5em 0.5em;
+    
+    border: 1px solid #e1e1e5;
+    border-radius: 4px; 
+    outline: 0;          
+
+    caret-color: #F50057;   
+    
+    background-color: rgba(232, 240, 254, 0.5);
+    transition: border-bottom-width 0.2s ease-in-out;
+
+    &::placeholder {
+        opacity: 0;       
+    }         
+
+    &:hover {        
+        border-bottom-width: 4px;
+        border-color: #00B0FF;
+    }
+
+    &:focus-within {
+        border-bottom-width: 8px;
+        border-color: #00B0FF;
+    }
+
+    &:valid {
+        border-color: #00BFA6;
+
+        &:label {
+            color: #00BFA6;
+        }
+    }
+
+    &:not(:placeholder-shown):invalid {
+        border-color: #F50057;
+
+        &:label {
+            color: #F50057;
+        }      
+    }             
+`;
+
+const StyledLabel = styled.label`
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;    
+    margin: 0em;
+    padding: 0em;
+    position: absolute;  
+    top: 2em;       
+    left: 0.75em; 
+`;
+
 const StyledForm = styled.form`
     display: flex;
     flex-direction: column;    
     align-items: center;
     justify-content: center;
 
-    .username-input, .password-input {
-
-        position: relative;
-
-        label {
-            font-family: 'Muli', sans-serif;
-            margin: 0em;
-            padding: 0em;
-                
-            position: absolute;               
-            font-size: 12px;         
-            top: 2em;       
-            left: 0.75em; 
-        } 
-
-        input {
-            font-family: 'Muli', sans-serif;
-            font-size: 16px;
-
-            box-sizing: border-box;
-            
-            width: 18em;
-            height: 4em; 
-
-            margin: 1em 0em 0em 0em;
-            padding: 2em 0.5em 0.5em 0.5em;
-         
-            outline: 0;     
-        
-            border: 1px solid #e1e1e5;
-            border-radius: 4px;  
-    
-            caret-color: #F50057;
-    
-            background-color: rgba(232, 240, 254, 0.5);
-            
-            transition: border-bottom-width 0.2s ease-in-out;
-    
-            &::placeholder {
-                opacity: 0;       
-            }         
-    
-            &:hover {        
-                border-bottom-width: 4px;
-                border-color: #00B0FF;
-            }
-    
-            &:focus-within {
-                border-bottom-width: 8px;
-                border-color: #00B0FF;
-            }
-
-            &:valid {
-                border-color: #00BFA6;
-            }
-
-            &:not(:placeholder-shown):invalid {
-                border-color: #F50057;
-            }            
-
-            &:valid~label {
-                color: #00BFA6;
-            }
-    
-            &:not(:placeholder-shown):invalid~label {
-                color: #F50057;
-            }   
-        }
+    .container {
+        position: relative; 
     }
 `;
 
@@ -126,8 +121,8 @@ export default function LoginForm() {
             <h2>Welcome to CoderKai</h2>   
             <StyledForm className="login-form2" method="post" onSubmit={handleLogin}>
 
-                <div className="username-input">
-                    <input onChange={event => setUsername(event.target.value)}
+                <div className="container">
+                    <StyledInput onChange={event => setUsername(event.target.value)}
                         required
                         autoComplete="username"
                         minLength={5}
@@ -135,14 +130,14 @@ export default function LoginForm() {
                         pattern="[A-Za-z0-9_]+"
                         type="text"
                         placeholder="username">
-                    </input>
-                    <label>Username</label>
-                    {/* <div className="valid-message">&#10004;</div>
-                    <div className="invalid-message">&#10006;</div> */}
+                    </StyledInput>
+                    <StyledLabel>Username</StyledLabel>
+                    <div className="valid-message">&#10004;</div>
+                    <div className="invalid-message">&#10006;</div>
                 </div>
 
-                <div className="password-input">
-                    <input onChange={event => setPassword(event.target.value)}
+                <div className="container">
+                    <StyledInput onChange={event => setPassword(event.target.value)}
                         required
                         autoComplete="password"
                         minLength={8}
@@ -150,10 +145,10 @@ export default function LoginForm() {
                         pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).+"
                         type="password"
                         placeholder="password">
-                    </input>
-                    <label>Password</label>
-                    {/* <div className="valid-message">&#10004;</div>
-                    <div className="invalid-message">&#10006;</div> */}
+                    </StyledInput>
+                    <StyledLabel>Password</StyledLabel>
+                    <div className="valid-message">&#10004;</div>
+                    <div className="invalid-message">&#10006;</div>
                 </div>
 
                 <div className="database-message">
