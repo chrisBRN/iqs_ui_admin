@@ -18,7 +18,16 @@ const StyledForm = styled.form`
     display: flex;
     flex-direction: column;    
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
+
+    h2 {
+        padding: 1em;
+        font-size: 24px;        
+    }
+
+    .database-message {
+        margin: 1em;
+    }
 
     &:invalid > button  {            
         opacity: 0.4;
@@ -74,23 +83,21 @@ export default function LoginForm() {
 
     return (
 
-        <div>
+        <StyledForm method="post" onSubmit={handleLogin}>
+
             <h2>Welcome to CoderKai</h2>
-            <StyledForm method="post" onSubmit={handleLogin}>
 
-                <InputField valueSetter={setUsername} validation={usernameValidation} />                
-                <InputField valueSetter={setPassword} validation={passwordValidation} />
+            <InputField valueSetter={setUsername} validation={usernameValidation} />                
+            <InputField valueSetter={setPassword} validation={passwordValidation} />                
 
-                {/* <div className="database-message">
-                    {response?.information}
-                </div> */}
+            <div className="database-message">
+                {response?.status_code !== 200 ? response?.information : response?.information}
+            </div>
 
-                <LoginButton isLoading={loading} />
-
-            </StyledForm>
+            <LoginButton isLoading={loading} />
 
             <AdditionalLinks />
 
-        </div>
+        </StyledForm>
     )
 }
