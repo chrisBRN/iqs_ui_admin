@@ -22,8 +22,8 @@ export const passwordValidation: InputFieldValidators = {
     autoComplete: "password",
     minLength: 8,
     maxLength: 30,
-    pattern: "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=S+$)+",     
-    title: "Between 8 and 30 characters which must include: \n * An uppercase letter \n * a lowercase letter \n * A number \n * A symbol (@, #, $, %, &)",
+    pattern: "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).+",     
+    title: "Between 8 and 30 characters which must include: \n * An uppercase letter \n * A lowercase letter \n * A number \n * A symbol (@, #, $, %, &)",
     type: "password",
     placeholder: "Password"
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { InputFieldValidators } from '../interfaces/InputFieldValidators';
 
@@ -40,8 +40,9 @@ const StyledInput = styled.input`
         border-color: #00BFA6;
         caret-color: #00BFA6; 
         border-width: 2px;
+        color: #00BFA6;  
 
-        &:label {
+        &~label {
             color: #00BFA6;
         }
 
@@ -56,8 +57,9 @@ const StyledInput = styled.input`
         border-color: #F50057;
         caret-color: #F50057; 
         border-width: 2px;
+        color: #F50057;  
 
-        &:label {
+        &~label {
             color: #F50057;
         }     
         
@@ -89,48 +91,35 @@ const StyledInputIndicator = styled.div`
     transition: opacity 1s linear;    
 `;
 
+const StyledFancyInputContainer = styled.div`
+    position: relative; 
+`;
+
 interface Props {
     valueSetter: Function;
-    validitySetter: Function;
-    validation: InputFieldValidators;
+    validation: InputFieldValidators;   
 }
 
-export default function InputField(props: Props) {    
+export default function InputField(props: Props) {
+    return (
+        <StyledFancyInputContainer>
 
-    const inputRef = useRef();
-
-    function handleChange(event: any){
-        props.valueSetter(event.target.value);
-
-        let isValid: boolean = false;       
-
-        if(inputRef.current !== null) {
-            isValid = inputRef.current.reportValidity();
-        }
-
-        props.validitySetter(isValid);
-    }
-
-    return (    
-        <div className="container">  
-
-            <StyledInput ref={inputRef} onChange={event => handleChange(event)}
+            <StyledInput onChange={event => props.valueSetter(event.target.value)}
                 required
-                autoComplete={props.validation.autoComplete} 
-                minLength={props.validation.minLength} 
-                maxLength={props.validation.maxLength} 
-                pattern={props.validation.pattern} 
-                title={props.validation.title} 
-                type={props.validation.type} 
+                pattern={props.validation.pattern}
+                autoComplete={props.validation.autoComplete}
+                minLength={props.validation.minLength}
+                maxLength={props.validation.maxLength}
+                title={props.validation.title}
+                type={props.validation.type}
                 placeholder={props.validation.placeholder}>
-            </StyledInput> 
+            </StyledInput>
 
-            {/* <StyledLabel>{props.validation.placeholder}</StyledLabel>
+            <StyledLabel>{props.validation.placeholder}</StyledLabel>
 
-            <StyledInputIndicator>
-                {validity ? <div>&#10004;</div> : <div>&#10006;</div>}
-            </StyledInputIndicator> */}
-                     
-        </div>          
+            <StyledInputIndicator className="valid-message">&#10004;</StyledInputIndicator>
+            <StyledInputIndicator className="invalid-message">&#10006;</StyledInputIndicator>
+
+        </StyledFancyInputContainer>
     )
 }

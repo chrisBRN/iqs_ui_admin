@@ -11,11 +11,8 @@ interface LoginResponse {
     status: string,
     status_code: Number,
     information?: string,
-    token?: string    
+    token?: string
 }
-
-
-
 
 const StyledForm = styled.form`
     display: flex;
@@ -23,41 +20,51 @@ const StyledForm = styled.form`
     align-items: center;
     justify-content: center;
 
-    .container {
-        position: relative; 
+    &:invalid > button  {            
+        opacity: 0.4;
+        border-bottom-width: 1px;  
     }
+
+    &:valid > button  {  
+        border-bottom-width: 1px;  
+        opacity: 1;  
+        border-color: #00BFA6;
+        background-color: #00BFA6;   
+        color: #f6f8fa;
+        
+        &:hover {
+            border-bottom-width: 1px;  
+            cursor: pointer;  
+        }                
+    }  
+   
 `;
-
-
-
 
 export default function LoginForm() {
 
     const [username, setUsername] = useState<string>("");
-    const [password, setPassword] = useState<string>("");  
-    const [usernameValid, setUsernameValid] = useState<boolean>(false);
-    const [passwordValid, setPasswordValid] = useState<boolean>(false);  
-    
+    const [password, setPassword] = useState<string>("");
 
-    const [response, setResponse] = useState<LoginResponse | null>(null);    
-    const [loading, setLoading] = useState<boolean>(false);   
+
+    const [response, setResponse] = useState<LoginResponse | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const url: string = `http://localhost:8080/login`;
 
     const formData = {
         "username": username,
         "password": password
-    }    
-   
-    function handleLogin(event: React.FormEvent<HTMLFormElement>){        
-        event.preventDefault();  
-       
+    }
+
+    function handleLogin(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
         setResponse(null)
-        setLoading(true);        
+        setLoading(true);
         postJSON(url, formData)
-            .then(response => setResponse(response))   
-            .then(() => setLoading(false));  
-    }   
+            .then(response => setResponse(response))
+            .then(() => setLoading(false));
+    }
 
     if (response?.status_code === 200) {
         return (
@@ -68,17 +75,15 @@ export default function LoginForm() {
     return (
 
         <div>
-            <h2>Welcome to CoderKai</h2>   
+            <h2>Welcome to CoderKai</h2>
             <StyledForm method="post" onSubmit={handleLogin}>
-               
-                <InputField valueSetter={setUsername} validitySetter={setUsernameValid} validation={usernameValidation}/>
 
-                
-                <InputField valueSetter={setPassword} validitySetter={setPasswordValid} validation={passwordValidation}/>
+                <InputField valueSetter={setUsername} validation={usernameValidation} />                
+                <InputField valueSetter={setPassword} validation={passwordValidation} />
 
-                <div className="database-message">
+                {/* <div className="database-message">
                     {response?.information}
-                </div>
+                </div> */}
 
                 <LoginButton isLoading={loading} />
 
