@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { postJSON } from '../../shared/helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
@@ -7,6 +7,7 @@ import LoginButton from './LoginButton';
 
 import InputField from '../../shared/components/InputsField';
 import { usernameValidation, passwordValidation } from '../../shared/interfaces/InputFieldValidators';
+import { InternalLink } from '../../shared/helpers/Links';
 
 interface LoginResponse {
     status: string,
@@ -20,10 +21,13 @@ const StyledForm = styled.form`
     flex-direction: column;    
     align-items: center;
     justify-content: center;    
+    font-family: 'Muli', sans-serif;   
 
     h2 {
         padding: 1em;
-        font-size: 24px;        
+        font-size: 24px;  
+        font-family: 'Muli', sans-serif;    
+        color: #00BFA6;     
     }
 
     .database-message {
@@ -47,30 +51,6 @@ const StyledForm = styled.form`
             cursor: pointer;  
         }                
     }  
-   
-`;
-
-const StyledLinkSmallPrint = styled(Link)`
-    
-    margin: auto;
-    margin: 1em;
-    width: 80%;
-
-    text-align: center;
-    display: inline-block;   
-
-    font-size: 10px;  
-        
-`;
-
-const StyledLink = styled(Link)`
-    
-    margin: auto;
-    margin: 1em;
-    text-align: center;    
-
-    font-size: 16px;   
-    
 `;
 
 export default function LoginForm() {
@@ -110,17 +90,11 @@ export default function LoginForm() {
         <StyledForm method="post" onSubmit={handleLogin}>
 
             <h2>Welcome to CoderKai</h2>
-
             <InputField valueSetter={setUsername} validation={usernameValidation} />                
-            <InputField valueSetter={setPassword} validation={passwordValidation} />                
-
-            <div className="database-message">
-                {response?.status_code !== 200 ? response?.information : response?.information}
-            </div>
-
+            <InputField valueSetter={setPassword} validation={passwordValidation} /> 
+            <div className="database-message">{response?.information}</div>
             <LoginButton isLoading={loading} />
-            <StyledLinkSmallPrint to="/todo">By clicking Login, you agree to our Terms and have read and acknowledge our Privacy Statement.</StyledLinkSmallPrint>            
-            <StyledLink to="/todo">Forgot password?</StyledLink>  
+            <InternalLink endpoint="/todo" anchorText="Forgot Password?" /> 
 
         </StyledForm>
     )

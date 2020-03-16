@@ -39,7 +39,8 @@ const StyledInput = styled.input`
     &:valid {
         border-color: #00BFA6;
         caret-color: #00BFA6; 
-        border-width: 2px;
+        border-width: 2px 2px 8px 2px;
+        
         color: #00BFA6;  
 
         &~label {
@@ -53,10 +54,10 @@ const StyledInput = styled.input`
         }  
     }
 
-    &:not(:placeholder-shown):invalid {        
+    &:not(:placeholder-shown):invalid { 
         border-color: #F50057;
         caret-color: #F50057; 
-        border-width: 2px;
+        border-width: 2px 2px 8px 2px;
         color: #F50057;  
 
         &~label {

@@ -12,7 +12,7 @@ import CopyrightNotice from '../../shared/components/CopyrightNotice';
 
 import {StyledCard, StyledUL, StyledLI} from '../../shared/styling/SharedStyles'
 
-export default function Home() {
+export default function HomePage() {
 
     const [popInComponent, setPopInComponent] = useState<JSX.Element>(<LoginForm />)
 
@@ -38,11 +38,12 @@ export default function Home() {
 
                     {popInComponent}
 
-                </StyledCard>                   
-                
+                </StyledCard>   
+
+                <CopyrightNotice />  
             </div>
 
-            <CopyrightNotice />
+            
 
         </div>
     )

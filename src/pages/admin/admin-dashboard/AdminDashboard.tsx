@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './AdminDashboard.scss';
+// import './AdminDashboard.scss';
 
 import SideBar from '../../../shared/components/sidebar/SideBar';
 import '../../../shared/components/sidebar/SideBar.scss';
@@ -8,7 +8,6 @@ import '../../../shared/components/sidebar/SideBar.scss';
 import PlaceholderGraph from '../../../shared/components/faux-graphics/PlaceholderGraph';
 import Hero from '../../../shared/components/faux-graphics/Hero';
 import Logo from '../../../shared/components/logo/Logo';
-import Background from '../../../shared/components/standard-background/Background';
 import LatestNews from '../../../shared/components/faux-graphics/LatestNews';
 
 export default function AdminDashboard() {
@@ -18,7 +17,7 @@ export default function AdminDashboard() {
         <div className="dashboard-page">
             <div className="page-wrapper">
 
-                <Background />
+            
                 <SideBar />
 
                 <div className="main-section">

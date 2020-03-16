@@ -20,16 +20,20 @@ export const StyledCard = styled.div`
 `;
 
 export const StyledUL = styled.ul`
-    list-style-type: none;
+    list-style-type: none;    
 `;
 
 export const StyledLI = styled.li`
-    display: inline-block;
+    display: inline-block;    
     list-style-type: none;
     padding: 1em;
+    font-weight: bold;  
+    
+    color: #00BFA6;  
 
     &:hover {
-        cursor: pointer;       
-        font-weight: bold;
+        cursor: pointer;            
+        color: #F50057;  
+            
     }         
 `;
