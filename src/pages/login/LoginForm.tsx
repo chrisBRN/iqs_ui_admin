@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { postJSON } from '../../shared/helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
 import LoginButton from './LoginButton';
-import AdditionalLinks from './AdditionalLinks';
+
 import InputField from '../../shared/components/InputsField';
 import { usernameValidation, passwordValidation } from '../../shared/interfaces/InputFieldValidators';
 
@@ -47,6 +48,29 @@ const StyledForm = styled.form`
         }                
     }  
    
+`;
+
+const StyledLinkSmallPrint = styled(Link)`
+    
+    margin: auto;
+    margin: 1em;
+    width: 80%;
+
+    text-align: center;
+    display: inline-block;   
+
+    font-size: 10px;  
+        
+`;
+
+const StyledLink = styled(Link)`
+    
+    margin: auto;
+    margin: 1em;
+    text-align: center;    
+
+    font-size: 16px;   
+    
 `;
 
 export default function LoginForm() {
@@ -95,8 +119,8 @@ export default function LoginForm() {
             </div>
 
             <LoginButton isLoading={loading} />
-
-            <AdditionalLinks />
+            <StyledLinkSmallPrint to="/todo">By clicking Login, you agree to our Terms and have read and acknowledge our Privacy Statement.</StyledLinkSmallPrint>            
+            <StyledLink to="/todo">Forgot password?</StyledLink>  
 
         </StyledForm>
     )
