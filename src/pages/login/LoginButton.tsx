@@ -5,25 +5,25 @@ interface Props {
     isLoading: boolean;
 }
 
-export default function LoginButton(props: Props) {
+const StyledButton = styled.button`
+    box-sizing: border-box;
+    outline: 0;
+    margin: 1em;
+    padding: 1em;
     
-    const StyledButton = styled.button`
-        box-sizing: border-box;
-        outline: 0;
-        margin: 1em;
-        padding: 1em;
-        
-        border: 1px solid #e1e1e5;
-        border-radius: 4px;         
+    border: 1px solid #e1e1e5;
+    border-radius: 4px;         
 
-        font-size: 16px; 
-        font-family: 'Muli', sans-serif;
-        color: #090705;
+    font-size: 16px; 
+    font-family: ${props => props.theme.fonts.main};  
+    color: ${props => props.theme.colors.offBlack};  
+    font-weight: bold;
 
-        width: 18em;
-        height: 3.5em;       
-    `;
+    width: 18em;
+    height: 3.5em;       
+`;
 
+export default function LoginButton(props: Props) {  
     return (
         <StyledButton>
             {props.isLoading ? "Loading..." : "Login"}

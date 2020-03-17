@@ -21,13 +21,13 @@ const StyledForm = styled.form`
     flex-direction: column;    
     align-items: center;
     justify-content: center;    
-    font-family: 'Muli', sans-serif;   
+    font-family: ${props => props.theme.fonts.main};  
 
     h2 {
         padding: 1em;
         font-size: 24px;  
-        font-family: 'Muli', sans-serif;    
-        color: #00BFA6;     
+        font-family: ${props => props.theme.fonts.main};   
+        color: ${props => props.theme.colors.green};    
     }
 
     .database-message {
@@ -42,9 +42,9 @@ const StyledForm = styled.form`
     &:valid > button  {  
         border-bottom-width: 1px;  
         opacity: 1;  
-        border-color: #00BFA6;
-        background-color: #00BFA6;   
-        color: #f6f8fa;
+        border-color: ${props => props.theme.colors.green};  
+        background-color: ${props => props.theme.colors.green};  
+        color: ${props => props.theme.colors.offWhite};
         
         &:hover {
             border-bottom-width: 1px;  
@@ -58,7 +58,6 @@ export default function LoginForm() {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
-
     const [response, setResponse] = useState<LoginResponse | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -71,7 +70,6 @@ export default function LoginForm() {
 
     function handleLogin(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-
         setResponse(null)
         setLoading(true);
         postJSON(url, formData)

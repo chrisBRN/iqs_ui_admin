@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { InputFieldValidators } from '../interfaces/InputFieldValidators';
 
@@ -6,7 +6,7 @@ const StyledInput = styled.input`
 
     box-sizing: border-box;
 
-    font-family: 'Muli', sans-serif;
+    font-family: ${props => props.theme.fonts.main};
     font-size: 16px;
     width: 18em;
     height: 4em; 
@@ -17,9 +17,9 @@ const StyledInput = styled.input`
     border-radius: 4px; 
     outline: 0;          
 
-    caret-color: #00B0FF; 
+    caret-color: ${props => props.theme.colors.blue}; 
 
-    background-color: rgba(232, 240, 254, 0.5);
+    background-color: ${props => props.theme.colors.autoFillBlue}; 
     transition: border-bottom-width 0.2s ease-in-out;
 
     &::placeholder {
@@ -28,44 +28,45 @@ const StyledInput = styled.input`
 
     &:hover {        
         border-bottom-width: 4px;
-        border-color: #00B0FF;
+        border-color: ${props => props.theme.colors.blue};
     }
 
     &:focus-within {
         border-bottom-width: 8px;
-        border-color: #00B0FF;
+        border-color: ${props => props.theme.colors.blue};
     }
 
     &:valid {
-        border-color: #00BFA6;
-        caret-color: #00BFA6; 
+        border-color: ${props => props.theme.colors.green};
+        caret-color: ${props => props.theme.colors.green}; 
+        color: ${props => props.theme.colors.green}; 
+
         border-width: 2px 2px 8px 2px;
-        
-        color: #00BFA6;  
 
         &~label {
-            color: #00BFA6;
+            color: ${props => props.theme.colors.green}; 
         }
 
         &~.valid-message {
-            color: #00BFA6;
+            color: ${props => props.theme.colors.green}; 
             opacity: 1;
             z-index: 1;
         }  
     }
 
     &:not(:placeholder-shown):invalid { 
-        border-color: #F50057;
-        caret-color: #F50057; 
-        border-width: 2px 2px 8px 2px;
-        color: #F50057;  
+        border-color: ${props => props.theme.colors.red};
+        caret-color: ${props => props.theme.colors.red};
+        color: ${props => props.theme.colors.red};
 
+        border-width: 2px 2px 8px 2px;
+        
         &~label {
-            color: #F50057;
+            color: ${props => props.theme.colors.red};
         }     
         
         &~.invalid-message {
-            color: #F50057;
+            color: ${props => props.theme.colors.red};
             opacity: 1;
             z-index: 1;
         }  
@@ -73,7 +74,8 @@ const StyledInput = styled.input`
 `;
 
 const StyledLabel = styled.label`
-    font-family: 'Muli', sans-serif;
+    font-family: ${props => props.theme.fonts.main};
+
     font-size: 12px;    
     margin: 0em;
     padding: 0em;
@@ -86,7 +88,7 @@ const StyledInputIndicator = styled.div`
     position: absolute;
     bottom: 0.5em;      
     right: 0.5em;
-    font-size: $font-size-label;  
+    font-size: 1em;  
     z-index: -1;
     opacity: 0;  
     transition: opacity 1s linear;    
@@ -101,11 +103,17 @@ interface Props {
     validation: InputFieldValidators;   
 }
 
-export default function InputField(props: Props) {
+export default function InputField(props: Props) { 
+
+    const inputRef = useRef<HTMLInputElement>(null);
+
     return (
         <StyledFancyInputContainer>
 
-            <StyledInput onChange={event => props.valueSetter(event.target.value)}
+            <StyledInput 
+                ref={inputRef}
+                onMouseEnter={() => inputRef?.current?.focus()}
+                onChange={event => props.valueSetter(event.target.value)}
                 required
                 pattern={props.validation.pattern}
                 autoComplete={props.validation.autoComplete}

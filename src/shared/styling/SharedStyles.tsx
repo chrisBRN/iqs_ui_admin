@@ -1,39 +1,82 @@
 import styled from 'styled-components';
 
-export const StyledCard = styled.div` 
+export const defaultTheme = {
 
-    background-color: rgba(255, 255, 255, 0.6); 
+    colors: {
+        white: "#ffffff",
+        offWhite: "#f6f8fa",
+        offBlack: "#090705",        
+
+        border: "#e1e1e5",
+        
+        blue: "#00B0FF",
+        green: "#00BFA6",
+        red: "#F50057",
+
+        autoFillBlue: "rgba(232, 240, 254, 0.5)"
+    },
+
+    fonts: {
+        main: "'Muli', 'sans-serif'",
+        big: "'Neuton', 'serif'"
+    }
+    
+};
+
+export const StyledFullPage = styled.div`
+
+    height: 100vh;
+    width: 100vw;    
+    margin: 0;
+    padding: 0; 
+`;
+
+export const StyledFullPageContentWrapper = styled.div`
+
+    height: 100vh;
+    width: 100vw;   
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+`;
+
+interface CardProps {
+    width: any;
+    height: any;
+}
+
+export const StyledCard = styled.div<CardProps>`
+
+    background-color: ${props => props.theme.colors.white};
 
     box-sizing: border-box;    
     padding: 2em;
+    margin: auto;
+
+    width: ${p => p.width};
+    height: ${p => p.height};
+
+    position: relative;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
 
     border: 1px solid #e1e1e5;
     border-radius: 4px;         
-    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.05);  
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.05);      
     
-    transition: box-shadow 0.1s, background-color 0.1s;  
+    transition: box-shadow 0.1s;  
 
     &:hover {
-        background-color: rgba(255, 255, 255, 1);   
-        box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.1);  
+        
+        box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.1); 
+        
     }        
 `;
 
-export const StyledUL = styled.ul`
-    list-style-type: none;    
-`;
-
-export const StyledLI = styled.li`
-    display: inline-block;    
-    list-style-type: none;
-    padding: 1em;
-    font-weight: bold;  
-    
-    color: #00BFA6;  
-
-    &:hover {
-        cursor: pointer;            
-        color: #F50057;  
-            
-    }         
-`;

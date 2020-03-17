@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
-import './Home.scss';
-
-import DiagonalBackroundBox from './parts/DiagonalBackroundBox';
+import { StyledDiagonalBackgroundBox } from '../../shared/components/DiagonalBackroundBox';
 import BigBrandTypography from './parts/BigBrandTypography';
 
 import LoginForm from '../login/LoginForm';
@@ -10,7 +9,36 @@ import PlaceholderContactsPopIn from './parts/PlaceholderContactsPopIn';
 import PlaceholderAboutPopIn from './parts/PlaceholderAboutPopIn';
 import CopyrightNotice from '../../shared/components/CopyrightNotice';
 
-import {StyledCard, StyledUL, StyledLI} from '../../shared/styling/SharedStyles'
+import { StyledFullPage, StyledFullPageContentWrapper, StyledCard } from '../../shared/styling/SharedStyles'
+
+const StyledBGBox = styled(StyledDiagonalBackgroundBox)`         
+    width: 70%;
+    left: -10%;
+    transform: skew(8deg); 
+`;
+
+const StyledNav = styled.ul`
+
+    position: absolute;
+    top: 2em;
+    right: 4em;
+
+    list-style-type: none;    
+
+    li {
+        display: inline-block;    
+        list-style-type: none;
+        padding: 1em;
+        font-weight: bold;  
+        
+        color: ${props => props.theme.colors.green};
+    
+        &:hover {
+            cursor: pointer;            
+            color: ${props => props.theme.colors.red};                
+        }   
+    }
+`;
 
 export default function HomePage() {
 
@@ -18,33 +46,32 @@ export default function HomePage() {
 
     return (
 
-        <div className="home-page">
+        <StyledFullPage>
             
-            <DiagonalBackroundBox />             
+            <StyledBGBox />             
 
-            <div className="content-wrapper">
+            <StyledFullPageContentWrapper>
                       
                 <BigBrandTypography />
 
-                <StyledUL className="nav-bar">    
+                <StyledNav>    
 
-                    <StyledLI onClick={() => setPopInComponent(<LoginForm />)}>LOGIN</StyledLI>
-                    <StyledLI onClick={() => setPopInComponent(<PlaceholderContactsPopIn />)}>CONTACT</StyledLI>
-                    <StyledLI onClick={() => setPopInComponent(<PlaceholderAboutPopIn />)}>ABOUT</StyledLI>
+                    <li onMouseEnter={() => setPopInComponent(<LoginForm />)}>LOGIN</li>
+                    <li onMouseEnter={() => setPopInComponent(<PlaceholderContactsPopIn />)}>CONTACT</li>
+                    <li onMouseEnter={() => setPopInComponent(<PlaceholderAboutPopIn />)}>ABOUT</li>
 
-                </StyledUL>
+                </StyledNav>
 
-                <StyledCard className="pop-in-section">    
+                <StyledCard width={"480px"} height={"600px"}>    
 
                     {popInComponent}
 
                 </StyledCard>   
 
                 <CopyrightNotice />  
-            </div>
 
-            
+            </StyledFullPageContentWrapper>
 
-        </div>
+        </StyledFullPage>
     )
 }

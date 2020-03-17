@@ -25,7 +25,8 @@ const StyledInternalLink = styled(Link)`
     text-align: center;  
     font-size: 16px;       
     font-weight: bold;
-    color: #00BFA6;
+    color: ${props => props.theme.colors.green};
+
 `;
 
 export function InternalLink(props: LinkProps) {

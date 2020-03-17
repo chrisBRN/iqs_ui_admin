@@ -6,7 +6,10 @@ import {
 
 } from "react-router-dom";
 
+import { ThemeProvider } from "styled-components";
+
 import './App.scss';
+import { defaultTheme } from '../shared/styling/SharedStyles';
 
 import HomePage from '../pages/home/HomePage';
 import AdminDashboard from '../pages/admin/admin-dashboard/AdminDashboard';
@@ -14,40 +17,23 @@ import AdminDashboard from '../pages/admin/admin-dashboard/AdminDashboard';
 export default function App() {   
 
     return (
-        <Router >
-            <div>
+        <ThemeProvider theme={defaultTheme}>
+
+            <Router >
                 <Switch>
+
                     <Route path="/admin/dashboard">                        
                         <AdminDashboard />
                     </Route>
-{/* 
-                    <Route path="/admin/user-management">                        
-                        <UserManagementPage />
-                    </Route>
-
-                    <Route path="/admin/candidate-management">                        
-                        <CandidateManagementPage />
-                    </Route>
-
-                    <Route path="/admin/submissions-management">                        
-                        <SubmissionsManagementPage />
-                    </Route>
-
-                    <Route path="/admin/campaign-management">                        
-                        <CampaignManagementPage />
-                    </Route>
-
-                    <Route path="/admin/settings">                        
-                        <AdminSettingsPage />
-                    </Route> */}
 
                     <Route path="/">
                         <HomePage />
                     </Route>
 
                 </Switch>
+            </Router>
 
-            </div>
-        </Router>
+        </ThemeProvider>
+      
     );
 }

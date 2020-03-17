@@ -1,63 +1,13 @@
-// // Font 
-// @import url('https://fonts.googleapis.com/css?family=Muli|Neuton:800&display=swap');
-
-// $font-family-statement: 'Neuton', serif;
-// $font-family-main: 'Muli', sans-serif;
-
-// $font-size-small: 8px;
-// $font-size-label: 12px;
-// $font-size-main: 16px;
-// $font-size-headline: 32px;
-// $font-size-statement: 64px;
-
-// // Colours
-// $color-bg: #f6f8fa;
-// $color-text: #090705;
-// $color-box-bg: #ffffff;
-// $color-box-border: #e1e1e5;
-
-// $color-box-hover: #ffffff; //TODO 
-// $color-box-highlighted: #ffffff; //TODO
-
-// $color-blue: #00B0FF;
-// $color-green: #00BFA6;
-// $color-red: #F50057;
 
 
 
-
-// // Palette
-// $color-blue-light: rgba(232, 240, 254, 0.5); //google auto fill
-
-// $color-blue-dark: #1C304A;
-// $color-red-light: #FF3B3F;
-// $color-red-dark: #e66365;
-// $color-grey-dark: #A9A9A9;
-// $color-grey-light: #f0efef;
-
-// // Additional
-// $color-box-shadow: rgba(28, 48, 74, 0.2);
+$image: url(./texture.jpg);
 
 // //Sizes
 // $input-field-width: 18em;
 // $input-field-height: 3.5em;
 
-// @mixin standard-wrapper-dims(){
-//     @include margin-padding-reset();
-    // height: 100vh;
-    // width: 100vw;    
-// }
 
-// @mixin standard-flex($direction, $alignment){  
-//     display: flex;
-//     flex-direction: $direction;
-//     align-items: $alignment;
-//     justify-content: $alignment;  
-// }
-
-// @mixin standard-background($opacity){
-
-// }
 
 // @mixin standard-admin-main-section(){
 //     @include standard-flex(row, flex-start);    
@@ -72,43 +22,12 @@
 //     background-color: rgba($color-grey-light, 0.8);
 // }
 
-// @mixin margin-padding-reset(){
-//     margin: 0px;
-//     padding: 0px;
-// }
-
-// @mixin border-standard() {
-//     border: 1px solid $color-box-border;
-//     border-radius: 4px;
-//     border-color: $color-box-border;
-// }
-
 // @mixin bounce(){
 //     transition: transform 0.2s ease;
 
 //     &:hover {
 //         transform: translate(0px, -4px);    
 //     }
-// }
-
-// @mixin standard-font(){
-//     font-size: $font-size-main; 
-//     font-family: $font-family-main;
-//     color: $color-blue-dark;
-// }
-
-// @mixin standard-button(){     
-//     box-sizing: border-box;
-//     @include margin-padding-reset();
-//     @include border-standard();
-//     @include standard-font();
-    
-//     font-weight: bold;       
-// }
-
-// @mixin vert-centered-text($size) {
-//     height: $size;
-//     font-size: $size; 
 // }
 
 // @mixin opacity-pop(){

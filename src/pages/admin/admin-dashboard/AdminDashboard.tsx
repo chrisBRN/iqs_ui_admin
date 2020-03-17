@@ -7,7 +7,7 @@ import '../../../shared/components/sidebar/SideBar.scss';
 
 import PlaceholderGraph from '../../../shared/components/faux-graphics/PlaceholderGraph';
 import Hero from '../../../shared/components/faux-graphics/Hero';
-import Logo from '../../../shared/components/logo/Logo';
+import Logo from '../../../shared/components/faux-graphics/Logo';
 import LatestNews from '../../../shared/components/faux-graphics/LatestNews';
 
 export default function AdminDashboard() {
