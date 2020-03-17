@@ -12,9 +12,9 @@ import './App.scss';
 import { defaultTheme } from '../shared/styling/SharedStyles';
 
 import HomePage from '../pages/home/HomePage';
-import AdminDashboard from '../pages/admin/admin-dashboard/AdminDashboard';
+import AdminDashboard from '../pages/dashboard/admin-dashboard/AdminDashboard';
 
-export default function App() {   
+export default function App() {
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -22,7 +22,7 @@ export default function App() {
             <Router >
                 <Switch>
 
-                    <Route path="/admin/dashboard">                        
+                    <Route path="/admin/dashboard">
                         <AdminDashboard />
                     </Route>
 
@@ -34,6 +34,6 @@ export default function App() {
             </Router>
 
         </ThemeProvider>
-      
+
     );
 }

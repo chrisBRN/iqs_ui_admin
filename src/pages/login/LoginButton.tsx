@@ -1,6 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
 
+
+
 interface Props {
     isLoading: boolean;
 }
@@ -23,7 +25,7 @@ const StyledButton = styled.button`
     height: 3.5em;       
 `;
 
-export default function LoginButton(props: Props) {  
+export default function LoginButton(props: Props) {
     return (
         <StyledButton>
             {props.isLoading ? "Loading..." : "Login"}

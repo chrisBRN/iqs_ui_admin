@@ -2,28 +2,33 @@ import React from "react";
 import styled from 'styled-components';
 import { ExternalLink } from "../helpers/Links";
 
-const Style = styled.div` 
-    font-size: 12px;
-    text-align: right; 
+interface Props {
+    top? : string;
+    bottom? : string;
+    left? : string;
+    right? : string;
+}
+
+const StyledContainer = styled.div<Props>` 
+    font-size: 10px;  
     position: absolute;  
-    bottom: 2em;
-    right: 2em;    
 
-    opacity: 0.8;
-
-    &:hover {
-        opacity: 1;
-    }
+    top: ${props => props.top ? props.top : "" }; 
+    bottom: ${props => props.bottom ? props.bottom : "" }; 
+    left: ${props => props.left ? props.left : "" };  
+    right: ${props => props.right ? props.right : "" }; 
+    
+    ${props => props.theme.cheapAnimations.opacityPop}    
 `;
 
-export default function CopyrightNotice() {   
+export default function CopyrightNotice(props: Props) {
 
     const url: string = "https://github.com/chrisBRN";
     const anchor: string = "Copyright © ChrisBRN " + new Date().getFullYear()
 
     return (
-        <Style>
-            <ExternalLink endpoint={url} anchorText={anchor} />
-        </Style>
+        <StyledContainer {...props}>
+            <ExternalLink endpoint={url} anchorText={anchor} />  
+        </StyledContainer>   
     )
 }

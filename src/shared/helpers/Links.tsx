@@ -7,27 +7,21 @@ export interface LinkProps {
     anchorText: string    
 }
 
+const StyledInternalLink = styled(Link)`    
+    margin: auto;    
+    text-align: center;  
+    font-size: 16px;      
+`;
+
 export function ExternalLink(props: LinkProps) {
-    return (
-        <div className="external-link">
-            <a  href={props.endpoint}
-                target="_blank" 
-                rel="noopener noreferrer">
-                {props.anchorText}       
-            </a>  
-        </div>
+    return (        
+        <a  href={props.endpoint}
+            target="_blank" 
+            rel="noopener noreferrer">
+            {props.anchorText}       
+        </a>         
     )
 }
-
-const StyledInternalLink = styled(Link)`    
-    margin: auto;
-    margin: 1em;
-    text-align: center;  
-    font-size: 16px;       
-    font-weight: bold;
-    color: ${props => props.theme.colors.green};
-
-`;
 
 export function InternalLink(props: LinkProps) {
     return (

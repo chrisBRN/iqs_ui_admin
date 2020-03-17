@@ -19,9 +19,30 @@ export const defaultTheme = {
     fonts: {
         main: "'Muli', 'sans-serif'",
         big: "'Neuton', 'serif'"
-    }
-    
-};
+    },
+
+    cheapAnimations: {
+        
+        bounce: `
+            transition: transform 0.2s ease; 
+            &:hover { 
+                transform: translate(0px, -4px);
+            }`,
+            
+        opacityPop: `
+            opacity: 0.9; 
+            transition: opacity 0.1s ease; 
+            &:hover { 
+                opacity: 1;
+            }`,
+            
+        boxShadowPop: `
+            transition: box-shadow 0.2s ease; 
+            &:hover { 
+                box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.1);
+            }`                    
+    } 
+};   
 
 export const StyledFullPage = styled.div`
 
@@ -37,12 +58,13 @@ export const StyledFullPageContentWrapper = styled.div`
     width: 100vw;   
     margin: 0;
     padding: 0;
-
-    position: relative;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;  
+
+    position: relative;
 `;
 
 interface CardProps {
@@ -67,16 +89,20 @@ export const StyledCard = styled.div<CardProps>`
     align-items: center;
     justify-content: center;   
 
-    border: 1px solid #e1e1e5;
+    border: 1px solid ${props => props.theme.colors.border};
     border-radius: 4px;         
-    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.05);      
-    
-    transition: box-shadow 0.1s;  
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.05);  
 
-    &:hover {
-        
-        box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.1); 
-        
-    }        
+    ${props => props.theme.cheapAnimations.boxShadowPop};
+`;
+
+export const StyledHR = styled.hr`
+    border: 0;
+    clear:both;
+    display:block;
+    width: 90%;               
+    background-image: linear-gradient(to right, rgba(9, 7, 5, 0), rgba(9, 7, 5, 0.25), rgba(9, 7, 5, 0));
+    height: 1px;
+    margin: 1em;
 `;
 

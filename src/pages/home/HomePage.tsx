@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { StyledDiagonalBackgroundBox } from '../../shared/components/DiagonalBackroundBox';
-import BigBrandTypography from './parts/BigBrandTypography';
+import BrandTypography from './parts/StatementTypography';
 
 import LoginForm from '../login/LoginForm';
 import PlaceholderContactsPopIn from './parts/PlaceholderContactsPopIn';
@@ -47,14 +47,14 @@ export default function HomePage() {
     return (
 
         <StyledFullPage>
-            
-            <StyledBGBox />             
+
+            <StyledBGBox />
 
             <StyledFullPageContentWrapper>
-                      
-                <BigBrandTypography />
 
-                <StyledNav>    
+                <BrandTypography headlineSize={"12rem"} subHeadlineSize={"2rem"}/>
+
+                <StyledNav>
 
                     <li onMouseEnter={() => setPopInComponent(<LoginForm />)}>LOGIN</li>
                     <li onMouseEnter={() => setPopInComponent(<PlaceholderContactsPopIn />)}>CONTACT</li>
@@ -62,13 +62,13 @@ export default function HomePage() {
 
                 </StyledNav>
 
-                <StyledCard width={"480px"} height={"600px"}>    
+                <StyledCard width={"480px"} height={"600px"}>
 
                     {popInComponent}
 
-                </StyledCard>   
+                </StyledCard>
 
-                <CopyrightNotice />  
+                <CopyrightNotice bottom={"2em"} left={"2em"}/>
 
             </StyledFullPageContentWrapper>
 

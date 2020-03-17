@@ -100,17 +100,17 @@ const StyledFancyInputContainer = styled.div`
 
 interface Props {
     valueSetter: Function;
-    validation: InputFieldValidators;   
+    validation: InputFieldValidators;
 }
 
-export default function InputField(props: Props) { 
+export default function InputField(props: Props) {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
     return (
         <StyledFancyInputContainer>
 
-            <StyledInput 
+            <StyledInput
                 ref={inputRef}
                 onMouseEnter={() => inputRef?.current?.focus()}
                 onChange={event => props.valueSetter(event.target.value)}

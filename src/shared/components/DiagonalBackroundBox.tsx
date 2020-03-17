@@ -12,9 +12,9 @@ export const StyledDiagonalBackgroundBox = styled.div`
     transform: skew(8deg);         
 `;
 
-export function DiagonalBackroundBox() {    
+export function DiagonalBackroundBox() {
 
-    return (     
-        <StyledDiagonalBackgroundBox></StyledDiagonalBackgroundBox>        
+    return (
+        <StyledDiagonalBackgroundBox></StyledDiagonalBackgroundBox>
     )
 }

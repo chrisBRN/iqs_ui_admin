@@ -12,7 +12,7 @@ export default function PlaceholderAboutPopIn() {
             <br></br>
             <br></br>
 
-            Sed libero enim sed faucibus turpis in eu mi bibendum. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Leo vel fringilla est ullamcorper eget nulla facilisi. Egestas congue quisque egestas diam in arcu. Nisi porta lorem mollis aliquam ut. In mollis nunc sed id semper risus in hendrerit. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Diam in arcu cursus euismod quis viverra. Auctor neque vitae tempus quam pellentesque. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at. 
+            Sed libero enim sed faucibus turpis in eu mi bibendum. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Leo vel fringilla est ullamcorper eget nulla facilisi. Egestas congue quisque egestas diam in arcu. Nisi porta lorem mollis aliquam ut. In mollis nunc sed id semper risus in hendrerit. Mauris augue neque gravida in fermentum et sollicitudin ac orci. Diam in arcu cursus euismod quis viverra. Auctor neque vitae tempus quam pellentesque. Aliquet bibendum enim facilisis gravida neque convallis a cras semper. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.
 
         </div>
     )

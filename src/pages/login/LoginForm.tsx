@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { postJSON } from '../../shared/helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
@@ -51,6 +50,11 @@ const StyledForm = styled.form`
             cursor: pointer;  
         }                
     }  
+
+    a {
+        font-weight: bold;
+        color: ${props => props.theme.colors.green};
+    }
 `;
 
 export default function LoginForm() {
@@ -88,11 +92,11 @@ export default function LoginForm() {
         <StyledForm method="post" onSubmit={handleLogin}>
 
             <h2>Welcome to CoderKai</h2>
-            <InputField valueSetter={setUsername} validation={usernameValidation} />                
-            <InputField valueSetter={setPassword} validation={passwordValidation} /> 
+            <InputField valueSetter={setUsername} validation={usernameValidation} />
+            <InputField valueSetter={setPassword} validation={passwordValidation} />
             <div className="database-message">{response?.information}</div>
             <LoginButton isLoading={loading} />
-            <InternalLink endpoint="/todo" anchorText="Forgot Password?" /> 
+            <InternalLink endpoint="/todo" anchorText="Forgot Password?" />
 
         </StyledForm>
     )
