@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StyledCard } from '../../../../shared/styling/SharedStyles';
 
 const StyledHeadline = styled(StyledCard)`
-    
+
     text-align: left; 
     padding: 1em 2em; 
 

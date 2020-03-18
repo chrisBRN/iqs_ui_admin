@@ -9,7 +9,6 @@ import Headline from './Headline'
 
 import styled from 'styled-components';
 
-
 const StyledContainer = styled.div`   
 
     display: flex;
@@ -17,26 +16,28 @@ const StyledContainer = styled.div`
     justify-content: space-between;         
     overflow-x: hidden;  
     padding-bottom: 1rem;
-    
 
-    .main-body {      
-
-        background-color:  ${props => props.theme.colors.green};
-           
-        width: auto;  
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;     
-        // align-items: baseline;     
-
-        ${props => props.theme.mixins.scrollBar};           
-    }
+    width: 100%;
 
     .spacer {
         height: 1em;
+        
         margin-top: 1em;
+        
     }
+`;
+
+const StyledDashboardBody = styled.div`    
+    
+    background-color:  ${props => props.theme.colors.green};
+            
+    width: auto;  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    ${props => props.theme.mixins.scrollBar};    
 `;
 
 const DashboardCard = styled(StyledCard)`    
@@ -52,12 +53,13 @@ const DashboardCard = styled(StyledCard)`
 
     .card-label {
         position: absolute;
-        top: 2em;
-        left: 2em;
+        top: 1em;
+        left: 1em;
+        background-color: ${props => props.theme.colors.blue};
+        padding: 0.5em;  
+        color: ${props => props.theme.colors.white}
     }
 `
-
-
 
 export default function AdminHome() {
    
@@ -72,47 +74,55 @@ export default function AdminHome() {
 
 function DashboardBody(){
         return (
-            <div className="main-body">
-
-                <div className="spacer"></div>     
+            <StyledDashboardBody>                
 
                 <DashboardCard bounce width={"20em"} height={"20em"}>
                     <div className="card-label">Latest News</div>
                     <Hero/>
                 </DashboardCard>                
 
-                <DashboardCard bounce width={"36em"} height={"20em"}>
+                <DashboardCard bounce width={"20em"} height={"20em"}>
+                    <div className="card-label">Latest Users</div>
                     <PlaceholderGraph/>
                 </DashboardCard>
 
-                <DashboardCard bounce width={"20em"} height={"20em"}>
+                <DashboardCard bounce width={"36em"} height={"20em"}>
+                    <div className="card-label">Latest Candidates</div>
                     <Logo/>
                 </DashboardCard>
 
-                <DashboardCard bounce width={"20em"} height={"20em"}>
+                <DashboardCard bounce width={"30em"} height={"20em"}>
+                    <div className="card-label">Latest Submissions</div>
                     <LatestNews/>
                 </DashboardCard>
 
                 <DashboardCard bounce width={"20em"} height={"20em"}>
+                    <div className="card-label">Latest Users</div>
+                    <PlaceholderGraph/>
+                </DashboardCard>
+
+                <DashboardCard bounce width={"36em"} height={"20em"}>
+                    <div className="card-label">Latest Candidates</div>
                     <Logo/>
                 </DashboardCard>
 
-                <DashboardCard bounce width={"20em"} height={"20em"}>
-                    <Hero/>
+                 <DashboardCard bounce width={"20em"} height={"20em"}>
+                    <div className="card-label">Latest Users</div>
+                    <PlaceholderGraph/>
                 </DashboardCard>
 
-                <DashboardCard bounce width={"20em"} height={"20em"}>
-                    <PlaceholderGraph/>
-                </DashboardCard>        
-
                 <DashboardCard bounce width={"36em"} height={"20em"}>
-                    <PlaceholderGraph/>
-                </DashboardCard>    
+                    <div className="card-label">Latest Candidates</div>
+                    <Logo/>
+                </DashboardCard>
 
-                <DashboardCard bounce width={"20em"} height={"20em"}>
-                    <PlaceholderGraph/>
-                </DashboardCard>             
+                <DashboardCard bounce width={"30em"} height={"20em"}>
+                    <div className="card-label">Latest Submissions</div>
+                    <LatestNews/>
+                </DashboardCard>
 
-            </div>
+                
+
+            </StyledDashboardBody>
     )
 }

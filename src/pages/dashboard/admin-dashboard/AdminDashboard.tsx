@@ -8,6 +8,7 @@ import CopyrightNotice from '../../../shared/components/CopyrightNotice';
 import { InternalLink } from '../../../shared/helpers/Links';
 
 import AdminHome from './parts/AdminHome';
+import UserManagement from './parts/UserManagement';
 
 const StyledPage = styled(StyledFullPage)`
     background-color: ${props => props.theme.colors.blue};
@@ -72,7 +73,7 @@ const brandProps: BrandTypographyProps = {
 
 export default function AdminDashboard() {
 
-    const [bodyComponent, setBodyComponent] = useState<JSX.Element>(<AdminHome/>)
+    const [bodyComponent, setBodyComponent] = useState<JSX.Element>(<UserManagement/>)
 
     return (
 
@@ -110,7 +111,7 @@ function Navigation(props: NavigationProps) {
             <StyledHR />
             
             <StyledLI onClick={() => props.setter(<AdminHome/>)}>DASHBOARD</StyledLI>
-            <StyledLI onClick={() => props.setter(<div/>)}>USER</StyledLI>
+            <StyledLI onClick={() => props.setter(<UserManagement/>)}>USER</StyledLI>
             <StyledLI onClick={() => props.setter(<div/>)}>CANDIDATE</StyledLI>
             <StyledLI onClick={() => props.setter(<div/>)}>SUBMISSIONS</StyledLI>
             <StyledLI onClick={() => props.setter(<div/>)}>CAMPAIGNS</StyledLI>

@@ -64,7 +64,7 @@ export const defaultTheme = {
                 border-right-width: 2em;
                 border-left-width: 2em;
                 
-                background-color: rgba(0, 0, 0, 0.15);          
+                background-color: rgba(255, 255, 255, 0.5);          
             }                
 
             ::-webkit-scrollbar-track {              
@@ -72,7 +72,6 @@ export const defaultTheme = {
             }
         `
     }
-
 };
 
 export const StyledFullPage = styled.div`
