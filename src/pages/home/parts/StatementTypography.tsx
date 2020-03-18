@@ -1,18 +1,18 @@
 import React from "react";
 import styled from 'styled-components';
 
-interface Props {
+export interface BrandTypographyProps {
     headlineSize: string;
     subHeadlineSize: string;
     color?: string;
     alignment?: string;
 }
 
-const StyledTypography = styled.div<Props>`                 
+const StyledTypography = styled.div<BrandTypographyProps>`                 
     position: relative;     
     margin: auto;          
     display: inline-block;
-    padding: 2em;      
+    padding: 0em 2em 0em 2em;      
 
     color: ${
         props => (props.color ? props.color : props.theme.colors.offWhite)    
@@ -42,7 +42,7 @@ const StyledTypography = styled.div<Props>`
     }         
 `;
 
-export default function BrandTypography(props: Props){
+export function BrandTypography(props: BrandTypographyProps){
     return (
         <StyledTypography {...props}>
             <h1>Coder<em>Kai</em></h1>

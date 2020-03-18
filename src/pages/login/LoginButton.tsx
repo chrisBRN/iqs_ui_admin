@@ -13,7 +13,7 @@ const StyledButton = styled.button`
     margin: 1em;
     padding: 1em;
     
-    border: 1px solid #e1e1e5;
+    border: 1px solid ${props => props.theme.colors.borderLight};
     border-radius: 4px;         
 
     font-size: 16px; 

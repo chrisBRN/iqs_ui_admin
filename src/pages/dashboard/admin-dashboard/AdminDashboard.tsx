@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { StyledDiagonalBackgroundBox } from '../../../shared/components/DiagonalBackroundBox';
 import { StyledFullPage, StyledFullPageContentWrapper, StyledCard, defaultTheme, StyledHR } from '../../../shared/styling/SharedStyles';
-import BrandTypography from '../../home/parts/StatementTypography';
+import { BrandTypography, BrandTypographyProps } from '../../home/parts/StatementTypography';
 import { Link } from 'react-router-dom';
 import CopyrightNotice from '../../../shared/components/CopyrightNotice';
 import { InternalLink } from '../../../shared/helpers/Links';
-import AdminDashboardHome from './parts/AdminDashboardHome';
 
-const StyledBGBox = styled(StyledDiagonalBackgroundBox)`         
-    width: 40%;
-    left: -20%;
-    transform: skew(8deg); 
+import AdminHome from './parts/AdminHome';
+
+const StyledPage = styled(StyledFullPage)`
+    background-color: ${props => props.theme.colors.blue};
+    overflow: hidden;   
 `;
 
 const StyleList = styled.ul`    
-    width: 80%;    
+    width: 80%;       
     margin: 1em;
     text-transform: uppercase;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 const StyledLI = styled.div`    
@@ -29,13 +31,13 @@ const StyledLI = styled.div`
     box-sizing: border-box;        
     width: 100%;        
     
-    border: 1px solid ${props => props.theme.colors.border};
-
-    padding: 1em 2em 1em 2em;
-    margin-top: 0.25em;
+    border: 0px solid ${props => props.theme.colors.boxFill};
+    
+    padding: 1em 2em 1em 2em;    
 
     &:hover {
-        color: ${props => props.theme.colors.red};
+        background-color: ${props => props.theme.colors.boxFill};
+        color: ${props => props.theme.colors.green};            
         cursor: pointer;
         font-weight: bold;
         border-right-width: 1em;
@@ -51,60 +53,76 @@ const StyledLI = styled.div`
     }
 `;
 
+const StyledBody = styled(StyledCard)`
+    background-color: ${props => props.theme.colors.green};  
+    border: 0;
+`
+
+const StyledSideBar = styled(StyledCard)`
+    margin: 2em;    
+    padding: 2em;  
+`;
+
+const brandProps: BrandTypographyProps = {
+    headlineSize: "4rem",
+    subHeadlineSize: "1rem",
+    color: defaultTheme.colors.green,
+    alignment: "center"
+};
+
 export default function AdminDashboard() {
 
-    const [bodyComponent, setBodyComponent] = useState<JSX.Element>(<div/>)
+    const [bodyComponent, setBodyComponent] = useState<JSX.Element>(<AdminHome/>)
 
     return (
 
-        <StyledFullPage>
-
-            <StyledBGBox />          
+        <StyledPage>         
 
             <StyledFullPageContentWrapper>            
 
-            <StyledCard width={"20%"} height={"90vh"}>
+                <StyledSideBar width={"20%"} height={"90vh"} shadowPop>
+                    <Link to="/">
+                        <BrandTypography {...brandProps} />
+                    </Link>         
+                    <Navigation setter={setBodyComponent}/> 
+                    <CopyrightNotice bottom={"2em"} />
+                </StyledSideBar>
 
-                <Link to="/">
-                    <BrandTypography headlineSize={"4rem"} subHeadlineSize={"1rem"} color={defaultTheme.colors.green} alignment={"center"} />
-                </Link>
-
-                <StyledHR />
-
-                <StyleList>  
-                    
-                    <StyledLI onClick={() => setBodyComponent(<AdminDashboardHome/>)}>DASHBOARD</StyledLI>
-                    <StyledLI onClick={() => setBodyComponent(<div/>)}>USER</StyledLI>
-                    <StyledLI onClick={() => setBodyComponent(<div/>)}>CANDIDATE</StyledLI>
-                    <StyledLI onClick={() => setBodyComponent(<div/>)}>SUBMISSIONS</StyledLI>
-                    <StyledLI onClick={() => setBodyComponent(<div/>)}>CAMPAIGNS</StyledLI>
-
-                </StyleList>
-
-                <StyledHR />
-
-                <StyleList>  
-                    
-                    <StyledLI onMouseEnter={() => setBodyComponent(<div/>)}>SETTINGS</StyledLI>                    
-
-                    <StyledLI >
-                        <InternalLink endpoint={"/"} anchorText={"LOG OUT"}></InternalLink>
-                    </StyledLI>    
-
-                </StyleList>                       
-
-                <CopyrightNotice bottom={"2em"} />
-
-            </StyledCard>
-
-            <StyledCard width={"70%"} height={"90vh"}>
-
-                {bodyComponent}
-
-            </StyledCard>
+                <StyledBody width={"100%"} height={"90vh"}>
+                    {bodyComponent}
+                </StyledBody>
 
             </StyledFullPageContentWrapper>
 
-        </StyledFullPage>
+        </StyledPage>
+    )
+}
+
+interface NavigationProps {
+    setter: Function;
+}
+
+function Navigation(props: NavigationProps) {
+
+    return (        
+        <StyleList>              
+
+            <StyledHR />
+            
+            <StyledLI onClick={() => props.setter(<AdminHome/>)}>DASHBOARD</StyledLI>
+            <StyledLI onClick={() => props.setter(<div/>)}>USER</StyledLI>
+            <StyledLI onClick={() => props.setter(<div/>)}>CANDIDATE</StyledLI>
+            <StyledLI onClick={() => props.setter(<div/>)}>SUBMISSIONS</StyledLI>
+            <StyledLI onClick={() => props.setter(<div/>)}>CAMPAIGNS</StyledLI>
+            
+            <StyledHR />
+
+            <StyledLI onClick={() => props.setter(<div/>)}>SETTINGS</StyledLI>                    
+
+            <StyledLI >
+                <InternalLink endpoint={"/"} anchorText={"LOG OUT"}></InternalLink>
+            </StyledLI>    
+
+        </StyleList>        
     )
 }

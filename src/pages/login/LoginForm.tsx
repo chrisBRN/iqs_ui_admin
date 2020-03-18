@@ -22,8 +22,10 @@ const StyledForm = styled.form`
     justify-content: center;    
     font-family: ${props => props.theme.fonts.main};  
 
+    margin: auto;
+
     h2 {
-        padding: 1em;
+        padding: 2em;
         font-size: 24px;  
         font-family: ${props => props.theme.fonts.main};   
         color: ${props => props.theme.colors.green};    
@@ -52,6 +54,7 @@ const StyledForm = styled.form`
     }  
 
     a {
+        padding: 1em;
         font-weight: bold;
         color: ${props => props.theme.colors.green};
     }

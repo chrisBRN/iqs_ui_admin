@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { StyledDiagonalBackgroundBox } from '../../shared/components/DiagonalBackroundBox';
-import BrandTypography from './parts/StatementTypography';
+import { BrandTypography } from './parts/StatementTypography';
 
 import LoginForm from '../login/LoginForm';
 import PlaceholderContactsPopIn from './parts/PlaceholderContactsPopIn';
@@ -21,7 +21,7 @@ const StyledNav = styled.ul`
 
     position: absolute;
     top: 2em;
-    right: 4em;
+    right: 2em;
 
     list-style-type: none;    
 
@@ -40,9 +40,16 @@ const StyledNav = styled.ul`
     }
 `;
 
+const PositionedCard = styled(StyledCard)`
+    margin: 2em;
+    padding: 2em;
+`
+
 export default function HomePage() {
 
     const [popInComponent, setPopInComponent] = useState<JSX.Element>(<LoginForm />)
+    
+    // TODO, hold login state here so its not lost when looking at contact / about
 
     return (
 
@@ -62,11 +69,11 @@ export default function HomePage() {
 
                 </StyledNav>
 
-                <StyledCard width={"480px"} height={"600px"}>
+                <PositionedCard width={"480px"} height={"600px"} shadowPop>
 
                     {popInComponent}
 
-                </StyledCard>
+                </PositionedCard>
 
                 <CopyrightNotice bottom={"2em"} left={"2em"}/>
 
