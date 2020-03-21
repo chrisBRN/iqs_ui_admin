@@ -9,43 +9,41 @@ export interface BrandTypographyProps {
 }
 
 const StyledTypography = styled.div<BrandTypographyProps>`                 
-    position: relative;     
-    margin: auto;          
-    display: inline-block;
-    padding: 0em 2em 0em 2em;      
+    display: flex;
+    flex-direction: column;
+    
+    padding: 0rem 1rem 0rem 1rem;
+    margin: 0rem 0rem -0.25rem 0rem;
 
     color: ${
         props => (props.color ? props.color : props.theme.colors.offWhite)    
     }; 
 
-    h1 {
-        font-family: ${props => props.theme.fonts.big}; 
-        height: ${props => props.headlineSize}; 
-        font-size: ${props => props.headlineSize};       
+    h1 {   
+        font-family: ${props => props.theme.fonts.big};         
+        font-size: ${props => props.headlineSize};    
+        min-height: ${props => props.headlineSize}; 
+        line-height: ${props => props.headlineSize};      
     }
 
     h2 {
-        font-family: ${props => props.theme.fonts.main};    
-        height: ${props => props.subHeadlineSize};
-        font-size: ${props => props.subHeadlineSize};
+        font-family: ${props => props.theme.fonts.main}; 
+        font-size: ${props => props.subHeadlineSize};           
+        min-height: ${props => props.subHeadlineSize}; 
+        line-height: ${props => props.subHeadlineSize};  
         
-        text-align: ${
-            props => (props.alignment ? props.alignment : "right")    
-        };  
-        padding-top: 1em; 
-
-        width: 100%;
+        text-align: ${props => props.alignment};   
     }
 
-    em {
-        color: ${props => props.theme.colors.red}; 
+    strong {
+        color: ${props => props.theme.colors.red};         
     }         
 `;
 
 export function BrandTypography(props: BrandTypographyProps){
     return (
-        <StyledTypography {...props}>
-            <h1>Coder<em>Kai</em></h1>
+        <StyledTypography {...props}>            
+            <h1>Coder<strong>Kai</strong></h1>            
             <h2>Get Your Ninja On
                 <span role="img" aria-label="Martial Artist Emoji">🥋</span>
                 <span role="img" aria-label="Laptop Emoji">💻</span>

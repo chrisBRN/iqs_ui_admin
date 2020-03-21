@@ -28,7 +28,7 @@ const StyledForm = styled.form`
         padding: 2em;
         font-size: 24px;  
         font-family: ${props => props.theme.fonts.main};   
-        color: ${props => props.theme.colors.green};    
+        color: ${props => props.theme.colors.blue};    
     }
 
     .database-message {
@@ -56,7 +56,7 @@ const StyledForm = styled.form`
     a {
         padding: 1em;
         font-weight: bold;
-        color: ${props => props.theme.colors.green};
+        color: ${props => props.theme.colors.blue};
     }
 `;
 

@@ -3,49 +3,26 @@ import styled from 'styled-components';
 export const defaultTheme = {
 
     colors: {
-        white: "#ffffff",
-        offWhite: "#f6f8fa",
-        offBlack: "#090705",
+        white: "white",
+        offWhite: "whitesmoke",
+        offBlack: "darkslategray",
 
-        border: "#e1e1e5",
-        borderLight: "#F4F4F5",
-
-        blue: "#00B0FF",
-        green: "#00BFA6",
-        offGreen: "#daedeb",
-
-        red: "#F50057",
-
+        border: "gainsboro", 
         autoFillBlue: "rgba(232, 240, 254, 0.5)",
-        boxFill: "#FAFBFC"
+        boxFill: "powderblue",
+
+        blue: "steelblue",
+        blueLight: "paleturquoise",
+        green: "olive",
+        red: "indianRed",        
+
     },
 
     fonts: {
         main: "'Muli', 'sans-serif'",
         big: "'Neuton', 'serif'"
-    },
-
-    cheapAnimations: {
-
-        bounce: `
-            transition: transform 0.2s ease; 
-            &:hover { 
-                transform: translate(0px, -8px);
-            }`,
-
-        opacityPop: `
-            opacity: 0.9; 
-            transition: opacity 0.1s ease; 
-            &:hover { 
-                opacity: 1;
-            }`,
-
-        boxShadowPop: `
-            transition: box-shadow 0.2s ease; 
-            &:hover { 
-                box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.05);
-            }`
-    },
+        
+    },  
 
     mixins: {
 
@@ -55,22 +32,45 @@ export const defaultTheme = {
             overflow-x: auto; 
 
             ::-webkit-scrollbar {           
-                width: 3em;   
+                width: 2em;   
+                // background-color: rgba(255, 255, 255, 0.5);                 
             } 
 
             ::-webkit-scrollbar-thumb {            
                 background-clip: padding-box;
                 border: 0em solid rgba(0, 0, 0, 0);
-                border-right-width: 2em;
-                border-left-width: 2em;
+                border-right-width: 1em;
+                border-left-width: -1em;
                 
                 background-color: rgba(255, 255, 255, 0.5);          
             }                
 
-            ::-webkit-scrollbar-track {              
+            ::-webkit-scrollbar-track {   
                 margin: 1em; 
             }
-        `
+        `,
+
+        animations: {
+
+            bounce: `
+                transition: transform 0.2s ease; 
+                &:hover { 
+                    transform: translate(0px, -8px);
+                }`,
+    
+            opacityPop: `
+                opacity: 0.9; 
+                transition: opacity 0.1s ease; 
+                &:hover { 
+                    opacity: 1;
+                }`,
+    
+            boxShadowPop: `
+                transition: box-shadow 0.2s ease; 
+                &:hover { 
+                    box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.05);
+                }`
+        },
     }
 };
 
@@ -79,19 +79,16 @@ export const StyledFullPage = styled.div`
     width: 100vw;    
     margin: 0;
     padding: 0; 
+    position: relative;
 `;
 
 export const StyledFullPageContentWrapper = styled.div`
 
-    height: 98%;
-    width: 98%;   
+    height: 100%;
+    width: 100%;   
     margin: 0;
-    padding: 0;
+    padding: 0;   
     
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;  
 
     position: relative;
 `;
@@ -116,18 +113,20 @@ export const StyledCard = styled.div<CardProps>`
     width: ${props => props.width};
     height: ${props => props.height};
 
+    padding: 2em;
+
     position: relative;   
     display: flex;
     flex-direction: column;       
     align-items: center;   
     justify-content: center;
 
-    border: 1px solid ${props => props.theme.colors.borderLight};
+    border: 1px solid ${props => props.theme.colors.border};
     border-radius: 4px;         
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.01);    
     
-    ${props => props.shadowPop ? props.theme.cheapAnimations.boxShadowPop : null};     
-    ${props => props.bounce ? props.theme.cheapAnimations.bounce : null};  
+    ${props => props.shadowPop ? props.theme.mixins.animations.boxShadowPop : null};     
+    ${props => props.bounce ? props.theme.mixins.animations.bounce : null};  
 
 `;
 

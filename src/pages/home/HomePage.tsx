@@ -11,6 +11,13 @@ import CopyrightNotice from '../../shared/components/CopyrightNotice';
 
 import { StyledFullPage, StyledFullPageContentWrapper, StyledCard } from '../../shared/styling/SharedStyles'
 
+const StyledPageContents = styled(StyledFullPageContentWrapper)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;  
+`;
+
 const StyledBGBox = styled(StyledDiagonalBackgroundBox)`         
     width: 70%;
     left: -10%;
@@ -20,8 +27,8 @@ const StyledBGBox = styled(StyledDiagonalBackgroundBox)`
 const StyledNav = styled.ul`
 
     position: absolute;
-    top: 2em;
-    right: 2em;
+    top: -4em;
+    right: 0em;
 
     list-style-type: none;    
 
@@ -31,19 +38,14 @@ const StyledNav = styled.ul`
         padding: 1em;
         font-weight: bold;  
         
-        color: ${props => props.theme.colors.green};
+        color: ${props => props.theme.colors.blue};
     
         &:hover {
             cursor: pointer;            
-            color: ${props => props.theme.colors.red};                
+            color: ${props => props.theme.colors.green};                
         }   
     }
 `;
-
-const PositionedCard = styled(StyledCard)`
-    margin: 2em;
-    padding: 2em;
-`
 
 export default function HomePage() {
 
@@ -57,9 +59,11 @@ export default function HomePage() {
 
             <StyledBGBox />
 
-            <StyledFullPageContentWrapper>
+            <StyledPageContents>
 
-                <BrandTypography headlineSize={"12rem"} subHeadlineSize={"2rem"}/>
+                <BrandTypography headlineSize={"12rem"} subHeadlineSize={"2rem"} alignment={"right"}/>                
+
+                <StyledCard width={"480px"} height={"600px"} shadowPop>
 
                 <StyledNav>
 
@@ -69,15 +73,13 @@ export default function HomePage() {
 
                 </StyledNav>
 
-                <PositionedCard width={"480px"} height={"600px"} shadowPop>
-
                     {popInComponent}
 
-                </PositionedCard>
+                </StyledCard>
 
                 <CopyrightNotice bottom={"2em"} left={"2em"}/>
 
-            </StyledFullPageContentWrapper>
+            </StyledPageContents>
 
         </StyledFullPage>
     )

@@ -18,7 +18,7 @@ const StyledContainer = styled.div<Props>`
     left: ${props => props.left ? props.left : "" };  
     right: ${props => props.right ? props.right : "" }; 
     
-    ${props => props.theme.cheapAnimations.opacityPop}    
+    ${props => props.theme.mixins.animations.opacityPop}    
 `;
 
 export default function CopyrightNotice(props: Props) {

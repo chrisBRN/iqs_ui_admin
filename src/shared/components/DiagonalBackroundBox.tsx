@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 export const StyledDiagonalBackgroundBox = styled.div` 
-    background-color: ${props => props.theme.colors.green};         
+    background-color: ${props => props.theme.colors.blue};         
     width: 100vh; 
     height: 100vh;
     position: absolute;

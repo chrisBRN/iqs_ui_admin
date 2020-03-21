@@ -11,64 +11,51 @@ import AdminHome from './parts/AdminHome';
 import UserManagement from './parts/UserManagement';
 
 const StyledPage = styled(StyledFullPage)`
-    background-color: ${props => props.theme.colors.blue};
-    overflow: hidden;   
+    background-color: ${props => props.theme.colors.offWhite};
+    overflow: hidden;       
+
 `;
 
-const StyleList = styled.ul`    
-    width: 80%;       
-    margin: 1em;
-    text-transform: uppercase;  
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;
+const StyledLI = styled.div`   
+    float: left; 
+    color: ${props => props.theme.colors.blue};  
+    padding: 1em; 
 
-const StyledLI = styled.div`    
-
-    background-color: ${props => props.theme.colors.white};
-    color: ${props => props.theme.colors.green};    
-
-    box-sizing: border-box;        
-    width: 100%;        
-    
-    border: 0px solid ${props => props.theme.colors.boxFill};
-    
-    padding: 1em 2em 1em 2em;    
-
-    &:hover {
-        background-color: ${props => props.theme.colors.boxFill};
-        color: ${props => props.theme.colors.green};            
+    &:hover {   
+        color: ${props => props.theme.colors.blue};            
         cursor: pointer;
-        font-weight: bold;
-        border-right-width: 1em;
-        border-color: ${props => props.theme.colors.green};
+        font-weight: bold;     
+        
+        border-color: ${props => props.theme.colors.blue};
 
         a {
-            color: ${props => props.theme.colors.red};
+            color: ${props => props.theme.colors.blue};
         }
     }   
 
     a {
-        color: ${props => props.theme.colors.green};        
+        color: ${props => props.theme.colors.blue};        
     }
 `;
 
-const StyledBody = styled(StyledCard)`
-    background-color: ${props => props.theme.colors.green};  
-    border: 0;
-`
+const StyledHeader = styled.div`
+    width: 100%;
 
-const StyledSideBar = styled(StyledCard)`
-    margin: 2em;    
-    padding: 2em;  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;    
+    padding: 0em 2em 1em 2em;
+
+    border: 0px solid ${props => props.theme.colors.border};
+    border-bottom-width: 1px;  
+
 `;
 
 const brandProps: BrandTypographyProps = {
     headlineSize: "4rem",
     subHeadlineSize: "1rem",
-    color: defaultTheme.colors.green,
-    alignment: "center"
+    color: defaultTheme.colors.blue,
+    alignment: "left"
 };
 
 export default function AdminDashboard() {
@@ -81,17 +68,16 @@ export default function AdminDashboard() {
 
             <StyledFullPageContentWrapper>            
 
-                <StyledSideBar width={"20%"} height={"90vh"} shadowPop>
-                    <Link to="/">
-                        <BrandTypography {...brandProps} />
-                    </Link>         
-                    <Navigation setter={setBodyComponent}/> 
-                    <CopyrightNotice bottom={"2em"} />
-                </StyledSideBar>
+                <StyledHeader>
 
-                <StyledBody width={"100%"} height={"90vh"}>
-                    {bodyComponent}
-                </StyledBody>
+                    <Link to="/"><BrandTypography {...brandProps} /></Link> 
+                       
+                    <Navigation setter={setBodyComponent}/> 
+
+                      
+                    
+                </StyledHeader>
+                
 
             </StyledFullPageContentWrapper>
 
@@ -106,24 +92,22 @@ interface NavigationProps {
 function Navigation(props: NavigationProps) {
 
     return (        
-        <StyleList>              
-
-            <StyledHR />
+        <ul>   
             
             <StyledLI onClick={() => props.setter(<AdminHome/>)}>DASHBOARD</StyledLI>
             <StyledLI onClick={() => props.setter(<UserManagement/>)}>USER</StyledLI>
             <StyledLI onClick={() => props.setter(<div/>)}>CANDIDATE</StyledLI>
             <StyledLI onClick={() => props.setter(<div/>)}>SUBMISSIONS</StyledLI>
-            <StyledLI onClick={() => props.setter(<div/>)}>CAMPAIGNS</StyledLI>
-            
-            <StyledHR />
+            <StyledLI onClick={() => props.setter(<div/>)}>CAMPAIGNS</StyledLI>   
 
-            <StyledLI onClick={() => props.setter(<div/>)}>SETTINGS</StyledLI>                    
+            {/* <hr></hr> */}
 
-            <StyledLI >
+            <StyledLI onClick={() => props.setter(<div/>)}>SETTINGS</StyledLI>       
+                        
+            <StyledLI>
                 <InternalLink endpoint={"/"} anchorText={"LOG OUT"}></InternalLink>
-            </StyledLI>    
+            </StyledLI> 
 
-        </StyleList>        
+        </ul>        
     )
 }

@@ -20,10 +20,8 @@ const StyledContainer = styled.div`
     width: 100%;
 
     .spacer {
-        height: 1em;
-        
-        margin-top: 1em;
-        
+        height: 1em;        
+        margin-top: 1em;        
     }
 `;
 
@@ -43,12 +41,18 @@ const StyledDashboardBody = styled.div`
 const DashboardCard = styled(StyledCard)`    
     
     margin-top: 1em;
-    margin-left: 1em;    
-    filter: contrast(96%);
+    margin-left: 1em;   
     border: 0;
 
+    background-color: ${props => props.theme.colors.boxFill};
+
     &:hover {
-        filter: contrast(92%);
+
+        background-color: ${props => props.theme.colors.white};
+
+        .card-label {
+            filter: hue-rotate(45deg);
+        }
     }
 
     .card-label {
