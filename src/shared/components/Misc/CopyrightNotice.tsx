@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import { ExternalLink } from "../helpers/Links";
+import { ExternalLink } from "../../helpers/Links";
 
 interface Props {
     top? : string;

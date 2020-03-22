@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledCard } from '../../../../shared/styling/SharedStyles';
-import LatestNews from '../../../../shared/components/faux-graphics/LatestNews';
-import Hero from '../../../../shared/components/faux-graphics/Hero';
-import Logo from '../../../../shared/components/faux-graphics/Logo';
-import PlaceholderGraph from '../../../../shared/components/faux-graphics/PlaceholderGraph';
+import { StyledCard } from '../shared/styling/SharedStyles';
+import LatestNews from '../shared/components/SVG/LatestNews';
+import Hero from '../shared/components/SVG/Hero';
+import Logo from '../shared/components/SVG/Logo';
+import PlaceholderGraph from '../shared/components/SVG/PlaceholderGraph';
 
-import Headline from './Headline'
+import Headline from '../shared/components/Misc/Headline';
 
 import styled from 'styled-components';
 
@@ -42,9 +42,7 @@ const DashboardCard = styled(StyledCard)`
     
     margin-top: 1em;
     margin-left: 1em;   
-    border: 0;
-
-    background-color: ${props => props.theme.colors.boxFill};
+    border: 0;    
 
     &:hover {
 
@@ -65,13 +63,16 @@ const DashboardCard = styled(StyledCard)`
     }
 `
 
-export default function AdminHome() {
-   
+interface isSelected {
+    isSelected?: boolean;
+}
+
+export default function AdminHome(props: isSelected) {
+
     return (     
         <StyledContainer>
-            <Headline headline={"dashboard"}/>     
-            <DashboardBody/>  
-            <div className="spacer"></div>
+            <Headline headline={"Dashboard"}/>     
+            <DashboardBody/> 
         </StyledContainer>
     )
 }
@@ -123,9 +124,7 @@ function DashboardBody(){
                 <DashboardCard bounce width={"30em"} height={"20em"}>
                     <div className="card-label">Latest Submissions</div>
                     <LatestNews/>
-                </DashboardCard>
-
-                
+                </DashboardCard>                
 
             </StyledDashboardBody>
     )

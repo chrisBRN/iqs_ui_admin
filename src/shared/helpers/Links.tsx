@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export interface LinkProps {
     endpoint: string
@@ -26,5 +26,13 @@ export function ExternalLink(props: LinkProps) {
 export function InternalLink(props: LinkProps) {
     return (
         <StyledInternalLink to={props.endpoint}>{props.anchorText}</StyledInternalLink>    
+    )
+}
+
+export function InternalNavLink(props: LinkProps) {
+    return (
+        <NavLink activeClassName="selected" className="nav-link" to={props.endpoint}>
+            {props.anchorText}
+        </NavLink>    
     )
 }

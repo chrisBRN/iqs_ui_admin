@@ -9,13 +9,12 @@ export const defaultTheme = {
 
         border: "gainsboro", 
         autoFillBlue: "rgba(232, 240, 254, 0.5)",
-        boxFill: "powderblue",
+        boxFill: "#eee",
 
         blue: "steelblue",
         blueLight: "paleturquoise",
         green: "olive",
         red: "indianRed",        
-
     },
 
     fonts: {
@@ -32,8 +31,7 @@ export const defaultTheme = {
             overflow-x: auto; 
 
             ::-webkit-scrollbar {           
-                width: 2em;   
-                // background-color: rgba(255, 255, 255, 0.5);                 
+                width: 2em;                              
             } 
 
             ::-webkit-scrollbar-thumb {            
@@ -83,13 +81,10 @@ export const StyledFullPage = styled.div`
 `;
 
 export const StyledFullPageContentWrapper = styled.div`
-
     height: 100%;
     width: 100%;   
     margin: 0;
     padding: 0;   
-    
-
     position: relative;
 `;
 
@@ -112,17 +107,11 @@ export const StyledCard = styled.div<CardProps>`
 
     width: ${props => props.width};
     height: ${props => props.height};
-
+    
     padding: 2em;
+    position: relative;       
 
-    position: relative;   
-    display: flex;
-    flex-direction: column;       
-    align-items: center;   
-    justify-content: center;
-
-    border: 1px solid ${props => props.theme.colors.border};
-    border-radius: 4px;         
+    border: 1px solid ${props => props.theme.colors.border};           
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.01);    
     
     ${props => props.shadowPop ? props.theme.mixins.animations.boxShadowPop : null};     

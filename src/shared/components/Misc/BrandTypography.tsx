@@ -1,19 +1,13 @@
 import React from "react";
 import styled from 'styled-components';
 
-export interface BrandTypographyProps {
-    headlineSize: string;
-    subHeadlineSize: string;
-    color?: string;
-    alignment?: string;
-}
-
-const StyledTypography = styled.div<BrandTypographyProps>`                 
+const StyledTypography = styled.div<Props>`  
+    
     display: flex;
     flex-direction: column;
     
-    padding: 0rem 1rem 0rem 1rem;
-    margin: 0rem 0rem -0.25rem 0rem;
+    padding: 0.25rem 2em;        
+    margin-bottom: 0.75rem;     
 
     color: ${
         props => (props.color ? props.color : props.theme.colors.offWhite)    
@@ -40,7 +34,14 @@ const StyledTypography = styled.div<BrandTypographyProps>`
     }         
 `;
 
-export function BrandTypography(props: BrandTypographyProps){
+interface Props {
+    headlineSize?: string;
+    subHeadlineSize?: string;
+    color?: string;
+    alignment?: string;
+}
+
+export default function BrandTypography(props: Props){
     return (
         <StyledTypography {...props}>            
             <h1>Coder<strong>Kai</strong></h1>            

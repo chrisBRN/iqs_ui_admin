@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { InputFieldValidators } from '../interfaces/InputFieldValidators';
+import { InputFieldValidators } from './InputFieldValidators';
 
 const StyledInput = styled.input` 
 

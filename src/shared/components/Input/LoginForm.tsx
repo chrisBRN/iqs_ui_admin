@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { postJSON } from '../../shared/helpers/fetchJSON';
+import { postJSON } from '../../helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
 import LoginButton from './LoginButton';
 
-import InputField from '../../shared/components/InputsField';
-import { usernameValidation, passwordValidation } from '../../shared/interfaces/InputFieldValidators';
-import { InternalLink } from '../../shared/helpers/Links';
-
-interface LoginResponse {
-    status: string,
-    status_code: Number,
-    information?: string,
-    token?: string
-}
+import InputField from './InputsField';
+import { usernameValidation, passwordValidation } from './InputFieldValidators';
+import { InternalLink } from '../../helpers/Links';
 
 const StyledForm = styled.form`
     display: flex;
@@ -60,7 +53,16 @@ const StyledForm = styled.form`
     }
 `;
 
+interface LoginResponse {
+    status: string,
+    status_code: Number,
+    information?: string,
+    token?: string
+}
+
 export default function LoginForm() {
+
+    // TODO Add Database Response 
 
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -96,8 +98,7 @@ export default function LoginForm() {
 
             <h2>Welcome to CoderKai</h2>
             <InputField valueSetter={setUsername} validation={usernameValidation} />
-            <InputField valueSetter={setPassword} validation={passwordValidation} />
-            <div className="database-message">{response?.information}</div>
+            <InputField valueSetter={setPassword} validation={passwordValidation} />            
             <LoginButton isLoading={loading} />
             <InternalLink endpoint="/todo" anchorText="Forgot Password?" />
 

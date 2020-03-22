@@ -11,8 +11,8 @@ import { ThemeProvider } from "styled-components";
 import './App.scss';
 import { defaultTheme } from '../shared/styling/SharedStyles';
 
-import HomePage from '../pages/home/HomePage';
-import AdminDashboard from '../pages/dashboard/admin-dashboard/AdminDashboard';
+import HomePage from '../pages/HomePage';
+import AdminDashboard from '../pages/AdminDashboard';
 
 export default function App() {
 
