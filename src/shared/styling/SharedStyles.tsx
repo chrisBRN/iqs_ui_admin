@@ -19,8 +19,8 @@ export const defaultTheme = {
 
     fonts: {
         main: "'Muli', 'sans-serif'",
-        big: "'Neuton', 'serif'"
-        
+        big: "'Neuton', 'serif'",
+        headline: "'Roboto', sans-serif;"        
     },  
 
     mixins: {
@@ -40,7 +40,7 @@ export const defaultTheme = {
                 border-right-width: 1em;
                 border-left-width: -1em;
                 
-                background-color: rgba(255, 255, 255, 0.5);          
+                background-color: rgba(120, 120, 120, 0.5);          
             }                
 
             ::-webkit-scrollbar-track {   
@@ -51,9 +51,9 @@ export const defaultTheme = {
         animations: {
 
             bounce: `
-                transition: transform 0.2s ease; 
+                transition: transform 0.2s ease-in-out; 
                 &:hover { 
-                    transform: translate(0px, -8px);
+                    transform: translate(0px, -4px);
                 }`,
     
             opacityPop: `
@@ -81,8 +81,8 @@ export const StyledFullPage = styled.div`
 `;
 
 export const StyledFullPageContentWrapper = styled.div`
-    height: 100%;
-    width: 100%;   
+    height: 100vh;
+    width: 100vw;   
     margin: 0;
     padding: 0;   
     position: relative;

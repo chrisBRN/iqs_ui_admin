@@ -1,48 +1,50 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useRouteMatch, Link } from "react-router-dom";import BrandTypography from "../Misc/BrandTypography";import { defaultTheme } from "../../styling/SharedStyles";
+import { useRouteMatch, Link, Switch, Route } from "react-router-dom"; import BrandTypography from "../Misc/BrandTypography"; import { defaultTheme } from "../../styling/SharedStyles";
 import { InternalNavLink, LinkProps } from '../../helpers/Links';
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.div`  
+
+    width: 100vw;    
     
-    width: 100%;      
-    display: flex;
-    flex-direction: row;
-    align-items: center;   
-    border: 0px solid ${props => props.theme.colors.border};
-    border-bottom-width: 1px;      
-`;
-
-const StyledLink = styled(Link)`    
-    &:hover {           
-        strong, h1 {
-            color: ${props => props.theme.colors.red};            
-        }
-
-        /* h2 {
-            font-size: 16px;
-        } */
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: ${props => props.theme.colors.white};       
     }    
-`;
 
-const StyledLI = styled.div`        
+    .home-link {
+        font-family: ${props => props.theme.fonts.big};
+        font-size: 2rem;
+        line-height: 1rem;        
+    }
 
-    .nav-link {
-        color: ${props => props.theme.colors.blue};   
-        padding: 2em;
-        border: 0px solid ${props => props.theme.colors.red};        
+    .styled-li {
+        float: left;
 
-        &:hover {
-            font-weight: bold; 
-            border-bottom-width: 4px;              
+        line-height: 1rem;    
+
+        .nav-link {
+            display: block;
+            color: ${props => props.theme.colors.blue};
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+            text-decoration: none;
+            border: 0 solid ${props => props.theme.colors.red};;          
+
+            &:hover:not(.selected) {                
+                background-color: ${props => props.theme.colors.offWhite};
+                border-bottom-width: 4px;
+                padding-bottom: calc(1rem - 4px);
+            }
+
+            &.selected {
+                background-color: ${props => props.theme.colors.border};
+            }
         }
-    }  
-
-    .selected {
-        font-weight: bold;  
-        background-color: ${props => props.theme.colors.boxFill};  
-        border: 0px solid ${props => props.theme.colors.red};        
-        border-bottom-width: 4px;  
     }
 `;
 
@@ -52,31 +54,28 @@ export default function AdminNavBar() {
 
     let { url } = useRouteMatch();
 
-    return (            
-        <StyledHeader className="admin-header">  
-
-            <StyledLink to={url}>
-                <BrandTypography headlineSize={"4rem"} subHeadlineSize={"0rem"} color={defaultTheme.colors.blue} />
-            </StyledLink>   
-            
-            <LiNavLink endpoint={`${url}/user-management`} anchorText={"USER"}/>
-            <LiNavLink endpoint={`${url}/candidate-management`} anchorText={"CANDIDATE"}/>
-            <LiNavLink endpoint={`${url}/submissions`} anchorText={"SUBMISSIONS"}/>
-            <LiNavLink endpoint={`${url}/campaigns`} anchorText={"CAMPAIGNS"}/>
-            
-            <hr></hr>
-
-            <LiNavLink endpoint={`${url}/settings`} anchorText={"SETTINGS"}/> 
-
-        </StyledHeader>
+    return (
+        <div>
+            <StyledHeader className="admin-header">                
+                <ul>                
+                    <div className="home-link"><LiNavLink endpoint={`${url}/dashboard`} anchorText={"CoderKai"} /></div>
+                    <LiNavLink endpoint={`${url}/user-management`} anchorText={"USER"} />           
+                    <LiNavLink endpoint={`${url}/candidate-management`} anchorText={"CANDIDATE"} />
+                    <LiNavLink endpoint={`${url}/submissions`} anchorText={"SUBMISSIONS"} />          
+                    <LiNavLink endpoint={`${url}/campaigns`} anchorText={"CAMPAIGNS"} />   
+                       
+                    <LiNavLink endpoint={`${url}/settings`} anchorText={"SETTINGS"} />  
+                </ul>
+            </StyledHeader>
+        </div>
 
     )
 }
 
-function LiNavLink(props: LinkProps){
+function LiNavLink(props: LinkProps) {
     return (
-        <StyledLI>
-            <InternalNavLink  {...props}/>            
-        </StyledLI>  
+        <li className="styled-li">
+            <InternalNavLink  {...props} />
+        </li>
     )
 }

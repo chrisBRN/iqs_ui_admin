@@ -13,6 +13,7 @@ import { defaultTheme } from '../shared/styling/SharedStyles';
 
 import HomePage from '../pages/HomePage';
 import AdminDashboard from '../pages/AdminDashboard';
+import UserManagement from '../pages/UserManagement';
 
 export default function App() {
 
@@ -20,13 +21,17 @@ export default function App() {
         <ThemeProvider theme={defaultTheme}>
 
             <Router >
-                <Switch>
+                <Switch>                    
 
-                    <Route path="/admin/dashboard">
+                    <Route exact path="/admin">
                         <AdminDashboard />
                     </Route>
 
-                    <Route path="/">
+                    <Route path="/admin/user-management">
+                        <UserManagement />
+                    </Route>
+
+                    <Route exact path="/">
                         <HomePage />
                     </Route>
 
