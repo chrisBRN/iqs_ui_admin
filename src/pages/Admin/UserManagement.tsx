@@ -1,6 +1,6 @@
 import React from 'react';
-import Headline, { Footer } from '../shared/components/Misc/Headline';
-import AdminNavBar from '../shared/components/Navigation/AdminNavbar';
+import Headline, { Footer } from '../../shared/components/Misc/Headline';
+import AdminNavBar from '../../shared/components/Navigation/AdminNavbar';
 
 
 export default function UserManagement() {

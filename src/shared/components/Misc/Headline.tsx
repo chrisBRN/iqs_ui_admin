@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeadline = styled.div`
-    background-color: ${props => props.theme.colors.border};
+    background-color: ${props => props.theme.colors.boxFill};
     box-sizing: border-box;         
     width: 100%; 
     min-height: 4rem;     
-    border-bottom: solid 1px ${props => props.theme.colors.boxFill}; 
+    border-bottom: solid 1px ${props => props.theme.colors.border}; 
 
     display: flex;
     flex-direction: column;

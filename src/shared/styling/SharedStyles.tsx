@@ -18,7 +18,7 @@ export const defaultTheme = {
     },
 
     fonts: {
-        main: "'Muli', 'sans-serif'",
+        main: "'Roboto', 'sans-serif'",
         big: "'Neuton', 'serif'",
         headline: "'Roboto', sans-serif;"        
     },  

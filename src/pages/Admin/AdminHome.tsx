@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledCard } from '../shared/styling/SharedStyles';
-import LatestNews from '../shared/components/SVG/LatestNews';
-import Hero from '../shared/components/SVG/Hero';
-import Logo from '../shared/components/SVG/Logo';
-import PlaceholderGraph from '../shared/components/SVG/PlaceholderGraph';
+import { StyledCard } from '../../shared/styling/SharedStyles';
+import LatestNews from '../../shared/components/SVG/LatestNews';
+import Hero from '../../shared/components/SVG/Hero';
+import Logo from '../../shared/components/SVG/Logo';
+import PlaceholderGraph from '../../shared/components/SVG/PlaceholderGraph';
 
-import Headline, { Footer } from '../shared/components/Misc/Headline';
+import Headline, { Footer } from '../../shared/components/Misc/Headline';
 
 import styled from 'styled-components';
 
@@ -30,11 +30,14 @@ const StyledDashboardBody = styled.div`
     justify-content: flex-start;
     margin: 1em 0em;
 
+    border: 1px solid ${props => props.theme.colors.border};
+
     ${props => props.theme.mixins.scrollBar};    
 `;
 
 const DashboardCard = styled(StyledCard)`    
-    
+       
+
     margin-top: 1em;
     margin-left: 1em;   
     border: 0;        
@@ -59,7 +62,7 @@ export default function AdminHome() {
                 <StyledContainer>
                     <DashboardBody/>
                 </StyledContainer>             
-            <Footer/> 
+            
              
         </div>
     )

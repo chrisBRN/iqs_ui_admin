@@ -3,7 +3,8 @@ import { StyledFullPage, StyledFullPageContentWrapper } from '../shared/styling/
 
 import AdminNavBar from '../shared/components/Navigation/AdminNavbar';
 
-import AdminHome from './AdminHome';
+import AdminHome from './Admin/AdminHome';
+import { Footer } from '../shared/components/Misc/Headline';
 
 export default function AdminDashboard() {   
 
@@ -14,6 +15,7 @@ export default function AdminDashboard() {
 
                 <AdminNavBar/> 
                 <AdminHome/>
+                <Footer/> 
 
             </StyledFullPageContentWrapper>
         </StyledFullPage>

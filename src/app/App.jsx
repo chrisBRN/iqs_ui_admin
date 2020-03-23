@@ -13,7 +13,7 @@ import { defaultTheme } from '../shared/styling/SharedStyles';
 
 import HomePage from '../pages/HomePage';
 import AdminDashboard from '../pages/AdminDashboard';
-import UserManagement from '../pages/UserManagement';
+import UserManagement from '../pages/Admin/UserManagement';
 
 export default function App() {
 
@@ -25,11 +25,17 @@ export default function App() {
 
                     <Route exact path="/admin">
                         <AdminDashboard />
-                    </Route>
+                    </Route>    
 
-                    <Route path="/admin/user-management">
+                    <Route path="/dashboard">
+                        <AdminDashboard />
+                    </Route>      
+
+                    <Route path="/user-management">
                         <UserManagement />
-                    </Route>
+                    </Route>    
+
+                         
 
                     <Route exact path="/">
                         <HomePage />

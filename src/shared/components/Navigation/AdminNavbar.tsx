@@ -5,7 +5,8 @@ import { InternalNavLink, LinkProps } from '../../helpers/Links';
 
 const StyledHeader = styled.div`  
 
-    width: 100vw;    
+    width: 100vw;        
+    border-bottom: solid 1px ${props => props.theme.colors.border}; 
     
     ul {
         list-style-type: none;
@@ -67,6 +68,15 @@ export default function AdminNavBar() {
                     <LiNavLink endpoint={`${url}/settings`} anchorText={"SETTINGS"} />  
                 </ul>
             </StyledHeader>
+
+            <Switch>
+                <Route>
+                    
+                </Route>
+            </Switch>
+
+
+
         </div>
 
     )
