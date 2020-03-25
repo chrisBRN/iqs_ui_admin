@@ -54,9 +54,7 @@ const StyledNav = styled.ul`
 
 export default function HomePage() {
 
-    const [popInComponent, setPopInComponent] = useState<JSX.Element>(<LoginForm />)
-    
-    // TODO, hold login state here so its not lost when looking at contact / about
+    const [popInComponent, setPopInComponent] = useState<JSX.Element>(<LoginForm />)   
 
     return (
 
@@ -75,9 +73,9 @@ export default function HomePage() {
                     <StyledCard width={"480px"} height={"600px"} shadowPop>
 
                         <StyledNav>
-                            <li onMouseEnter={() => setPopInComponent(<LoginForm />)}>LOGIN</li>
-                            <li onMouseEnter={() => setPopInComponent(<PlaceholderContactsPopIn />)}>CONTACT</li>
-                            <li onMouseEnter={() => setPopInComponent(<PlaceholderAboutPopIn />)}>ABOUT</li>
+                            <li onClick={() => setPopInComponent(<LoginForm />)}>LOGIN</li>
+                            <li onClick={() => setPopInComponent(<PlaceholderContactsPopIn />)}>CONTACT</li>
+                            <li onClick={() => setPopInComponent(<PlaceholderAboutPopIn />)}>ABOUT</li>
                         </StyledNav>
 
                         {popInComponent}

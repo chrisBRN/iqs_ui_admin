@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeadline = styled.div`
-    background-color: ${props => props.theme.colors.boxFill};
+    background-color: ${props => props.theme.colors.border};
     box-sizing: border-box;         
     width: 100%; 
     min-height: 4rem;     

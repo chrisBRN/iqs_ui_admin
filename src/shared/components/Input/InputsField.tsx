@@ -8,8 +8,8 @@ const StyledInput = styled.input`
 
     font-family: ${props => props.theme.fonts.main};
     font-size: 16px;
-    width: 18em;
-    height: 4em; 
+    width: 18rem;
+    height: 4rem; 
     margin: 1em 0em 0em 0em;
     padding: 2em 0.5em 0.5em 0.5em;
 
@@ -96,6 +96,7 @@ const StyledInputIndicator = styled.div`
 
 const StyledFancyInputContainer = styled.div`
     position: relative; 
+    width: 18em;
 `;
 
 interface Props {

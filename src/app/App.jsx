@@ -2,7 +2,8 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Switch
+    Switch,
+    Redirect
 
 } from "react-router-dom";
 
@@ -13,36 +14,31 @@ import { defaultTheme } from '../shared/styling/SharedStyles';
 
 import HomePage from '../pages/HomePage';
 import AdminDashboard from '../pages/AdminDashboard';
-import UserManagement from '../pages/Admin/UserManagement';
 
 export default function App() {
 
     return (
         <ThemeProvider theme={defaultTheme}>
+            
+                <Router>
+                    <Switch>
 
-            <Router >
-                <Switch>                    
+                        <Route exact path="/">
+                            <HomePage />
+                        </Route>
 
-                    <Route exact path="/admin">
-                        <AdminDashboard />
-                    </Route>    
+                        <Route exact path="/logout">
+                           
+                            <Redirect to="/" />
+                        </Route>
 
-                    <Route path="/dashboard">
-                        <AdminDashboard />
-                    </Route>      
+                        <Route path="/admin">
+                            <AdminDashboard />
+                        </Route>
 
-                    <Route path="/user-management">
-                        <UserManagement />
-                    </Route>    
-
-                         
-
-                    <Route exact path="/">
-                        <HomePage />
-                    </Route>
-
-                </Switch>
-            </Router>
+                    </Switch>
+                </Router>
+           
 
         </ThemeProvider>
 

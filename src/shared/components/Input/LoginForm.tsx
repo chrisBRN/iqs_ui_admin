@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import { postJSON } from '../../helpers/fetchJSON';
 import { Redirect } from 'react-router-dom';
-import LoginButton from './LoginButton';
+import FormButton from './FormButton';
 
 import InputField from './InputsField';
-import { usernameValidation, passwordValidation } from './InputFieldValidators';
+import { usernameValidation, passwordValidator } from './InputFieldValidators';
 import { InternalLink } from '../../helpers/Links';
+
 
 const StyledForm = styled.form`
     display: flex;
@@ -28,12 +30,12 @@ const StyledForm = styled.form`
         margin: 1em;
     }
 
-    &:invalid > button  {            
+    &:invalid > .form-button  {            
         opacity: 0.4;
         border-bottom-width: 1px;  
     }
 
-    &:valid > button  {  
+    &:valid > .form-button  {  
         border-bottom-width: 1px;  
         opacity: 1;  
         border-color: ${props => props.theme.colors.green};  
@@ -60,14 +62,19 @@ interface LoginResponse {
     token?: string
 }
 
-export default function LoginForm() {
+const initResponse = {
+    "status": "",
+    "status_code": 0,
+    "information": "init",
+    "token": ""
+};
 
-    // TODO Add Database Response 
+export default function LoginForm() {
 
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
-    const [response, setResponse] = useState<LoginResponse | null>(null);
+    const [response, setResponse] = useState<LoginResponse>(initResponse);
     const [loading, setLoading] = useState<boolean>(false);
 
     const url: string = `http://localhost:8080/login`;
@@ -79,18 +86,21 @@ export default function LoginForm() {
 
     function handleLogin(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        setResponse(null)
+        setResponse(initResponse)
         setLoading(true);
-        postJSON(url, formData)
-            .then(response => setResponse(response))
+        postJSON(url, formData, "")
+            .then(response => setResponse(response))            
             .then(() => setLoading(false));
-    }
+    }    
 
-    if (response?.status_code === 200) {
+    if (response?.status_code === 200 && response.token) {  
+        // cookie
         return (
             <Redirect to="/admin/dashboard" />
         )
-    }
+    }   
+
+    
 
     return (
 
@@ -98,8 +108,8 @@ export default function LoginForm() {
 
             <h2>Welcome to CoderKai</h2>
             <InputField valueSetter={setUsername} validation={usernameValidation} />
-            <InputField valueSetter={setPassword} validation={passwordValidation} />            
-            <LoginButton isLoading={loading} />
+            <InputField valueSetter={setPassword} validation={passwordValidator("password")} />            
+            <FormButton isLoading={loading} text={"Login"}/>
             <InternalLink endpoint="/todo" anchorText="Forgot Password?" />
 
         </StyledForm>

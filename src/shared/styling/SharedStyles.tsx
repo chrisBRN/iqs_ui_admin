@@ -86,6 +86,7 @@ export const StyledFullPageContentWrapper = styled.div`
     margin: 0;
     padding: 0;   
     position: relative;
+    overflow: hidden;  
 `;
 
 interface CardProps {

@@ -1,22 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import { StyledCard } from '../../shared/styling/SharedStyles';
 import LatestNews from '../../shared/components/SVG/LatestNews';
 import Hero from '../../shared/components/SVG/Hero';
 import Logo from '../../shared/components/SVG/Logo';
 import PlaceholderGraph from '../../shared/components/SVG/PlaceholderGraph';
 
-import Headline, { Footer } from '../../shared/components/Misc/Headline';
+import Headline from '../../shared/components/Misc/Headline';
 
-import styled from 'styled-components';
-
-const StyledContainer = styled.div`   
-    
+const StyledContainer = styled.div`       
     display: flex;
-    justify-content: center;   
-    overflow: hidden;  
-
+    justify-content: center;  
     position: relative;
-
     height: calc(100vh - 11rem)
 `;
 
@@ -35,8 +31,7 @@ const StyledDashboardBody = styled.div`
     ${props => props.theme.mixins.scrollBar};    
 `;
 
-const DashboardCard = styled(StyledCard)`    
-       
+const DashboardCard = styled(StyledCard)`          
 
     margin-top: 1em;
     margin-left: 1em;   
@@ -59,11 +54,9 @@ export default function AdminHome() {
 
         <div>
             <Headline headline={"Dashboard"}/> 
-                <StyledContainer>
-                    <DashboardBody/>
-                </StyledContainer>             
-            
-             
+            <StyledContainer>
+                <DashboardBody/>
+            </StyledContainer>                  
         </div>
     )
 }
